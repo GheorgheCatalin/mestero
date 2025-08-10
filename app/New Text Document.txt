@@ -1,0 +1,58 @@
+ private fun updateUI(user: UserModel) {
+        binding.apply {
+            // Basic info
+            userName.text = user.displayName
+            userEmail.text = user.email
+            userTypeTag.text = user.userType.name
+
+            // Contact information
+            phoneText.text = if (user.hasPhoneNumber) user.phoneNumber else "Phone number not set"
+            phoneText.setTextColor(
+                resources.getColor(
+                    if (user.hasPhoneNumber) R.color.main_text_color else R.color.gray1,
+                    null
+                )
+            )
+            locationText.text = if (user.hasLocation) user.location else "Location not set"
+            locationText.setTextColor(
+                resources.getColor(
+                    if (user.hasLocation) R.color.main_text_color else R.color.gray1,
+                    null
+                )
+            )
+
+            // Provider-specific information (show only for providers and only if data exists)
+            // Website (only show if set for provider)
+            websiteLayout.isVisible = user.hasWebsite
+            if (user.hasWebsite) {
+                websiteText.text = user.website
+            }
+
+            // Provider-specific information
+            if (user.userType == UserType.PROVIDER) {
+                // Rating (show only if has reviews)
+                ratingLayout.isVisible = user.reviewCount > 0
+                if (user.reviewCount > 0) {
+                    ratingBar.rating = user.rating
+                    ratingText.text = FormatUtils.formatRatingWithCount(user.rating, user.reviewCount)
+                }
+
+                // Experience level (show only if has experience)
+                experienceLayout.isVisible = user.hasExperience
+                if (user.hasExperience) {
+                    experienceText.text = "${user.experienceLevel} Level"
+                }
+
+                // Skills (show only if has skills)
+                skillsLayout.isVisible = user.hasSkills
+                if (user.hasSkills) {
+                    displaySkills(user.skills)
+                }
+            } else {
+                // Hide provider-specific layouts for clients
+                ratingLayout.isVisible = false
+                experienceLayout.isVisible = false
+                skillsLayout.isVisible = false
+            }
+        }
+    }

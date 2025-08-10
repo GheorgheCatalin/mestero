@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/provider_navigation"
+    app:startDestination="@id/navigation_home">
+
+    <!-- Global actions for bottom navigation with proper stack management -->
+    <action
+        android:id="@+id/action_global_home"
+        app:destination="@id/navigation_home"
+        app:popUpTo="@id/navigation_home"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_global_my_services"
+        app:destination="@id/navigation_my_services"
+        app:popUpTo="@id/navigation_home"
+        app:popUpToInclusive="false" />
+
+    <action
+        android:id="@+id/action_global_add_listing"
+        app:destination="@id/navigation_add_listing"
+        app:popUpTo="@id/navigation_home"
+        app:popUpToInclusive="false" />
+
+    <action
+        android:id="@+id/action_global_bookings"
+        app:destination="@id/navigation_bookings"
+        app:popUpTo="@id/navigation_home"
+        app:popUpToInclusive="false" />
+
+    <action
+        android:id="@+id/action_global_profile"
+        app:destination="@id/navigation_profile"
+        app:popUpTo="@id/navigation_home"
+        app:popUpToInclusive="false" />
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.mestero.ui.dashboard.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+        
+        <!-- Action to listing detail -->
+        <action
+            android:id="@+id/action_home_to_listingDetail"
+            app:destination="@id/navigation_listing_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_my_services"
+        android:name="com.mestero.ui.dashboard.myListings.MyListingsFragment"
+        android:label="My Listings"
+        tools:layout="@layout/fragment_my_services">
+        
+        <!-- Action to listing detail -->
+        <action
+            android:id="@+id/action_myServices_to_listingDetail"
+            app:destination="@id/navigation_listing_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_add_listing"
+        android:name="com.mestero.ui.dashboard.addListing.AddListingFragment"
+        android:label="Add Listing"
+        tools:layout="@layout/fragment_add_listing" />
+
+    <fragment
+        android:id="@+id/navigation_bookings"
+        android:name="com.mestero.ui.dashboard.bookings.BookingsFragment"
+        android:label="Bookings"
+        tools:layout="@layout/fragment_bookings" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.mestero.ui.dashboard.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile">
+        
+        <!-- Action to Edit Profile -->
+        <action
+            android:id="@+id/action_profile_to_editProfile"
+            app:destination="@id/navigation_edit_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_edit_profile"
+        android:name="com.mestero.ui.dashboard.profile.EditProfileFragment"
+        android:label="Edit Profile"
+        tools:layout="@layout/fragment_edit_profile" />
+
+    <!-- Listing Detail Fragment -->
+    <fragment
+        android:id="@+id/navigation_listing_detail"
+        android:name="com.mestero.ui.dashboard.listingDetail.ListingDetailFragment"
+        android:label="Listing Details"
+        tools:layout="@layout/fragment_listing_detail">
+
+        <argument
+            android:name="listingId"
+            app:argType="string" />
+
+        <!-- Actions to top-level destinations -->
+        <action
+            android:id="@+id/action_to_home"
+            app:destination="@id/navigation_home"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_to_my_services"
+            app:destination="@id/navigation_my_services"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_to_add_listing"
+            app:destination="@id/navigation_add_listing"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_to_bookings"
+            app:destination="@id/navigation_bookings"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_to_profile"
+            app:destination="@id/navigation_profile"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+</navigation> 

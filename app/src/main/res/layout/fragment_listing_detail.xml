@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="32dp"
+    >
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Loading State -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="100dp"
+                android:visibility="gone" />
+
+            <!-- Error State -->
+            <LinearLayout
+                android:id="@+id/errorLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="100dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/errorTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Failed to load listing"
+                    android:textSize="16sp"
+                    android:textColor="?android:textColorSecondary"
+                    android:layout_marginBottom="16dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/retryButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Retry"
+                    style="@style/Widget.Material3.Button.OutlinedButton" />
+
+            </LinearLayout>
+
+            <!-- Content Layout -->
+            <LinearLayout
+                android:id="@+id/contentLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible"
+                android:padding="20dp">
+
+                <!-- Main Listing Information Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <!-- Title -->
+                    <TextView
+                        android:id="@+id/titleTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/main_text_color"
+                        android:layout_marginBottom="16dp"
+                        tools:text="Professional Website Development" />
+
+                    <!-- Description -->
+                    <TextView
+                        android:id="@+id/descriptionTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:lineSpacingExtra="4dp"
+                        android:layout_marginBottom="20dp"
+                        tools:text="I provide professional web development services. I provide professional web development services. I provide professional web development services" />
+
+                    <!-- Price Section -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Price:"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/main_text_color"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:id="@+id/priceTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="?colorPrimary"
+                            android:textStyle="bold"
+                            tools:text="€500-1000" />
+
+                    </LinearLayout>
+
+                    <!-- Stats (Rating and Views) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="20dp">
+
+                        <TextView
+                            android:id="@+id/ratingTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:drawableStart="@drawable/ic_star"
+                            android:drawablePadding="4dp"
+                            android:gravity="center_vertical"
+                            tools:text="4.8 (12 reviews)" />
+
+                        <TextView
+                            android:id="@+id/viewsTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:textSize="12sp"
+                            android:textColor="?android:textColorSecondary"
+                            tools:text="124 views" />
+
+                    </LinearLayout>
+
+                    <!-- Location -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Location"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/main_text_color"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:id="@+id/locationTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_location"
+                        android:drawablePadding="8dp"
+                        android:gravity="center_vertical"
+                        android:textSize="16sp"
+                        tools:text="Dublin, Ireland" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/categoryTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="14sp"
+                        android:textColor="@color/main_text_color2"
+                        android:textStyle="italic"
+                        tools:text="Technology" />
+
+                    <TextView
+                        android:id="@+id/subcategoryTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="14sp"
+                        android:textColor="@color/main_text_color2"
+                        android:textStyle="italic"
+                        tools:text="Web Development" />
+
+                </LinearLayout>
+
+                <!-- Divider Line -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider"
+                    android:layout_marginVertical="24dp" />
+
+                <!-- Provider and Contact Information Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="100dp">
+
+                    <!-- Service Provider Section -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Service Provider"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="?android:textColorPrimary"
+                        android:layout_marginBottom="12dp" />
+
+                    <LinearLayout
+                        android:id="@+id/providerSection"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="24dp">
+
+                        <!-- Provider Avatar Placeholder -->
+                        <TextView
+                            android:id="@+id/providerAvatarTextView"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/circle_background"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            tools:text="JD" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="16dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/providerNameTextView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="?android:textColorPrimary"
+                                tools:text="John Doe" />
+
+                            <TextView
+                                android:id="@+id/providerTypeTextView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:textColor="?android:textColorSecondary"
+                                tools:text="Professional Provider" />
+
+                            <TextView
+                                android:id="@+id/providerRatingTextView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:textSize="14sp"
+                                android:drawableStart="@drawable/ic_star"
+                                android:drawablePadding="4dp"
+                                android:gravity="center_vertical"
+                                tools:text="4.9 (28 reviews)" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/viewProviderButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="View Profile >>"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="?colorPrimary"
+                            android:padding="8dp"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true" />
+
+                    </LinearLayout>
+
+                    <!-- Contact Information Section -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Contact Information"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="?android:textColorPrimary"
+                        android:layout_marginBottom="12dp" />
+
+                    <LinearLayout
+                        android:id="@+id/contactInfoSection"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Phone -->
+                        <LinearLayout
+                            android:id="@+id/phoneLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="12dp"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/phoneTextView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textSize="16sp"
+                                android:drawableStart="@drawable/ic_phone"
+                                android:drawablePadding="8dp"
+                                android:gravity="center_vertical"
+                                tools:text="+353 87 123 4567" />
+
+                            <TextView
+                                android:id="@+id/callButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Call >>"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="?colorPrimary"
+                                android:padding="8dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true" />
+
+                        </LinearLayout>
+
+                        <!-- Email -->
+                        <LinearLayout
+                            android:id="@+id/emailLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="12dp"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/emailTextView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textSize="16sp"
+                                android:drawableStart="@drawable/ic_email"
+                                android:drawablePadding="8dp"
+                                android:gravity="center_vertical"
+                                tools:text="john@example.com" />
+
+                            <TextView
+                                android:id="@+id/emailButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Email >>"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="?colorPrimary"
+                                android:padding="8dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true" />
+
+                        </LinearLayout>
+
+                        <!-- Website -->
+                        <LinearLayout
+                            android:id="@+id/websiteLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/websiteTextView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="?colorPrimary"
+                                android:drawableStart="@drawable/ic_website"
+                                android:drawablePadding="8dp"
+                                android:gravity="center_vertical"
+                                android:padding="8dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                tools:text="www.johndoe.com" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Action Button -->
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/reserveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="24dp"
+        android:textAllCaps="false"
+        android:text="Request Service"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        app:icon="@drawable/ic_bookmarks_24"
+        app:iconTint="@color/white"
+        app:backgroundTint="?colorPrimary" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout> 

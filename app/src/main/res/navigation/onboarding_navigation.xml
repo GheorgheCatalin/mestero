@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/onboarding_navigation"
+    app:startDestination="@id/firstFragment">
+
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.mestero.ui.intro.FirstFragment"
+        android:label="First Screen"
+        tools:layout="@layout/fragment_onboarding_first">
+        <action
+            android:id="@+id/action_firstFragment_to_secondFragment"
+            app:destination="@id/secondFragment"   />
+    </fragment>
+
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.mestero.ui.intro.SecondFragment"
+        android:label="Second Screen"
+        tools:layout="@layout/fragment_onboarding_second">
+        <action
+            android:id="@+id/action_secondFragment_to_thirdFragment"
+            app:destination="@id/thirdFragment"  />
+    </fragment>
+
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.mestero.ui.intro.ThirdFragment"
+        android:label="Third Screen"
+        tools:layout="@layout/fragment_onboarding_third">
+        <action
+            android:id="@+id/action_thirdFragment_to_loginActivity"
+            app:popUpTo="@id/firstFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.mestero.activities.AuthenticationActivity"
+        android:label="Login Screen"
+        tools:layout="@layout/activity_authentication" />
+
+
+</navigation>

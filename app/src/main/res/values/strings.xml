@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">Mestero</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_bookings">Bookings</string>
+
+
+    <string name="skip_txt">Skip</string>
+    <string name="next_txt">Next</string>
+    <string name="second_fragment_title">Post Your Service</string>
+    <string name="second_fragment_txt">Share your skills and expertise by creating service listings that match your capabilities</string>
+    <string name="third_fragment_title">Connect &amp; Collaborate</string>
+    <string name="third_fragment_txt">Chat with service providers, discuss requirements, and get your projects done</string>
+    <string name="publishimage_txt">Publish image</string>
+    <string name="navigateimage_txt">Navigate Image</string>
+    <string name="start_txt">Start</string>
+    <string name="first_fragment_txt">Explore a wide range of services from trusted providers in your area</string>
+    <string name="newsimage_text">newsImage</string>
+
+    <string name="email_txt">Email</string>
+    <string name="password_txt">Password</string>
+    <string name="confirm_password_txt">Confirm password</string>
+    <string name="no_account_txt"><u>Don\'t have an account? Create one</u></string>
+    <string name="go_to_login_txt">Already have an account? Login</string>
+    <string name="login_txt">Login</string>
+    <string name="register_txt">Register</string>
+    <string name="forgot_password_txt">Forgot Password ?</string>
+
+
+    <string name="sign_up_txt">Sign up for a Free Account</string>
+    <string name="must_be_completed_txt">All fields must be completed</string>
+    <string name="firstname_txt">First Name</string>
+    <string name="lastname_txt">Last Name</string>
+    <string name="full_name_or_company_txt">First name or company name</string>
+    <string name="company_name_txt">Company name</string>
+    <string name="lastname_optional_txt">Last name (optional)</string>
+    <string name="provider_helper_txt">If you are a service provider, you can add more profile details later. You may fill in optional fields now.</string>
+    <string name="phone_optional_txt">Phone (optional)</string>
+    <string name="location_optional_txt">Location (optional)</string>
+    <string name="website_optional_txt">Website (optional)</string>
+    <string name="country_txt">Country</string>
+    <string name="date_txt">Date of Birth</string>
+    <string name="submit_txt">Submit</string>
+    <string name="search_txt">Search</string>
+    <string name="filter_icon_txt">Filter Icon</string>
+    <string name="see_more_txt"><![CDATA[see more>>]]></string>
+    <string name="owned_crypto_title">Your crypto</string>
+    <string name="back_button_txt">back button</string>
+    <string name="first_fragment_title">Browse Services</string>
+    <string name="your_total_amount_title">Your total amount</string>
+    <string name="welcome_to_app">Welcome to Meștero</string>
+    
+    <!-- Search strings -->
+    <string name="search_services_hint">Search for services...</string>
+    <string name="search_in_category_hint">Search in this category...</string>
+    <string name="search_results_title">Search Results</string>
+    <string name="no_search_results">No services found for "%1$s"</string>
+    <string name="search_empty_query">Please enter a search term</string>
+    <string name="hint_text_color">@color/main_text_color2</string>
+</resources>
