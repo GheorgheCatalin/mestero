@@ -30,6 +30,12 @@
         app:popUpTo="@id/navigation_home"
         app:popUpToInclusive="false" />
 
+    <action
+        android:id="@+id/action_global_conversations"
+        app:destination="@id/navigation_conversations"
+        app:popUpTo="@id/navigation_home"
+        app:popUpToInclusive="false" />
+
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.mestero.ui.dashboard.home.HomeFragment"
@@ -194,6 +200,11 @@
             android:name="listingId"
             app:argType="string" />
 
+        <!-- Action to chat -->
+        <action
+            android:id="@+id/action_listing_detail_to_chat"
+            app:destination="@id/navigation_chat" />
+
         <!-- Actions to top-level destinations -->
         <action
             android:id="@+id/action_to_home"
@@ -216,6 +227,7 @@
             app:popUpTo="@id/navigation_home"
             app:popUpToInclusive="false" />
     </fragment>
+
 
     <fragment
         android:id="@+id/navigation_bookings"
@@ -307,6 +319,7 @@
             app:destination="@id/navigation_profile"
             app:popUpTo="@id/navigation_home"
             app:popUpToInclusive="false" />
+
     </fragment>
 
     <!-- Search Results Fragment -->
@@ -351,6 +364,38 @@
             app:destination="@id/navigation_profile"
             app:popUpTo="@id/navigation_home"
             app:popUpToInclusive="false" />
+    </fragment>
+
+
+    <!-- Chat Fragment -->
+    <fragment
+        android:id="@+id/navigation_chat"
+        android:name="com.mestero.ui.dashboard.messages.ChatFragment"
+        android:label="Chat"
+        tools:layout="@layout/fragment_chat">
+
+        <argument
+            android:name="conversationId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="otherUserId"
+            app:argType="string"
+            app:nullable="true" />
+
+    </fragment>
+
+    <!-- Conversations Fragment -->
+    <fragment
+        android:id="@+id/navigation_conversations"
+        android:name="com.mestero.ui.dashboard.messages.ConversationsFragment"
+        android:label="Conversations"
+        tools:layout="@layout/fragment_conversations">
+
+        <action
+            android:id="@+id/action_conversations_to_chat"
+            app:destination="@id/navigation_chat" />
+
     </fragment>
 
 </navigation>

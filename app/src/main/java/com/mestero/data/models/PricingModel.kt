@@ -7,8 +7,7 @@ import com.mestero.utils.FormatUtils
     val unit: PricingUnit = PricingUnit.TOTAL,
     val fixedPrice: Double = 0.0,
     val minPrice: Double = 0.0,
-    val maxPrice: Double = 0.0,
-    val isToBeAgreed: Boolean = false
+    val maxPrice: Double = 0.0
 ) {
     
     companion object {
@@ -27,8 +26,7 @@ import com.mestero.utils.FormatUtils
         )
         
         fun createToBeAgreed() = PricingModel(
-            type = PricingType.TO_BE_AGREED,
-            isToBeAgreed = true
+            type = PricingType.TO_BE_AGREED
         )
     }
     

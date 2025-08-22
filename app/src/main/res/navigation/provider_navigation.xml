@@ -31,6 +31,12 @@
         app:popUpToInclusive="false" />
 
     <action
+        android:id="@+id/action_global_conversations"
+        app:destination="@id/navigation_conversations"
+        app:popUpTo="@id/navigation_home"
+        app:popUpToInclusive="false" />
+
+    <action
         android:id="@+id/action_global_profile"
         app:destination="@id/navigation_profile"
         app:popUpTo="@id/navigation_home"
@@ -46,6 +52,11 @@
         <action
             android:id="@+id/action_home_to_listingDetail"
             app:destination="@id/navigation_listing_detail" />
+
+        <!-- Action to search results -->
+        <action
+            android:id="@+id/action_home_to_search_results"
+            app:destination="@id/navigation_search_results" />
     </fragment>
 
     <fragment
@@ -57,6 +68,28 @@
         <!-- Action to listing detail -->
         <action
             android:id="@+id/action_myServices_to_listingDetail"
+            app:destination="@id/navigation_listing_detail" />
+    </fragment>
+
+    <!-- Search Results Fragment -->
+    <fragment
+        android:id="@+id/navigation_search_results"
+        android:name="com.mestero.ui.dashboard.search.SearchResultsFragment"
+        android:label="@string/search_results_title"
+        tools:layout="@layout/fragment_search_results">
+        
+        <argument
+            android:name="searchQuery"
+            app:argType="string" />
+            
+        <argument
+            android:name="categoryId"
+            app:argType="string"
+            app:nullable="true" />
+
+        <!-- Action to listing detail -->
+        <action
+            android:id="@+id/action_search_results_to_listing_detail"
             app:destination="@id/navigation_listing_detail" />
     </fragment>
 
@@ -101,6 +134,11 @@
             android:name="listingId"
             app:argType="string" />
 
+        <!-- Action to chat -->
+        <action
+            android:id="@+id/action_listing_detail_to_chat"
+            app:destination="@id/navigation_chat" />
+
         <!-- Actions to top-level destinations -->
         <action
             android:id="@+id/action_to_home"
@@ -127,6 +165,35 @@
             app:destination="@id/navigation_profile"
             app:popUpTo="@id/navigation_home"
             app:popUpToInclusive="false" />
+    </fragment>
+
+    <!-- Chat Fragment -->
+    <fragment
+        android:id="@+id/navigation_chat"
+        android:name="com.mestero.ui.dashboard.messages.ChatFragment"
+        android:label="Chat"
+        tools:layout="@layout/fragment_chat">
+        <argument
+            android:name="conversationId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="otherUserId"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <!-- Conversations Fragment -->
+    <fragment
+        android:id="@+id/navigation_conversations"
+        android:name="com.mestero.ui.dashboard.messages.ConversationsFragment"
+        android:label="Conversations"
+        tools:layout="@layout/fragment_conversations">
+
+        <action
+            android:id="@+id/action_conversations_to_chat"
+            app:destination="@id/navigation_chat" />
+
     </fragment>
 
 </navigation> 

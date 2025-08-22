@@ -5,6 +5,8 @@ import com.mestero.network.auth.AccountService
 import com.mestero.network.auth.AccountServiceImpl
 import com.mestero.network.firestore.FirestoreRepository
 import com.mestero.network.firestore.FirestoreRepositoryImpl
+import com.mestero.network.messaging.MessagingRepository
+import com.mestero.network.messaging.MessagingRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -45,4 +47,10 @@ abstract class AppModule {
     abstract fun bindFirestoreRepository(
         impl: FirestoreRepositoryImpl
     ): FirestoreRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindMessagingRepository(
+        impl: MessagingRepositoryImpl
+    ): MessagingRepository
 }

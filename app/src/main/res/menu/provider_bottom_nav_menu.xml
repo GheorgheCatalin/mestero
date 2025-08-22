@@ -17,7 +17,7 @@
 
     <item
         android:id="@+id/navigation_bookings"
-        android:icon="@drawable/ic_message_to_change"
+        android:icon="@drawable/ic_message"
         android:title="Bookings" />
 
     <item

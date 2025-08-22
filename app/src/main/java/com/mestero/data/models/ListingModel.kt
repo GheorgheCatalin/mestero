@@ -29,9 +29,8 @@ data class ListingModel(
     val ratingSum: Int = 0,
     val ratingCount: Int = 0,
     val imageUrls: List<String> = emptyList(),
-    val tags: List<String> = emptyList(), // For better search functionality
-    val active: Boolean = true,
-    val featured: Boolean = false
+    val tags: List<String> = emptyList(),
+    val active: Boolean = true
 ) {
     companion object {
         const val COLLECTION_NAME = "listings"
@@ -66,8 +65,7 @@ data class ListingModel(
                 ratingCount = (map["ratingCount"] as? Number)?.toInt() ?: 0,
                 imageUrls = (map["imageUrls"] as? List<String>) ?: emptyList(),
                 tags = (map["tags"] as? List<String>) ?: emptyList(),
-                active = map["active"] as? Boolean ?: true,
-                featured = map["featured"] as? Boolean ?: false
+                active = map["active"] as? Boolean ?: true
             )
         }
 
@@ -80,8 +78,7 @@ data class ListingModel(
                 unit = PricingUnit.valueOf(unitString),
                 fixedPrice = (pricingMap["fixedPrice"] as? Number)?.toDouble() ?: 0.0,
                 minPrice = (pricingMap["minPrice"] as? Number)?.toDouble() ?: 0.0,
-                maxPrice = (pricingMap["maxPrice"] as? Number)?.toDouble() ?: 0.0,
-                isToBeAgreed = pricingMap["isToBeAgreed"] as? Boolean ?: false
+                maxPrice = (pricingMap["maxPrice"] as? Number)?.toDouble() ?: 0.0
             )
         }
 
@@ -194,8 +191,7 @@ data class ListingModel(
                 "unit" to it.unit.name,
                 "fixedPrice" to it.fixedPrice,
                 "minPrice" to it.minPrice,
-                "maxPrice" to it.maxPrice,
-                "isToBeAgreed" to it.isToBeAgreed
+                "maxPrice" to it.maxPrice
             )
         },
         "providerId" to providerId,
@@ -207,7 +203,6 @@ data class ListingModel(
         "ratingCount" to ratingCount,
         "imageUrls" to imageUrls,
         "tags" to tags,
-        "active" to active,
-        "featured" to featured
+        "active" to active
     )
 } 

@@ -51,6 +51,7 @@
     <string name="first_fragment_title">Browse Services</string>
     <string name="your_total_amount_title">Your total amount</string>
     <string name="welcome_to_app">Welcome to Meștero</string>
+    <string name="conversations">Conversations</string>
     
     <!-- Search strings -->
     <string name="search_services_hint">Search for services...</string>

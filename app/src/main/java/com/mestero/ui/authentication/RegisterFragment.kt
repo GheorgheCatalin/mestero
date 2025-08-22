@@ -1,9 +1,7 @@
 package com.mestero.ui.authentication;
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
 
 import android.view.LayoutInflater
 import android.view.View
@@ -96,7 +94,7 @@ class RegisterFragment : Fragment() {
 
     private fun validateRegistrationInputs(): UserModel? {
         val email = binding.registerEmailEt.text.toString().trim()
-        val fullNameOrCompany = binding.registerNamedEt.text.toString().trim()
+        val firstNameOrCompanyName = binding.registerNamedEt.text.toString().trim()
         val lastName = binding.registerSurnameEt.text.toString().trim()
         val password = binding.registerPasswordEt.text.toString()
         val confirmPassword = binding.registerConfirmPasswordEt.text.toString()
@@ -110,7 +108,7 @@ class RegisterFragment : Fragment() {
         val isProvider = binding.userTypeToggle.checkedButtonId == binding.providerButton.id
 
         // Name validation
-        if (fullNameOrCompany.isEmpty()) {
+        if (firstNameOrCompanyName.isEmpty()) {
             binding.registerNameLayout.error =
                 if (isProvider) "First name or company name is required" else "First name is required"
             return null
@@ -130,7 +128,7 @@ class RegisterFragment : Fragment() {
 
         return UserModel(
             email = email,
-            firstName = fullNameOrCompany,
+            firstName = firstNameOrCompanyName,
             lastName = lastName,
             userType = if (isProvider) UserType.PROVIDER else UserType.CLIENT,
             phoneNumber = binding.registerPhoneEt.text?.toString()?.trim() ?: "",

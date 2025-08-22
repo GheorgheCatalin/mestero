@@ -1,6 +1,7 @@
 package com.mestero.ui.dashboard.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -12,11 +13,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
 import com.mestero.R
 import com.mestero.data.UserType
 import com.mestero.databinding.FragmentHomeBinding
 import com.mestero.ui.adapters.CategoryHorizontalAdapter
 import com.mestero.ui.adapters.ListingAdapter
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,6 +28,7 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
     private val viewModel: HomeViewModel by viewModels()
 
     private lateinit var newPostsAdapter: ListingAdapter
@@ -61,6 +66,7 @@ class HomeFragment : Fragment() {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             adapter = newPostsAdapter
         }
+        PagerSnapHelper().attachToRecyclerView(binding.newPostsRecyclerView)
 
         // Setup Categories RV
         categoriesAdapter = CategoryHorizontalAdapter(emptyList()) { category ->
@@ -68,7 +74,7 @@ class HomeFragment : Fragment() {
             try {
                 findNavController().navigate(R.id.navigation_services)
             } catch (e: Exception) {
-                // Handle navigation error
+                Toast.makeText(context, e.message, Toast.LENGTH_SHORT).show()
             }
         }
         binding.categoriesRecyclerView.apply {
@@ -84,6 +90,7 @@ class HomeFragment : Fragment() {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             adapter = lastSeenAdapter
         }
+        PagerSnapHelper().attachToRecyclerView(binding.lastSeenRecyclerView)
 
         // Setup My Posts RV
         myPostsAdapter = ListingAdapter { listing ->
@@ -93,6 +100,7 @@ class HomeFragment : Fragment() {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             adapter = myPostsAdapter
         }
+        PagerSnapHelper().attachToRecyclerView(binding.myPostsRecyclerView)
     }
 
     private fun setupClickListeners() {
@@ -100,13 +108,22 @@ class HomeFragment : Fragment() {
             try {
                 findNavController().navigate(R.id.action_to_services)
             } catch (e: Exception) {
-                // Handle navigation error
+                Toast.makeText(context, e.message, Toast.LENGTH_SHORT).show()
             }
         }
         
         // Search functionality
         binding.searchIcon.setOnClickListener {
             performSearch()
+        }
+
+        // entry point for conversations
+        binding.openConversationsIcon.setOnClickListener {
+            try {
+                findNavController().navigate(R.id.action_global_conversations)
+            } catch (e: Exception) {
+                Toast.makeText(context, e.message, Toast.LENGTH_SHORT).show()
+            }
         }
         
         // Handle search when user presses Enter/Search on keyboard
@@ -134,7 +151,7 @@ class HomeFragment : Fragment() {
             findNavController().navigate(action)
         } catch (e: Exception) {
             Toast.makeText(context, "Error performing search", Toast.LENGTH_SHORT).show()
-            android.util.Log.e("HomeFragment", "Search navigation error", e)
+            Log.e("HomeFragment", "Search navigation error", e)
         }
     }
 
@@ -143,8 +160,8 @@ class HomeFragment : Fragment() {
             val action = HomeFragmentDirections.actionHomeToListingDetail(listingId)
             findNavController().navigate(action)
         } catch (e: Exception) {
-            // Handle navigation error - fallback to a toast or log
-            android.util.Log.e("HomeFragment", "Navigation error", e)
+            Toast.makeText(context, "Error naigating to listing details", Toast.LENGTH_SHORT).show()
+            Log.e("HomeFragment", "Navigation error", e)
         }
     }
 
@@ -153,9 +170,10 @@ class HomeFragment : Fragment() {
             updateUIForUserType(userType)
         }
 
-        viewModel.userName.observe(viewLifecycleOwner) { userName ->
-            binding.welcomeText.text = "Welcome, $userName"
-        }
+        // Disabled welcome text - replaced by app title logo
+        // viewModel.userName.observe(viewLifecycleOwner) { userName ->
+        //     binding.welcomeText.text = "Welcome, $userName"
+        // }
 
         viewModel.newPosts.observe(viewLifecycleOwner) { listings ->
             newPostsAdapter.submitList(listings)
@@ -167,13 +185,13 @@ class HomeFragment : Fragment() {
                 try {
                     findNavController().navigate(R.id.action_to_services)
                 } catch (e: Exception) {
-                    // Handle navigation error
+                    Toast.makeText(context, e.message, Toast.LENGTH_SHORT).show()
                 }
             }
             binding.categoriesRecyclerView.adapter = categoriesAdapter
         }
 
-        viewModel.lastSeen.observe(viewLifecycleOwner) { listings ->
+        viewModel.mostViewed.observe(viewLifecycleOwner) { listings ->
             lastSeenAdapter.submitList(listings)
             binding.lastSeenEmptyState.isVisible = listings.isEmpty()
         }
@@ -198,7 +216,7 @@ class HomeFragment : Fragment() {
                 binding.categoriesRecyclerView.isVisible = true
                 binding.divider2.isVisible = true
                 
-                // Show "Last Seen", hide "My Listings"
+                // Show "Most Viewed", hide "My Listings"
                 binding.lastSeenLabel.isVisible = true
                 binding.lastSeenRecyclerView.isVisible = true
                 binding.divider3.isVisible = true
@@ -216,7 +234,7 @@ class HomeFragment : Fragment() {
                 binding.categoriesRecyclerView.isVisible = false
                 binding.divider2.isVisible = false
                 
-                // Hide "Last Seen", show "My Listings"
+                // Hide "Most Viewed", show "My Listings"
                 binding.lastSeenLabel.isVisible = false
                 binding.lastSeenRecyclerView.isVisible = false
                 binding.divider3.isVisible = false

@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mestero.data.UserType
 import com.mestero.data.models.UserModel
@@ -110,7 +111,7 @@ class ProfileViewModel @Inject constructor(
         }
     }
 
-    private fun createFallbackUser(firebaseUser: com.google.firebase.auth.FirebaseUser): UserModel {
+    private fun createFallbackUser(firebaseUser: FirebaseUser): UserModel {
         return UserModel(
             email = firebaseUser.email ?: "",
             firstName = firebaseUser.displayName?.split(" ")?.firstOrNull() ?: "User",

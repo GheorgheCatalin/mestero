@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.Timestamp
+import com.google.firebase.firestore.Query
 import com.mestero.data.models.BookingRequestModel
 import com.mestero.data.models.RequestStatus
 import com.mestero.network.auth.AccountService
@@ -60,7 +61,7 @@ class BookingsViewModel @Inject constructor(
                         )
                     ),
                     orderBy = "createdAt",
-                    orderDirection = com.google.firebase.firestore.Query.Direction.DESCENDING
+                    orderDirection = Query.Direction.DESCENDING
                 )
 
                 val querySnapshot = firestoreRepository.queryDocuments(

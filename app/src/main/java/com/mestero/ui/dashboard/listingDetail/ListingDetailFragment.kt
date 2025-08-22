@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.mestero.data.UserType
 import com.mestero.data.models.CategoryManager
@@ -66,6 +67,28 @@ class ListingDetailFragment : Fragment() {
             // TODO could navigate to provider profile - if necessary
             Toast.makeText(context, "Provider profile feature coming soon!", Toast.LENGTH_SHORT)
                 .show()
+        }
+
+        binding.messageButton.setOnClickListener {
+            val currentState = viewModel.listingDetailState.value
+
+            if (currentState is ListingDetailUiState.Success) {
+                val providerId = currentState.listing.providerId
+                if (providerId.isNotEmpty()) {
+                    val action = ListingDetailFragmentDirections.actionListingDetailToChat(
+                        conversationId = null,
+                        otherUserId = providerId
+                    )
+                    findNavController().navigate(action)
+
+                } else {
+                    Toast.makeText(context, "Provider not available at the moment", Toast.LENGTH_SHORT).show()
+                }
+
+            } else {
+                Toast.makeText(context, "Please wait for listing to load", Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
     }
 

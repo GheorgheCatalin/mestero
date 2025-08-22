@@ -1,9 +1,12 @@
 package com.mestero.ui.dashboard.home
 
+import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.firebase.firestore.Query
 import com.mestero.data.UserType
 import com.mestero.data.models.Category
 import com.mestero.data.models.CategoryManager
@@ -22,7 +25,6 @@ class HomeViewModel @Inject constructor(
     private val firestoreRepository: FirestoreRepository,
     private val accountService: AccountService
 ) : ViewModel() {
-
     private val _userType = MutableLiveData<UserType>()
     val userType: LiveData<UserType> = _userType
 
@@ -35,8 +37,8 @@ class HomeViewModel @Inject constructor(
     private val _categories = MutableLiveData<List<Category>>()
     val categories: LiveData<List<Category>> = _categories
 
-    private val _lastSeen = MutableLiveData<List<ListingModel>>()
-    val lastSeen: LiveData<List<ListingModel>> = _lastSeen
+    private val _mostViewed = MutableLiveData<List<ListingModel>>()
+    val mostViewed: LiveData<List<ListingModel>> = _mostViewed
 
     private val _myPosts = MutableLiveData<List<ListingModel>>()
     val myPosts: LiveData<List<ListingModel>> = _myPosts
@@ -48,10 +50,12 @@ class HomeViewModel @Inject constructor(
         loadUserData()
     }
 
+
     private fun loadUserData() {
         if (accountService.currentUserId.isEmpty()) {
             _userType.value = UserType.CLIENT
             _userName.value = "Guest"
+
             loadData()
             return
         }
@@ -62,6 +66,7 @@ class HomeViewModel @Inject constructor(
             onResult = { userType, firstName ->
                 _userType.value = userType
                 _userName.value = firstName
+
                 loadData()
             }
         )
@@ -80,18 +85,19 @@ class HomeViewModel @Inject constructor(
                 // Load role-specific data
                 when (_userType.value) {
                     UserType.CLIENT -> {
-                        loadLastSeenPosts()
+                        loadMostViewedPosts()
                     }
                     UserType.PROVIDER -> {
                         loadMyPosts()
                     }
                     null -> {
                         // Default to client behavior
-                        loadLastSeenPosts()
+                        loadMostViewedPosts()
                     }
                 }
             } catch (e: Exception) {
-                // TODO: Handle error
+                // TODO Handle error
+                Log.e("ClientBookingsViewModel", "Failed to load data", e)
             } finally {
                 _isLoading.value = false
             }
@@ -102,7 +108,7 @@ class HomeViewModel @Inject constructor(
         try {
             val queryParams = FirestoreQueryParams(
                 orderBy = "createdAt",
-                orderDirection = com.google.firebase.firestore.Query.Direction.DESCENDING,
+                orderDirection = Query.Direction.DESCENDING,
                 limit = 10
             )
             
@@ -121,13 +127,18 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    private suspend fun loadLastSeenPosts() {
-        // TODO implement actual last seen tracking
-        // For now, just load some listings
+    private suspend fun loadMostViewedPosts() {
         try {
             val queryParams = FirestoreQueryParams(
+                filters = listOf(
+                    FirestoreQueryFilter(
+                        field = "active",
+                        value = true,
+                        type = FirestoreQueryFilterType.EQUAL_TO
+                    )
+                ),
                 orderBy = "views",
-                orderDirection = com.google.firebase.firestore.Query.Direction.DESCENDING,
+                orderDirection = Query.Direction.DESCENDING,
                 limit = 8
             )
             
@@ -135,14 +146,14 @@ class HomeViewModel @Inject constructor(
             val listings = querySnapshot.documents.mapNotNull { doc ->
                 try {
                     ListingModel.fromFirestoreDocument(doc)
-                } catch (e: Exception) {
+                } catch (e: Exception){
                     null
                 }
             }
             
-            _lastSeen.postValue(listings)
+            _mostViewed.postValue(listings)
         } catch (e: Exception) {
-            _lastSeen.postValue(emptyList())
+            _mostViewed.postValue(emptyList())
         }
     }
 
@@ -162,7 +173,7 @@ class HomeViewModel @Inject constructor(
                     )
                 ),
                 orderBy = "createdAt",
-                orderDirection = com.google.firebase.firestore.Query.Direction.DESCENDING,
+                orderDirection = Query.Direction.DESCENDING,
                 limit = 8
             )
             

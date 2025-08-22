@@ -38,5 +38,4 @@ data class UserModel(
     val rating: Float
         get() = if (reviewCount > 0) ratingSum.toFloat() / reviewCount else 0.0f
 
-
 }
