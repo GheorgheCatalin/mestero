@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="32dp"
-    >
+    android:layout_height="match_parent">
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/actionButtonsContainer">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -79,8 +80,37 @@
                         android:textSize="24sp"
                         android:textStyle="bold"
                         android:textColor="@color/main_text_color"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginBottom="12dp"
                         tools:text="Professional Website Development" />
+
+                    <!-- Category and Subcategory -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="16dp">
+
+                        <TextView
+                            android:id="@+id/categoryTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textSize="14sp"
+                            android:textColor="@color/main_text_color2"
+                            android:textStyle="italic"
+                            tools:text="Technology" />
+
+                        <TextView
+                            android:id="@+id/subcategoryTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textSize="14sp"
+                            android:textColor="@color/main_text_color2"
+                            android:textStyle="italic"
+                            tools:text="Web Development" />
+
+                    </LinearLayout>
 
                     <!-- Description -->
                     <TextView
@@ -114,7 +144,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="14sp"
-                            android:textColor="?colorPrimary"
+                            android:textColor="@color/main"
                             android:textStyle="bold"
                             tools:text="€500-1000" />
 
@@ -171,32 +201,7 @@
                 </LinearLayout>
 
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/categoryTextView"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textSize="14sp"
-                        android:textColor="@color/main_text_color2"
-                        android:textStyle="italic"
-                        tools:text="Technology" />
-
-                    <TextView
-                        android:id="@+id/subcategoryTextView"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textSize="14sp"
-                        android:textColor="@color/main_text_color2"
-                        android:textStyle="italic"
-                        tools:text="Web Development" />
-
-                </LinearLayout>
 
                 <!-- Divider Line -->
                 <View
@@ -210,7 +215,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginBottom="100dp">
+                    android:layout_marginBottom="20dp">
 
                     <!-- Service Provider Section -->
                     <TextView
@@ -286,7 +291,7 @@
                             android:text="View Profile >>"
                             android:textSize="14sp"
                             android:textStyle="bold"
-                            android:textColor="?colorPrimary"
+                            android:textColor="@color/main"
                             android:padding="8dp"
                             android:background="?android:attr/selectableItemBackground"
                             android:clickable="true"
@@ -337,7 +342,7 @@
                                 android:text="Call >>"
                                 android:textSize="14sp"
                                 android:textStyle="bold"
-                                android:textColor="?colorPrimary"
+                                android:textColor="@color/main"
                                 android:padding="8dp"
                                 android:background="?android:attr/selectableItemBackground"
                                 android:clickable="true"
@@ -372,7 +377,7 @@
                                 android:text="Email >>"
                                 android:textSize="14sp"
                                 android:textStyle="bold"
-                                android:textColor="?colorPrimary"
+                                android:textColor="@color/main"
                                 android:padding="8dp"
                                 android:background="?android:attr/selectableItemBackground"
                                 android:clickable="true"
@@ -394,7 +399,7 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
-                                android:textColor="?colorPrimary"
+                                android:textColor="@color/main"
                                 android:drawableStart="@drawable/ic_website"
                                 android:drawablePadding="8dp"
                                 android:gravity="center_vertical"
@@ -416,41 +421,57 @@
 
     </androidx.core.widget.NestedScrollView>
 
-    <!-- Bottom Action Buttons -->
+    <!-- Bottom Action Buttons Container -->
     <LinearLayout
+        android:id="@+id/actionButtonsContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingBottom="24dp">
+        android:orientation="vertical"
+        android:paddingHorizontal="40dp"
+        android:paddingVertical="4dp"
+        android:background="@color/white"
+        android:elevation="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        <!-- Primary Action Button -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/reserveButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
             android:text="Request Service"
             android:textSize="16sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
             android:textColor="@color/white"
             app:icon="@drawable/ic_bookmarks_24"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
             app:iconTint="@color/white"
-            app:backgroundTint="?colorPrimary" />
+            app:cornerRadius="12dp"
+            app:backgroundTint="@color/main"
+            android:layout_marginBottom="12dp" />
 
-        <Space
-            android:layout_width="16dp"
-            android:layout_height="wrap_content" />
-
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        <!-- Secondary Action Button -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/messageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Message Provider"
+            android:textSize="14sp"
             android:textAllCaps="false"
-            android:text="Message provider"
-            android:textSize="16sp"
-            android:textColor="@color/white"
-            app:iconTint="@color/white"
-            app:backgroundTint="@color/main_text_color2" />
+            android:textColor="@color/main"
+            app:icon="@drawable/ic_message"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
+            app:iconTint="@color/main"
+            app:cornerRadius="8dp"
+            app:strokeColor="@color/main"
+            app:strokeWidth="1dp"
+            android:backgroundTint="@android:color/white" />
+
     </LinearLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout> 
+</androidx.constraintlayout.widget.ConstraintLayout> 

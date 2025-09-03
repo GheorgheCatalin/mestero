@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import com.google.firebase.Timestamp
+import com.mestero.R
 import com.mestero.data.models.ListingModel
 import com.mestero.databinding.DialogBookingRequestBinding
 
@@ -27,7 +28,7 @@ class BookingRequestDialog(
     }
 
     private fun setupDialog() {
-        binding.serviceTitle.text = "Service: ${listing.title}"
+        binding.serviceTitle.text = context.getString(R.string.service_label, listing.title)
         
         // Set dialog properties
         window?.setLayout(

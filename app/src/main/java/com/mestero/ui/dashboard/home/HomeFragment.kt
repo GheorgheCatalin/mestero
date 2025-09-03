@@ -19,6 +19,7 @@ import com.mestero.data.UserType
 import com.mestero.databinding.FragmentHomeBinding
 import com.mestero.ui.adapters.CategoryHorizontalAdapter
 import com.mestero.ui.adapters.ListingAdapter
+import com.mestero.utils.Analytics
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.AndroidEntryPoint
@@ -70,9 +71,19 @@ class HomeFragment : Fragment() {
 
         // Setup Categories RV
         categoriesAdapter = CategoryHorizontalAdapter(emptyList()) { category ->
-            // TODO: Navigate to services/categories with specific category selected
+            // Log category selection
+            Analytics.logEvent(Analytics.Events.CATEGORY_SELECTED, mapOf(
+                Analytics.Params.CATEGORY to category.title,
+                "category_id" to category.id
+            ))
+            
+            // Navigate directly to subcategories for the selected category
             try {
-                findNavController().navigate(R.id.navigation_services)
+                val action = HomeFragmentDirections.actionHomeToSubcategories(
+                    categoryId = category.id,
+                    categoryTitle = category.title
+                )
+                findNavController().navigate(action)
             } catch (e: Exception) {
                 Toast.makeText(context, e.message, Toast.LENGTH_SHORT).show()
             }
@@ -181,14 +192,7 @@ class HomeFragment : Fragment() {
         }
 
         viewModel.categories.observe(viewLifecycleOwner) { categories ->
-            categoriesAdapter = CategoryHorizontalAdapter(categories) { category ->
-                try {
-                    findNavController().navigate(R.id.action_to_services)
-                } catch (e: Exception) {
-                    Toast.makeText(context, e.message, Toast.LENGTH_SHORT).show()
-                }
-            }
-            binding.categoriesRecyclerView.adapter = categoriesAdapter
+            categoriesAdapter.submit(categories)
         }
 
         viewModel.mostViewed.observe(viewLifecycleOwner) { listings ->

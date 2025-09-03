@@ -16,6 +16,7 @@ import com.mestero.network.firestore.FirestoreQueryFilterType
 import com.mestero.network.firestore.FirestoreRepository
 import com.mestero.network.firestore.FirestoreQueryFilter
 import com.mestero.network.firestore.FirestoreQueryParams
+import com.mestero.utils.Analytics
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -106,18 +107,20 @@ class HomeViewModel @Inject constructor(
 
     private suspend fun loadNewPosts() {
         try {
-            val queryParams = FirestoreQueryParams(
-                orderBy = "createdAt",
-                orderDirection = Query.Direction.DESCENDING,
-                limit = 10
-            )
-            
-            val querySnapshot = firestoreRepository.queryDocuments(ListingModel.COLLECTION_NAME, queryParams)
-            val listings = querySnapshot.documents.mapNotNull { doc ->
-                try {
-                    ListingModel.fromFirestoreDocument(doc)
-                } catch (e: Exception) {
-                    null
+            val listings = Analytics.measureListingsLoad("new_posts") {
+                val queryParams = FirestoreQueryParams(
+                    orderBy = "createdAt",
+                    orderDirection = Query.Direction.DESCENDING,
+                    limit = 10
+                )
+                
+                val querySnapshot = firestoreRepository.queryDocuments(ListingModel.COLLECTION_NAME, queryParams)
+                querySnapshot.documents.mapNotNull { doc ->
+                    try {
+                        ListingModel.fromFirestoreDocument(doc)
+                    } catch (e: Exception) {
+                        null
+                    }
                 }
             }
             
@@ -129,25 +132,27 @@ class HomeViewModel @Inject constructor(
 
     private suspend fun loadMostViewedPosts() {
         try {
-            val queryParams = FirestoreQueryParams(
-                filters = listOf(
-                    FirestoreQueryFilter(
-                        field = "active",
-                        value = true,
-                        type = FirestoreQueryFilterType.EQUAL_TO
-                    )
-                ),
-                orderBy = "views",
-                orderDirection = Query.Direction.DESCENDING,
-                limit = 8
-            )
-            
-            val querySnapshot = firestoreRepository.queryDocuments(ListingModel.COLLECTION_NAME, queryParams)
-            val listings = querySnapshot.documents.mapNotNull { doc ->
-                try {
-                    ListingModel.fromFirestoreDocument(doc)
-                } catch (e: Exception){
-                    null
+            val listings = Analytics.measureListingsLoad("most_viewed") {
+                val queryParams = FirestoreQueryParams(
+                    filters = listOf(
+                        FirestoreQueryFilter(
+                            field = "active",
+                            value = true,
+                            type = FirestoreQueryFilterType.EQUAL_TO
+                        )
+                    ),
+                    orderBy = "views",
+                    orderDirection = Query.Direction.DESCENDING,
+                    limit = 8
+                )
+                
+                val querySnapshot = firestoreRepository.queryDocuments(ListingModel.COLLECTION_NAME, queryParams)
+                querySnapshot.documents.mapNotNull { doc ->
+                    try {
+                        ListingModel.fromFirestoreDocument(doc)
+                    } catch (e: Exception){
+                        null
+                    }
                 }
             }
             

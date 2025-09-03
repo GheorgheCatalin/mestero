@@ -15,7 +15,8 @@ import com.mestero.utils.FormatUtils
 class ClientBookingRequestAdapter(
     private val onReviewClick: (BookingRequestModel) -> Unit = {},
     private val onContactClick: (String, String) -> Unit = { _, _ -> }, // email, phone
-    private val onHideClick: (BookingRequestModel) -> Unit = {}
+    private val onHideClick: (BookingRequestModel) -> Unit = {},
+    private val onListingClick: (BookingRequestModel) -> Unit = {}
 ) : ListAdapter<BookingRequestModel, ClientBookingRequestAdapter.ClientBookingViewHolder>(
     ClientBookingDiffCallback()
 ) {
@@ -38,8 +39,14 @@ class ClientBookingRequestAdapter(
         fun bind(booking: BookingRequestModel) {
             binding.apply {
                 serviceTitle.text = booking.listingTitle
+
+                // Navigate to listing details from a booking item
+                root.setOnClickListener {
+                    onListingClick(booking)
+                }
+
                 providerNameTextView.text =
-                    booking.providerName.ifBlank { "Provider" } //TODO change
+                    booking.providerName.ifBlank { "Provider" }
                 statusTextView.text = booking.statusDisplayText
 
                 // Set status background color based on booking status

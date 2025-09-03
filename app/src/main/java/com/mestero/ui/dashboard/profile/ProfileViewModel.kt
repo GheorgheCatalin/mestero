@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
+import com.mestero.constants.FirestoreCollections
 import com.mestero.data.UserType
 import com.mestero.data.models.UserModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -39,7 +40,7 @@ class ProfileViewModel @Inject constructor(
         viewModelScope.launch {
             _isLoading.value = true
             try {
-                val userDoc = firestore.collection("users")
+                val userDoc = firestore.collection(FirestoreCollections.USERS)
                     .document(currentUser.uid)
                     .get()
                     .await()
@@ -97,7 +98,7 @@ class ProfileViewModel @Inject constructor(
                     "reviewCount" to updatedUser.reviewCount
                 )
 
-                firestore.collection("users")
+                firestore.collection(FirestoreCollections.USERS)
                     .document(currentUser.uid)
                     .set(userMap)
                     .await()

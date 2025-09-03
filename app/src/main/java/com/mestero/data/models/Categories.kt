@@ -20,6 +20,7 @@ data class Subcategory(
 
 // Predefined categories and subcategories for the app
 object CategoryManager {
+    
     val categories: List<Category> = listOf(
         Category(
             id = "home_improvement",
@@ -36,6 +37,77 @@ object CategoryManager {
                 Subcategory("roofing", "Roofing", R.drawable.ic_home_improvement, "home_improvement", "Roof repair, shingle replacement, gutter cleaning, roof inspection"),
                 Subcategory("masonry", "Masonry", R.drawable.ic_home_improvement, "home_improvement", "Brickwork, stonework, concrete pouring, chimney repair"),
                 Subcategory("handyman", "General Handyman", R.drawable.ic_home_improvement, "home_improvement", "Furniture assembly, minor repairs, wall mounting, door repair")
+            )
+        ),
+        Category(
+            id = "automotive",
+            title = "Automotive Services",
+            iconResId = R.drawable.ic_category_auto,
+            subcategories = listOf(
+                Subcategory("auto_repair", "Auto Repair", R.drawable.ic_category_auto, "automotive", "Brake repair, oil changes, engine diagnostics, tire services"),
+                Subcategory("detailing", "Car Detailing", R.drawable.ic_category_auto, "automotive", "Interior cleaning, exterior polishing, waxing"),
+                Subcategory("towing", "Towing & Roadside Assistance", R.drawable.ic_category_auto, "automotive", "Flat tire repair, battery jumpstart, vehicle towing"),
+                Subcategory("customization", "Customization", R.drawable.ic_category_auto, "automotive", "Car wrapping, custom paint jobs, audio system installation")
+            )
+        ),
+        Category(
+            id = "professional",
+            title = "Professional & Business Services",
+            iconResId = R.drawable.ic_category_professional,
+            subcategories = listOf(
+                Subcategory("legal", "Legal Services", R.drawable.ic_category_professional, "professional", "Contract drafting, legal consultation, notary services"),
+                Subcategory("accounting", "Accounting & Bookkeeping", R.drawable.ic_category_professional, "professional", "Tax preparation, payroll services, financial planning"),
+                Subcategory("marketing", "Marketing & Advertising", R.drawable.ic_category_professional, "professional", "Social media management, SEO, content creation, graphic design"),
+                Subcategory("it", "IT & Tech Support", R.drawable.ic_category_professional, "professional", "Computer repair, software installation, network setup, cybersecurity"),
+                Subcategory("consulting", "Consulting", R.drawable.ic_category_professional, "professional", "Business strategy, HR consulting, management consulting"),
+                Subcategory("admin", "Administrative Support", R.drawable.ic_category_professional, "professional", "Virtual assistance, data entry, scheduling")
+            )
+        ),
+        Category(
+            id = "outdoor",
+            title = "Outdoor & Landscaping",
+            iconResId = R.drawable.ic_home_improvement,
+            subcategories = listOf(
+                Subcategory("landscaping", "Landscaping", R.drawable.ic_home_improvement, "outdoor", "Lawn mowing, garden design, tree trimming, irrigation systems"),
+                Subcategory("hardscaping", "Hardscaping", R.drawable.ic_home_improvement, "outdoor", "Patio installation, walkway construction, retaining walls"),
+                Subcategory("pest_control", "Pest Control", R.drawable.ic_home_improvement, "outdoor", "Insect extermination, rodent control, eco-friendly pest solutions"),
+                Subcategory("snow_removal", "Snow Removal", R.drawable.ic_home_improvement, "outdoor", "Snow plowing, ice management, sidewalk clearing"),
+                Subcategory("pool", "Pool Maintenance", R.drawable.ic_home_improvement, "outdoor", "Pool cleaning, chemical balancing, pool repair")
+            )
+        ),
+        Category(
+            id = "creative",
+            title = "Creative & Event Services",
+            iconResId = R.drawable.ic_category_creative_events,
+            subcategories = listOf(
+                Subcategory("photography", "Photography", R.drawable.ic_category_creative_events, "creative", "Wedding photography, portrait photography, event photography, product photography"),
+                Subcategory("videography", "Videography", R.drawable.ic_category_creative_events, "creative", "Video editing, event filming, promotional videos"),
+                Subcategory("event_planning", "Event Planning", R.drawable.ic_category_creative_events, "creative", "Wedding planning, corporate events, birthday parties, catering coordination"),
+                Subcategory("music", "Music & Entertainment", R.drawable.ic_category_creative_events, "creative", "DJ services, live bands, music lessons, performance artists"),
+                Subcategory("graphic_design", "Graphic Design", R.drawable.ic_category_creative_events, "creative", "Logo design, branding, illustration, print design"),
+                Subcategory("writing", "Writing & Editing", R.drawable.ic_category_creative_events, "creative", "Copywriting, content writing, proofreading, translation")
+            )
+        ),
+        Category(
+            id = "technical",
+            title = "Technical & Skilled Trades",
+            iconResId = R.drawable.ic_home_improvement,
+            subcategories = listOf(
+                Subcategory("welding", "Welding", R.drawable.ic_home_improvement, "technical", "Metal fabrication, structural welding, artistic welding"),
+                Subcategory("machinery", "Machinery Repair", R.drawable.ic_home_improvement, "technical", "Heavy equipment repair, small engine repair"),
+                Subcategory("locksmith", "Locksmith Services", R.drawable.ic_home_improvement, "technical", "Lock installation, key duplication, emergency lockout"),
+                Subcategory("security", "Security Installation", R.drawable.ic_home_improvement, "technical", "Alarm systems, CCTV installation, smart locks")
+            )
+        ),
+        Category(
+            id = "health",
+            title = "Health & Medical Services",
+            iconResId = R.drawable.ic_home_improvement,
+            subcategories = listOf(
+                Subcategory("home_health", "Home Health Aide", R.drawable.ic_home_improvement, "health", "Post-surgery care, mobility assistance, medication reminders"),
+                Subcategory("physical_therapy", "Physical Therapy", R.drawable.ic_home_improvement, "health", "In-home therapy, rehabilitation exercises"),
+                Subcategory("alternative", "Alternative Medicine", R.drawable.ic_home_improvement, "health", "Acupuncture, chiropractic services, herbal consultations"),
+                Subcategory("medical_transport", "Medical Transport", R.drawable.ic_home_improvement, "health", "Non-emergency medical transport, wheelchair-accessible vans")
             )
         ),
         Category(
@@ -64,43 +136,6 @@ object CategoryManager {
             )
         ),
         Category(
-            id = "professional",
-            title = "Professional & Business Services",
-            iconResId = R.drawable.ic_category_professional,
-            subcategories = listOf(
-                Subcategory("legal", "Legal Services", R.drawable.ic_category_professional, "professional", "Contract drafting, legal consultation, notary services"),
-                Subcategory("accounting", "Accounting & Bookkeeping", R.drawable.ic_category_professional, "professional", "Tax preparation, payroll services, financial planning"),
-                Subcategory("marketing", "Marketing & Advertising", R.drawable.ic_category_professional, "professional", "Social media management, SEO, content creation, graphic design"),
-                Subcategory("it", "IT & Tech Support", R.drawable.ic_category_professional, "professional", "Computer repair, software installation, network setup, cybersecurity"),
-                Subcategory("consulting", "Consulting", R.drawable.ic_category_professional, "professional", "Business strategy, HR consulting, management consulting"),
-                Subcategory("admin", "Administrative Support", R.drawable.ic_category_professional, "professional", "Virtual assistance, data entry, scheduling")
-            )
-        ),
-        Category(
-            id = "creative",
-            title = "Creative & Event Services",
-            iconResId = R.drawable.ic_category_creative_events,
-            subcategories = listOf(
-                Subcategory("photography", "Photography", R.drawable.ic_category_creative_events, "creative", "Wedding photography, portrait photography, event photography, product photography"),
-                Subcategory("videography", "Videography", R.drawable.ic_category_creative_events, "creative", "Video editing, event filming, promotional videos"),
-                Subcategory("event_planning", "Event Planning", R.drawable.ic_category_creative_events, "creative", "Wedding planning, corporate events, birthday parties, catering coordination"),
-                Subcategory("music", "Music & Entertainment", R.drawable.ic_category_creative_events, "creative", "DJ services, live bands, music lessons, performance artists"),
-                Subcategory("graphic_design", "Graphic Design", R.drawable.ic_category_creative_events, "creative", "Logo design, branding, illustration, print design"),
-                Subcategory("writing", "Writing & Editing", R.drawable.ic_category_creative_events, "creative", "Copywriting, content writing, proofreading, translation")
-            )
-        ),
-        Category(
-            id = "automotive",
-            title = "Automotive Services",
-            iconResId = R.drawable.ic_category_auto,
-            subcategories = listOf(
-                Subcategory("auto_repair", "Auto Repair", R.drawable.ic_category_auto, "automotive", "Brake repair, oil changes, engine diagnostics, tire services"),
-                Subcategory("detailing", "Car Detailing", R.drawable.ic_category_auto, "automotive", "Interior cleaning, exterior polishing, waxing"),
-                Subcategory("towing", "Towing & Roadside Assistance", R.drawable.ic_category_auto, "automotive", "Flat tire repair, battery jumpstart, vehicle towing"),
-                Subcategory("customization", "Customization", R.drawable.ic_category_auto, "automotive", "Car wrapping, custom paint jobs, audio system installation")
-            )
-        ),
-        Category(
             id = "education",
             title = "Education & Tutoring",
             iconResId = R.drawable.ic_home_improvement,
@@ -124,18 +159,6 @@ object CategoryManager {
             )
         ),
         Category(
-            id = "outdoor",
-            title = "Outdoor & Landscaping",
-            iconResId = R.drawable.ic_home_improvement,
-            subcategories = listOf(
-                Subcategory("landscaping", "Landscaping", R.drawable.ic_home_improvement, "outdoor", "Lawn mowing, garden design, tree trimming, irrigation systems"),
-                Subcategory("hardscaping", "Hardscaping", R.drawable.ic_home_improvement, "outdoor", "Patio installation, walkway construction, retaining walls"),
-                Subcategory("pest_control", "Pest Control", R.drawable.ic_home_improvement, "outdoor", "Insect extermination, rodent control, eco-friendly pest solutions"),
-                Subcategory("snow_removal", "Snow Removal", R.drawable.ic_home_improvement, "outdoor", "Snow plowing, ice management, sidewalk clearing"),
-                Subcategory("pool", "Pool Maintenance", R.drawable.ic_home_improvement, "outdoor", "Pool cleaning, chemical balancing, pool repair")
-            )
-        ),
-        Category(
             id = "transportation",
             title = "Transportation & Delivery",
             iconResId = R.drawable.ic_home_improvement,
@@ -155,28 +178,6 @@ object CategoryManager {
                 Subcategory("nanny", "Nanny Services", R.drawable.ic_home_improvement, "childcare", "Full-time nannies, part-time caregivers, au pair services"),
                 Subcategory("elderly", "Elderly Care", R.drawable.ic_home_improvement, "childcare", "In-home care, companionship, medical assistance"),
                 Subcategory("special_needs", "Special Needs Care", R.drawable.ic_home_improvement, "childcare", "Autism support, disability care, therapy assistance")
-            )
-        ),
-        Category(
-            id = "health",
-            title = "Health & Medical Services",
-            iconResId = R.drawable.ic_home_improvement,
-            subcategories = listOf(
-                Subcategory("home_health", "Home Health Aide", R.drawable.ic_home_improvement, "health", "Post-surgery care, mobility assistance, medication reminders"),
-                Subcategory("physical_therapy", "Physical Therapy", R.drawable.ic_home_improvement, "health", "In-home therapy, rehabilitation exercises"),
-                Subcategory("alternative", "Alternative Medicine", R.drawable.ic_home_improvement, "health", "Acupuncture, chiropractic services, herbal consultations"),
-                Subcategory("medical_transport", "Medical Transport", R.drawable.ic_home_improvement, "health", "Non-emergency medical transport, wheelchair-accessible vans")
-            )
-        ),
-        Category(
-            id = "technical",
-            title = "Technical & Skilled Trades",
-            iconResId = R.drawable.ic_home_improvement,
-            subcategories = listOf(
-                Subcategory("welding", "Welding", R.drawable.ic_home_improvement, "technical", "Metal fabrication, structural welding, artistic welding"),
-                Subcategory("machinery", "Machinery Repair", R.drawable.ic_home_improvement, "technical", "Heavy equipment repair, small engine repair"),
-                Subcategory("locksmith", "Locksmith Services", R.drawable.ic_home_improvement, "technical", "Lock installation, key duplication, emergency lockout"),
-                Subcategory("security", "Security Installation", R.drawable.ic_home_improvement, "technical", "Alarm systems, CCTV installation, smart locks")
             )
         ),
         Category(

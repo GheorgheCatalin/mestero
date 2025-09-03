@@ -144,7 +144,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Details"
+                    android:text="@string/profile_details"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/main_text_color2"
@@ -326,14 +326,62 @@
                     android:background="?attr/selectableItemBackground"
                     android:drawablePadding="16dp"
                     android:padding="16dp"
-                    android:text="Edit Profile"
+                    android:text="@string/profile_edit_profile"
                     android:textSize="16sp"
                     app:drawableStartCompat="@drawable/ic_edit_black_24dp" />
 
+                <!-- Language selection -->
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                    android:id="@+id/language_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/ic_web_black_24dp"
+                        android:contentDescription="Language icon" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/language_title"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/current_language_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="English"
+                        android:textColor="@color/main_text_color2"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_chevron_right_24"
+                        android:contentDescription="Arrow icon" />
+
+                </LinearLayout>
+
+                <!-- Settings option and divider - hidden for now, will implement later -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/settings_option"
@@ -342,14 +390,16 @@
                     android:background="?attr/selectableItemBackground"
                     android:drawablePadding="16dp"
                     android:padding="16dp"
-                    android:text="Settings"
+                    android:text="@string/profile_settings"
                     android:textSize="16sp"
+                    android:visibility="gone"
                     app:drawableStartCompat="@drawable/ic_settings_black_24dp" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@android:color/darker_gray" />
+                    android:background="@android:color/darker_gray"
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/logout_option"
@@ -358,7 +408,7 @@
                     android:background="?attr/selectableItemBackground"
                     android:drawablePadding="16dp"
                     android:padding="16dp"
-                    android:text="Logout"
+                    android:text="@string/profile_logout"
                     android:textColor="@android:color/holo_red_dark"
                     android:textSize="16sp"
                     app:drawableStartCompat="@drawable/ic_logout_black_24dp" />

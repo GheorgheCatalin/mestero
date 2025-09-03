@@ -1,0 +1,335 @@
+<resources>
+    <string name="app_name">Meștero</string>
+    <string name="title_home">Acasă</string>
+    <string name="title_dashboard">Panou de control</string>
+    <string name="title_profile">Profil</string>
+    <string name="title_notifications">Notificări</string>
+    <string name="title_bookings">Rezervări</string>
+
+    <string name="skip_txt">Sari</string>
+    <string name="next_txt">Următorul</string>
+    <string name="second_fragment_title">Publică serviciul tău</string>
+    <string name="second_fragment_txt">Împărtășește-ți abilitățile și expertiza creând anunțuri de servicii care se potrivesc cu competențele tale</string>
+    <string name="third_fragment_title">Conectează-te &amp; Colaborează</string>
+    <string name="third_fragment_txt">Discută cu furnizorii de servicii, discută cerințele și termină proiectele tale</string>
+    <string name="publishimage_txt">Publică imagine</string>
+    <string name="navigateimage_txt">Navighează imaginea</string>
+    <string name="start_txt">Începe</string>
+    <string name="first_fragment_txt">Explorează o gamă largă de servicii de la furnizori de încredere din zona ta</string>
+    <string name="newsimage_text">imagineDemonstration</string>
+
+    <string name="email_txt">Email</string>
+    <string name="password_txt">Parolă</string>
+    <string name="confirm_password_txt">Confirmă parola</string>
+    <string name="no_account_txt"><u>Nu ai cont? Creează unul</u></string>
+    <string name="go_to_login_txt">Ai deja cont? Autentifică-te</string>
+    <string name="login_txt">Autentificare</string>
+    <string name="register_txt">Înregistrare</string>
+    <string name="forgot_password_txt">Ai uitat parola?</string>
+
+    <string name="sign_up_txt">Înregistrează-te pentru un cont gratuit</string>
+    <string name="must_be_completed_txt">Toate câmpurile trebuie completate</string>
+    <string name="firstname_txt">Prenume</string>
+    <string name="lastname_txt">Nume de familie</string>
+    <string name="full_name_or_company_txt">Prenume sau nume companie</string>
+    <string name="company_name_txt">Nume companie</string>
+    <string name="lastname_optional_txt">Nume de familie (opțional)</string>
+    <string name="provider_helper_txt">Dacă ești furnizor de servicii, poți adăuga mai multe detalii de profil mai târziu. Poți completa câmpurile opționale acum.</string>
+    <string name="phone_optional_txt">Telefon (opțional)</string>
+    <string name="location_optional_txt">Locație (opțional)</string>
+    <string name="website_optional_txt">Website (opțional)</string>
+    <string name="country_txt">Țară</string>
+    <string name="date_txt">Data nașterii</string>
+    <string name="submit_txt">Trimite</string>
+    <string name="search_txt">Caută</string>
+    <string name="filter_icon_txt">Pictogramă filtru</string>
+    <string name="see_more_txt"><![CDATA[vezi mai mult>>]]></string>
+    <string name="owned_crypto_title">Cripto-ul tău</string>
+    <string name="back_button_txt">buton înapoi</string>
+    <string name="first_fragment_title">Răsfoiește serviciile</string>
+    <string name="your_total_amount_title">Suma ta totală</string>
+    <string name="welcome_to_app">Bun venit la Meștero</string>
+    <string name="conversations">Conversații</string>
+    
+    <!-- Search strings -->
+    <string name="search_services_hint">Caută servicii...</string>
+    <string name="search_in_category_hint">Caută în această categorie...</string>
+    <string name="search_results_title">Rezultate căutare</string>
+    <string name="no_search_results">Nu s-au găsit servicii pentru "%1$s"</string>
+    <string name="search_empty_query">Te rog introdu un termen de căutare</string>
+    
+    <!-- Categories -->
+    <string name="category_home_improvement">Îmbunătățiri &amp; Întreținere casă</string>
+    <string name="category_automotive">Servicii auto</string>
+    <string name="category_professional">Servicii profesionale &amp; de afaceri</string>
+    <string name="category_outdoor">Exterior &amp; Peisagistică</string>
+    <string name="category_creative">Servicii creative &amp; evenimente</string>
+    <string name="category_technical">Servicii tehnice &amp; meserii specializate</string>
+    <string name="category_health">Servicii medicale &amp; de sănătate</string>
+    <string name="category_cleaning">Servicii de curățenie</string>
+    <string name="category_personal_care">Îngrijire personală &amp; wellness</string>
+    <string name="category_education">Educație &amp; meditații</string>
+    <string name="category_transportation">Transport</string>
+    <string name="category_childcare">Îngrijire copii &amp; vârstnici</string>
+    <string name="category_pet">Servicii pentru animale</string>
+    <string name="category_specialty">Servicii de specialitate</string>
+    
+    <!-- Subcategories - Home Improvement -->
+    <string name="subcategory_plumbing">Instalații sanitare</string>
+    <string name="subcategory_electrical">Instalații electrice</string>
+    <string name="subcategory_tiling">Faianță</string>
+    <string name="subcategory_flooring">Pardoseli</string>
+    <string name="subcategory_carpentry">Tâmplărie</string>
+    <string name="subcategory_painting">Vopsitorie</string>
+    <string name="subcategory_hvac">Încălzire &amp; ventilație</string>
+    <string name="subcategory_roofing">Acoperiș</string>
+    <string name="subcategory_masonry">Zidărie</string>
+    <string name="subcategory_handyman">Muncitor universal</string>
+    
+    <!-- Subcategories - Automotive -->
+    <string name="subcategory_auto_repair">Reparații auto</string>
+    <string name="subcategory_detailing">Detailing auto</string>
+    <string name="subcategory_towing">Tractare &amp; asistență rutieră</string>
+    <string name="subcategory_customization">Personalizare</string>
+    
+    <!-- Subcategories - Professional -->
+    <string name="subcategory_legal">Servicii juridice</string>
+    <string name="subcategory_accounting">Contabilitate &amp; evidență</string>
+    <string name="subcategory_marketing">Marketing &amp; publicitate</string>
+    <string name="subcategory_it">IT &amp; suport tehnic</string>
+    <string name="subcategory_consulting">Consultanță</string>
+    <string name="subcategory_admin">Suport administrativ</string>
+    
+    <!-- Subcategories - Outdoor -->
+    <string name="subcategory_landscaping">Peisagistică</string>
+    <string name="subcategory_hardscaping">Amenajări exterior</string>
+    <string name="subcategory_pest_control">Control dăunători</string>
+    <string name="subcategory_snow_removal">Deszăpezire</string>
+    <string name="subcategory_pool">Întreținere piscină</string>
+    
+    <!-- Subcategories - Creative -->
+    <string name="subcategory_photography">Fotografie</string>
+    <string name="subcategory_videography">Videografie</string>
+    <string name="subcategory_event_planning">Organizare evenimente</string>
+    <string name="subcategory_music">Muzică &amp; divertisment</string>
+    <string name="subcategory_graphic_design">Design grafic</string>
+    <string name="subcategory_writing">Scriere &amp; editare</string>
+    
+    <!-- Subcategories - Technical -->
+    <string name="subcategory_welding">Sudură</string>
+    <string name="subcategory_machinery">Reparații mașinării</string>
+    <string name="subcategory_locksmith">Servicii de lăcătușerie</string>
+    <string name="subcategory_security">Instalare securitate</string>
+    
+    <!-- Subcategories - Health -->
+    <string name="subcategory_home_health">Asistență medicală la domiciliu</string>
+    <string name="subcategory_physical_therapy">Kinetoterapie</string>
+    <string name="subcategory_alternative">Medicină alternativă</string>
+    <string name="subcategory_medical_transport">Transport medical</string>
+    
+    <!-- Subcategories - Cleaning -->
+    <string name="subcategory_residential">Curățenie residențială</string>
+    <string name="subcategory_commercial">Curățenie comercială</string>
+    <string name="subcategory_specialized">Curățenie specializată</string>
+    <string name="subcategory_eco_friendly">Curățenie ecologică</string>
+    <string name="subcategory_organizing">Servicii de organizare</string>
+    
+    <!-- Subcategories - Personal Care -->
+    <string name="subcategory_hair">Servicii de păr</string>
+    <string name="subcategory_nails">Servicii unghii</string>
+    <string name="subcategory_spa">Spa &amp; masaj</string>
+    <string name="subcategory_fitness">Antrenament fitness</string>
+    <string name="subcategory_nutrition">Nutriție &amp; dietă</string>
+    <string name="subcategory_wellness">Wellness mental</string>
+    
+    <!-- Subcategories - Education -->
+    <string name="subcategory_academic">Meditații academice</string>
+    <string name="subcategory_language">Învățarea limbilor</string>
+    <string name="subcategory_music_lessons">Lecții de muzică</string>
+    <string name="subcategory_art">Artă &amp; meșteșuguri</string>
+    <string name="subcategory_computer">Competențe IT</string>
+    <string name="subcategory_professional_dev">Dezvoltare profesională</string>
+    
+    <!-- Subcategories - Transportation -->
+    <string name="subcategory_rideshare">Rideshare &amp; taxi</string>
+    <string name="subcategory_delivery">Servicii de livrare</string>
+    <string name="subcategory_moving">Servicii de mutare</string>
+    <string name="subcategory_logistics">Logistică &amp; transport marfă</string>
+    
+    <!-- Subcategories - Childcare -->
+    <string name="subcategory_babysitting">Îngrijire copii</string>
+    <string name="subcategory_nanny">Servicii de bonă</string>
+    <string name="subcategory_eldercare">Îngrijire vârstnici</string>
+    <string name="subcategory_tutoring">Suport academic</string>
+    
+    <!-- Subcategories - Pet -->
+    <string name="subcategory_pet_sitting">Îngrijire animale</string>
+    <string name="subcategory_dog_walking">Plimbare câini</string>
+    <string name="subcategory_grooming">Toaletare animale</string>
+    <string name="subcategory_training">Dresaj animale</string>
+    <string name="subcategory_veterinary">Servicii veterinare</string>
+    
+    <!-- Subcategories - Specialty -->
+    <string name="subcategory_real_estate">Servicii imobiliare</string>
+    <string name="subcategory_insurance">Servicii de asigurări</string>
+    <string name="subcategory_financial">Planificare financiară</string>
+    <string name="subcategory_travel">Planificare călătorii</string>
+    <string name="subcategory_fashion">Modă &amp; styling</string>
+    
+    <!-- UI Messages -->
+    <string name="no_booking_requests_received">Nu ai primit încă cereri de rezervare</string>
+    <string name="no_booking_requests_sent">Nu ai trimis încă cereri de rezervare</string>
+    <string name="service_label">Serviciu: %1$s</string>
+    <string name="provider_professionalism_question">Cum a fost profesionalismul și comunicarea lui %1$s?</string>
+    <string name="rating_required_message">Te rog acordă cel puțin o evaluare pentru a trimite recenzia</string>
+    <string name="search_results_category">Rezultate pentru "%1$s" în categoria "%2$s"</string>
+    <string name="search_results_general">Rezultate pentru "%1$s"</string>
+    <string name="empty_message_input">Scrie un mesaj...</string>
+    
+    <!-- Language Settings -->
+    <string name="language_title">Limba</string>
+    <string name="language_change_message">Limba a fost schimbată. Te rog restartează aplicația pentru a vedea toate modificările.</string>
+    
+    <!-- Bottom Navigation -->
+    <string name="nav_home">Acasă</string>
+    <string name="nav_search">Caută</string>
+    <string name="nav_bookings">Rezervări</string>
+    <string name="nav_messages">Mesaje</string>
+    <string name="nav_profile">Profil</string>
+    <string name="nav_add_listing">Adaugă listare</string>
+    
+    <!-- Home Screen -->
+    <string name="my_listings_title">Listările mele</string>
+    <string name="new_posts_title">Postări noi</string>
+    <string name="most_popular_title">Cele mai populare</string>
+    
+    <!-- Add Listing -->
+    <string name="add_listing_title">Adaugă listare nouă</string>
+    <string name="listing_title_hint">Titlul listării</string>
+    <string name="listing_description_hint">Descriere</string>
+    <string name="listing_price_hint">Preț</string>
+    <string name="listing_location_hint">Locație</string>
+    <string name="listing_category_hint">Categorie</string>
+    <string name="listing_subcategory_hint">Subcategorie</string>
+    <string name="add_photos">Adaugă poze</string>
+    <string name="create_listing">Creează listarea</string>
+    <string name="update_listing">Actualizează listarea</string>
+    
+    <!-- Profile -->
+    <string name="profile_details">Detalii</string>
+    <string name="profile_beginner_level">Nivel începător</string>
+    <string name="profile_edit_profile">Editează profilul</string>
+    <string name="profile_logout">Deconectare</string>
+    <string name="profile_settings">Setări</string>
+    
+    <!-- Booking Cards -->
+    <string name="booking_status_pending">În așteptare</string>
+    <string name="booking_status_accepted">Acceptat</string>
+    <string name="booking_status_completed">Completat</string>
+    <string name="booking_status_rejected">Respins</string>
+    <string name="booking_status_cancelled">Anulat</string>
+    <string name="booking_action_accept">Acceptă</string>
+    <string name="booking_action_reject">Respinge</string>
+    <string name="booking_action_complete">Completează</string>
+    <string name="booking_action_hide">Ascunde</string>
+    <string name="booking_action_review">Recenzie</string>
+    <string name="booking_date">Data: %1$s</string>
+    <string name="booking_price">Preț: %1$s</string>
+    <string name="booking_provider">Furnizor: %1$s</string>
+    <string name="booking_client">Client: %1$s</string>
+    
+    <!-- Listing Details -->
+    <string name="listing_detail_title">Detalii serviciu</string>
+    <string name="listing_detail_description">Descriere</string>
+    <string name="listing_detail_pricing">Preț</string>
+    <string name="listing_detail_location">Locație</string>
+    <string name="listing_detail_provider">Furnizor serviciu</string>
+    <string name="listing_action_book">Rezervă serviciul</string>
+    <string name="listing_action_message">Mesaj</string>
+    
+    <!-- Registration/Profile Hints -->
+    <string name="hint_phone_number">Număr de telefon</string>
+    <string name="hint_email_address">Adresă email</string>
+    <string name="hint_full_name">Nume complet</string>
+    <string name="hint_company_name">Nume companie</string>
+    <string name="hint_location">Locație</string>
+    <string name="hint_website">Website</string>
+    
+    <!-- App Bar Titles -->
+    <string name="title_services">Servicii</string>
+    <string name="title_my_listings">Listările mele</string>
+    <string name="title_add_listing">Adaugă listare</string>
+    <string name="title_messages">Mesaje</string>
+    <string name="title_conversations">Conversații</string>
+    <string name="title_chat">Chat</string>
+    <string name="title_edit_profile">Editează profilul</string>
+    <string name="title_listing_detail">Detalii serviciu</string>
+    <string name="title_search_results">Rezultate căutare</string>
+    <string name="title_subcategories">Subcategorii</string>
+    <string name="title_listings">Listări</string>
+    
+    <!-- Pricing Models -->
+    <string name="pricing_fixed">Preț fix</string>
+    <string name="pricing_hourly">Pe oră</string>
+    <string name="pricing_daily">Pe zi</string>
+    <string name="pricing_weekly">Pe săptămână</string>
+    <string name="pricing_monthly">Pe lună</string>
+    <string name="pricing_custom">Personalizat</string>
+    <string name="pricing_negotiable">Negociabil</string>
+    
+    <!-- Booking Item Details -->
+    <string name="booking_item_requested_on">Cerut pe: %1$s</string>
+    <string name="booking_item_scheduled_for">Programat pentru: %1$s</string>
+    <string name="booking_item_notes">Notițe: %1$s</string>
+    <string name="booking_item_no_notes">Nu sunt notițe</string>
+    <string name="booking_item_contact_info">Contact: %1$s</string>
+    <string name="booking_item_view_listing">Vezi listarea</string>
+    
+    <!-- Error Messages & Toast Messages -->
+    <string name="error_search_term_required">Te rog să introduci un termen de căutare</string>
+    <string name="error_search_failed">Eroare la efectuarea căutării</string>
+    <string name="error_unknown">Eroare necunoscută</string>
+    <string name="error_searching">Eroare la căutare: %1$s</string>
+    <string name="error_loading_listings">Eșec la încărcarea anunțurilor</string>
+    <string name="error_listing_not_loaded">Te rog să aștepți ca anunțul să se încarce</string>
+    <string name="error_provider_unavailable">Furnizorul nu este disponibil momentan</string>
+    <string name="error_navigation">Eroare la navigarea către detaliile anunțului</string>
+    <string name="error_email_not_found">Nu s-a găsit o aplicație de email</string>
+    <string name="error_browser_not_found">Nu s-a găsit o aplicație browser</string>
+    <string name="error_phone_calls_unavailable">Nu se pot efectua apeluri telefonice</string>
+    <string name="error_user_not_authenticated">Utilizatorul nu este autentificat</string>
+    
+    <!-- Success Messages -->
+    <string name="success_general">Succes</string>
+    
+    <!-- Profile Placeholders -->
+    <string name="profile_phone_not_set">Numărul de telefon nu este setat</string>
+    <string name="profile_location_not_set">Locația nu este setată</string>
+    <string name="profile_provider_default">Furnizor</string>
+    <string name="profile_guest_user">Vizitator</string>
+    <string name="profile_no_reviews">Încă nu există recenzii</string>
+    
+    <!-- User Types -->
+    <string name="user_type_professional_provider">Furnizor profesional</string>
+    <string name="user_type_client">Client</string>
+    
+    <!-- Confirmation Dialogs -->
+    <string name="dialog_mark_completed_title">Marchează ca finalizat</string>
+    <string name="dialog_mark_completed_message">Ești sigur că vrei să marchezi \"%1$s\" ca finalizat pentru %2$s?\n\nAceastă acțiune nu poate fi anulată.</string>
+    <string name="dialog_hide_booking_title">Ascunde rezervarea</string>
+    <string name="dialog_hide_booking_message">Ești sigur că vrei să ascunzi această rezervare? O poți vedea din nou mai târziu în istoricul rezervărilor.</string>
+    <string name="dialog_button_hide">Ascunde</string>
+    <string name="dialog_button_cancel">Anulează</string>
+    
+    <!-- Review Dialog -->
+    <string name="review_comment_too_short">Recenzia serviciului necesită încă %1$d caractere</string>
+    <string name="review_rating_required">Te rog să dai cel puțin o notă pentru a trimite recenzia</string>
+    
+    <!-- General -->
+    <string name="unknown_user">Utilizator necunoscut</string>
+    <string name="anonymous">Anonim</string>
+    <string name="contact_for_price">Contactează pentru preț</string>
+    <string name="location_not_specified">Locația nu este specificată</string>
+    <string name="online_services">Servicii online</string>
+    <string name="no_preference">Fără preferință</string>
+</resources>

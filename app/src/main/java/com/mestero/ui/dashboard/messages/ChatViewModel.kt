@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.mestero.constants.FirestoreCollections
 import com.mestero.data.models.MessageModel
 import com.mestero.network.firestore.FirestoreRepository
 import com.mestero.network.auth.AccountService
@@ -110,7 +111,7 @@ class ChatViewModel @Inject constructor(
 
     private suspend fun resolveOtherUserTitle(otherUserId: String) {
         try {
-            val userDoc = firestoreRepository.getDocumentData("users", otherUserId)
+            val userDoc = firestoreRepository.getDocumentData(FirestoreCollections.USERS, otherUserId)
             val first = userDoc?.getString("firstName").orEmpty()
             val last = userDoc?.getString("lastName").orEmpty()
             val display = ("$first $last").trim().ifEmpty { "Chat" }

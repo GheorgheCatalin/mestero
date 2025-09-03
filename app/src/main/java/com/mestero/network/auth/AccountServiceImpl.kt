@@ -7,6 +7,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.FirebaseAuthSettings
 import com.google.firebase.firestore.firestore
+import com.mestero.constants.FirestoreCollections
 import com.mestero.data.UserType
 import com.mestero.data.models.UserModel
 import com.mestero.network.firestore.FirestoreRepository
@@ -73,7 +74,7 @@ class AccountServiceImpl @Inject constructor(
         val uid = firebaseAuth.currentUser?.uid
             ?: throw Exception("User not logged in")
 
-        Firebase.firestore.collection("users")
+        Firebase.firestore.collection(FirestoreCollections.USERS)
             .document(uid)
             .set(user)
             .await()
@@ -108,7 +109,7 @@ class AccountServiceImpl @Inject constructor(
         // Use background thread for database work
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val userDoc = firestoreRepository.getDocumentData("users", currentUserId)
+                val userDoc = firestoreRepository.getDocumentData(FirestoreCollections.USERS, currentUserId)
                 val typeString = if (userDoc?.exists() == true) {
                     userDoc.getString("userType") ?: UserType.CLIENT.name
                 } else {
@@ -147,7 +148,7 @@ class AccountServiceImpl @Inject constructor(
     ) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val userDoc = firestoreRepository.getDocumentData("users", currentUserId)
+                val userDoc = firestoreRepository.getDocumentData(FirestoreCollections.USERS, currentUserId)
                 val (userType, firstName) = if (userDoc?.exists() == true) {
                     val typeString = userDoc.getString("userType") ?: UserType.CLIENT.name
                     val name = userDoc.getString("firstName") ?: "User"

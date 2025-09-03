@@ -2,10 +2,9 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
 
-    //id 'kotlin-kapt' // Required for Data Binding in Kotlin
     id("kotlin-android")
     id("kotlin-kapt")
-    id("com.google.gms.google-services")    // Required for Data Binding in Kotlin
+    id("com.google.gms.google-services")
     id("com.google.dagger.hilt.android")
     id("androidx.navigation.safeargs.kotlin")
 }
@@ -22,6 +21,28 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    flavorDimensions += "environment"
+    
+    productFlavors {
+        create("dev") {
+            dimension = "environment"
+            applicationIdSuffix = ""
+            versionCode = 2
+            versionName = "1.0-dev"
+            buildConfigField("String", "ENVIRONMENT", "\"development\"")
+            buildConfigField("String", "COLLECTION_PREFIX", "\"\"")
+        }
+        
+        create("prod") {
+            dimension = "environment"
+            applicationIdSuffix = ".prod"
+            versionCode = 1
+            versionName = "1.0-prod"
+            buildConfigField("String", "ENVIRONMENT", "\"production\"")
+            buildConfigField("String", "COLLECTION_PREFIX", "\"prod_\"")
+        }
     }
 
     buildTypes {
@@ -43,6 +64,7 @@ android {
     buildFeatures {
         viewBinding = true
         dataBinding = true
+        buildConfig = true
     }
 }
 
@@ -73,7 +95,9 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
 
     // Add the dependency for the Firebase Authentication library
-    // When using the BoM, you don't specify versions in Firebase library dependencies
+    // Firebase Analytics & Performance
+    implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-perf-ktx")
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.android.libraries.identity.googleid:googleid:1.1.1")
 

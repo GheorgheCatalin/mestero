@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.widget.RatingBar
 import androidx.core.view.isVisible
+import com.mestero.R
 import com.mestero.data.models.BookingRequestModel
 import com.mestero.data.models.ReviewModel
 import com.mestero.databinding.DialogReviewBinding
@@ -44,9 +45,9 @@ class ReviewDialog(
         )
 
         // Set service info
-        binding.serviceInfoTextView.text = "Service: ${booking.listingTitle}"
+        binding.serviceInfoTextView.text = context.getString(R.string.service_label, booking.listingTitle)
         binding.providerNameTextView.text =
-            "How was ${booking.providerName}'s professionalism and communication?"
+            context.getString(R.string.provider_professionalism_question, booking.providerName)
     }
 
     private fun setupViews() {
@@ -101,28 +102,31 @@ class ReviewDialog(
         }
     }
 
-    // TODO could update if user doesnt want to leave comm as well
     private fun updateSubmitButton() {
-        val hasServiceReview =
-            serviceRating > 0 && serviceComment.length >= ReviewModel.MIN_COMMENT_LENGTH
-        val hasProviderReview =
-            providerRating > 0 && providerComment.length >= ReviewModel.MIN_COMMENT_LENGTH
-        val hasAnyCompleteReview = hasServiceReview || hasProviderReview
+        // Only ratings are required (comments are optional)
+        val hasAnyRating = serviceRating > 0 || providerRating > 0
 
         // Update submit button state
-        binding.submitButton.isEnabled = hasAnyCompleteReview
+        binding.submitButton.isEnabled = hasAnyRating
 
         // Update validation message
-        if (hasAnyCompleteReview) {
-            binding.validationMessageTextView.isVisible = false
+        if (hasAnyRating) {
+            val hasInvalidComment = (serviceComment.isNotEmpty() && serviceComment.length < ReviewModel.MIN_COMMENT_LENGTH) ||
+                    (providerComment.isNotEmpty() && providerComment.length < ReviewModel.MIN_COMMENT_LENGTH)
+            
+            if (hasInvalidComment) {
+                binding.validationMessageTextView.isVisible = true
+                binding.validationMessageTextView.text = getValidationMessage()
+            } else {
+                binding.validationMessageTextView.isVisible = false
+            }
         } else {
             // Show validation message if user has started but not completed a review
-            val hasPartialInput = serviceRating > 0 || providerRating > 0 ||
-                    serviceComment.isNotEmpty() || providerComment.isNotEmpty()
+            val hasPartialInput = serviceComment.isNotEmpty() || providerComment.isNotEmpty()
 
             if (hasPartialInput) {
                 binding.validationMessageTextView.isVisible = true
-                binding.validationMessageTextView.text = getValidationMessage()
+                binding.validationMessageTextView.text = context.getString(R.string.rating_required_message)
             } else {
                 binding.validationMessageTextView.isVisible = false
             }
@@ -132,8 +136,8 @@ class ReviewDialog(
     private fun getValidationMessage(): String {
         val messages = mutableListOf<String>()
 
-        // TODO add min nb of chars - check service review is complete
-        if (serviceRating > 0 && serviceComment.length < ReviewModel.MIN_COMMENT_LENGTH) {
+        // Check if service comment exists but doesn't match comment size
+        if (serviceComment.isNotEmpty() && serviceComment.length < ReviewModel.MIN_COMMENT_LENGTH) {
             messages.add(
                 "Service review needs " +
                         "${ReviewModel.MIN_COMMENT_LENGTH - serviceComment.length}" +
@@ -141,22 +145,13 @@ class ReviewDialog(
             )
         }
 
-        // Check if provider review is complete
-        if (providerRating > 0 && providerComment.length < ReviewModel.MIN_COMMENT_LENGTH) {
+        // Check if provider comment exists but doesn't match comment size
+        if (providerComment.isNotEmpty() && providerComment.length < ReviewModel.MIN_COMMENT_LENGTH) {
             messages.add("Provider review needs ${ReviewModel.MIN_COMMENT_LENGTH - providerComment.length} more characters")
         }
 
-        // If no ratings given but comments exist
-        if (serviceRating == 0 && serviceComment.isNotEmpty()) {
-            messages.add("Please rate the service quality")
-        }
-
-        if (providerRating == 0 && providerComment.isNotEmpty()) {
-            messages.add("Please rate the provider")
-        }
-
         return if (messages.isEmpty()) {
-            "Please provide at least one complete review (rating + comment)"
+            "Please provide at least one rating to submit a review"
         } else {
             messages.joinToString(". ")
         }
@@ -171,10 +166,10 @@ class ReviewDialog(
             providerName = booking.providerName,
             clientId = booking.clientId,
             clientName = booking.clientName,
-            serviceRating = if (serviceRating > 0 && serviceComment.length >= ReviewModel.MIN_COMMENT_LENGTH) serviceRating else null,
-            serviceComment = if (serviceRating > 0 && serviceComment.length >= ReviewModel.MIN_COMMENT_LENGTH) serviceComment else "",
-            providerRating = if (providerRating > 0 && providerComment.length >= ReviewModel.MIN_COMMENT_LENGTH) providerRating else null,
-            providerComment = if (providerRating > 0 && providerComment.length >= ReviewModel.MIN_COMMENT_LENGTH) providerComment else "",
+            serviceRating = if (serviceRating > 0) serviceRating else null,
+            serviceComment = serviceComment.trim(),
+            providerRating = if (providerRating > 0) providerRating else null,
+            providerComment = providerComment.trim(),
             isAnonymous = binding.anonymousCheckBox.isChecked
         )
 

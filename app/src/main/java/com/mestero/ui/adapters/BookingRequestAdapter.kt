@@ -16,7 +16,8 @@ class BookingRequestAdapter(
     private val onAcceptClick: (BookingRequestModel) -> Unit,
     private val onRejectClick: (BookingRequestModel) -> Unit,
     private val onCompleteClick: (BookingRequestModel) -> Unit,
-    private val onHideClick: (BookingRequestModel) -> Unit
+    private val onHideClick: (BookingRequestModel) -> Unit,
+    private val onListingClick: (BookingRequestModel) -> Unit = {}
 ) : ListAdapter<BookingRequestModel, BookingRequestAdapter.BookingViewHolder>(BookingDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookingViewHolder {
@@ -38,6 +39,8 @@ class BookingRequestAdapter(
             binding.apply {
                 // Service info
                 serviceTitle.text = booking.listingTitle
+                // Make entire card clickable to navigate to listing details
+                root.setOnClickListener { onListingClick(booking) }
                 clientNameTextView.text = booking.clientName
                 statusTextView.text = booking.statusDisplayText
 

@@ -3,6 +3,7 @@ package com.mestero.data.models
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentId
 import com.google.firebase.firestore.DocumentSnapshot
+import com.mestero.constants.FirestoreCollections
 
 data class ConversationModel(
     @DocumentId
@@ -19,7 +20,7 @@ data class ConversationModel(
 ) {
 
     companion object {
-        const val COLLECTION_NAME = "conversations"
+        val COLLECTION_NAME = FirestoreCollections.CONVERSATIONS
 
         fun fromMap(map: Map<String, Any?>): ConversationModel {
             return ConversationModel(

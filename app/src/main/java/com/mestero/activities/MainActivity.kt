@@ -1,5 +1,6 @@
 package com.mestero.activities
 
+import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -12,6 +13,8 @@ import com.mestero.databinding.ActivityMainBinding
 import com.mestero.data.UserType
 import com.mestero.network.auth.AccountService
 import com.mestero.network.firestore.FirestoreRepository
+import com.mestero.utils.Analytics
+import com.mestero.utils.LanguageManager
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -52,7 +55,6 @@ class MainActivity : AppCompatActivity() {
         when (userType) {
             UserType.PROVIDER.name -> {
                 bottomNavView.menu.clear()
-                bottomNavView.itemIconTintList = null
                 bottomNavView.inflateMenu(R.menu.provider_bottom_nav_menu)
                 navController.setGraph(R.navigation.provider_navigation)
             }
@@ -87,6 +89,9 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         bottomNavView.setupWithNavController(navController)
 
+        // Mark cold_start as completed and log time
+        Analytics.logAppReady()
+
         // Ensure re-selecting a bottom nav item returns to its root after navigating deeper in the graph
         // Prevents bottom navigation item stuck in child screens of selected tab
         bottomNavView.setOnItemSelectedListener { item ->
@@ -108,5 +113,9 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+    
+    override fun attachBaseContext(newBase: Context?) {
+        super.attachBaseContext(newBase?.let { LanguageManager.applyLanguage(it) })
     }
 }

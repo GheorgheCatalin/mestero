@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/bluishWhite"
     android:padding="24dp">
 
     <LinearLayout
@@ -81,7 +82,7 @@
                     android:hint="Tell others about the service quality (optional)"
                     app:counterEnabled="true"
                     app:counterMaxLength="500"
-                    app:helperText="Minimum 10 characters if you want to submit this review">
+                    app:helperText="Share your experience - comments are optional (min 5 chars if provided)">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/serviceCommentEditText"
@@ -147,7 +148,7 @@
                     android:hint="Tell others about the provider (optional)"
                     app:counterEnabled="true"
                     app:counterMaxLength="500"
-                    app:helperText="Minimum 10 characters if you want to submit this review">
+                    app:helperText="Share your experience - comments are optional (min 5 chars if provided)">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/providerCommentEditText"
@@ -182,7 +183,7 @@
             android:textSize="14sp"
             android:layout_marginBottom="16dp"
             android:visibility="gone"
-            tools:text="Please provide at least one complete review (rating + comment)" />
+            tools:text="Please provide at least one rating to submit a review" />
 
         <!-- Action Buttons -->
         <LinearLayout
@@ -191,11 +192,12 @@
             android:orientation="horizontal"
             android:gravity="end">
 
-            <com.google.android.material.button.MaterialButton
+            <TextView
                 android:id="@+id/cancelButton"
                 style="@style/Widget.Material3.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="14sp"
                 android:text="Cancel"
                 android:textAllCaps="false"
                 android:layout_marginEnd="8dp" />

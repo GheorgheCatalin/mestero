@@ -44,7 +44,6 @@ class OnboardingActivity : AppCompatActivity() {
         )
 
         val viewPager = binding.viewPager
-        //val adapter = OnboardingAdapter(this, 3)
         viewPager.adapter = OnboardingAdapter(this, 3)
         TabLayoutMediator(binding.dotsTab, viewPager) { _, _ -> }.attach()
     }

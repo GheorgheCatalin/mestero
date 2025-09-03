@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -14,7 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mestero.databinding.FragmentSubcategoriesBinding
 import com.mestero.ui.adapters.SubcategoryAdapter
 import com.mestero.data.models.CategoryManager
-import androidx.appcompat.app.AppCompatActivity
 import com.mestero.R
 
 class SubcategoriesFragment : Fragment() {
@@ -30,7 +30,7 @@ class SubcategoriesFragment : Fragment() {
         _binding = FragmentSubcategoriesBinding.inflate(inflater, container, false)
 
         // Hide main activity's ActionBar to prevent double toolbar
-        (activity as? AppCompatActivity)?.supportActionBar?.hide()
+       // (activity as? AppCompatActivity)?.supportActionBar?.hide() // custom toolbar
         
         return binding.root
     }
@@ -38,10 +38,8 @@ class SubcategoriesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.toolbar.title = args.categoryTitle
-        binding.toolbar.setNavigationOnClickListener {
-            findNavController().navigateUp()
-        }
+        // Set the title in the system ActionBar
+        (activity as? AppCompatActivity)?.supportActionBar?.title = args.categoryTitle
 
         setupRecyclerView()
         setupSearchFunctionality()
@@ -103,13 +101,13 @@ class SubcategoriesFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         // Bug fix - ensure ActionBar remains hidden after returning to this fragment
-        (activity as? AppCompatActivity)?.supportActionBar?.hide()
+        //(activity as? AppCompatActivity)?.supportActionBar?.hide() // custom toolbar
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         // Restore ActionBar when leaving this fragment
-        (activity as? AppCompatActivity)?.supportActionBar?.show()
+        //(activity as? AppCompatActivity)?.supportActionBar?.show()
         _binding = null
     }
 } 

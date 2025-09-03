@@ -23,6 +23,8 @@
         android:layout_height="wrap_content"
         android:background="@color/bluishWhite"
         app:menu="@menu/bottom_nav_menu"
+        android:layout_gravity="bottom"
+        android:animateLayoutChanges="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />

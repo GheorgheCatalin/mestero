@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.Timestamp
+import com.mestero.constants.FirestoreCollections
 import com.mestero.data.UserType
 import com.mestero.data.models.BookingRequestModel
 import com.mestero.data.models.ListingModel
@@ -84,7 +85,7 @@ class ListingDetailViewModel @Inject constructor(
 
         return try {
             val providerDoc = firestoreRepository.getDocumentData(
-                collection = "users",
+                collection = FirestoreCollections.USERS,
                 documentId = providerId
             )
             
@@ -198,7 +199,7 @@ class ListingDetailViewModel @Inject constructor(
     }
 
     private suspend fun getClientDetails(currentUserId: String): Triple<String, String, String> {
-        val userDoc = firestoreRepository.getDocumentData("users", currentUserId)
+        val userDoc = firestoreRepository.getDocumentData(FirestoreCollections.USERS, currentUserId)
         val userData = userDoc?.data ?: emptyMap()
         
         val clientName = "${userData["firstName"] ?: ""} ${userData["lastName"] ?: ""}".trim().ifEmpty { "User" }

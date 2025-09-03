@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:hint="Title">
+                android:hint="@string/listing_title_hint">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/titleEditText"
@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:hint="Description">
+                android:hint="@string/listing_description_hint">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/descriptionEditText"
@@ -54,7 +54,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Service Category"
+                android:text="@string/listing_category_hint"
                 android:textColor="@color/main_text_color"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp" />
@@ -65,7 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:hint="Select Category"
+                android:hint="@string/listing_category_hint"
                 app:hintTextColor="@color/main_text_color">
 
                 <AutoCompleteTextView
@@ -82,7 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:hint="Select Subcategory"
+                android:hint="@string/listing_subcategory_hint"
                 app:hintTextColor="@color/main_text_color"
                 android:visibility="gone">
 
@@ -366,6 +366,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:text="Add Photos"
+                android:visibility="gone"
                 app:icon="@drawable/ic_add_photo" />
 
             <com.google.android.material.button.MaterialButton

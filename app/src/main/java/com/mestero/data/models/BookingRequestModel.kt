@@ -3,6 +3,7 @@ package com.mestero.data.models
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentId
 import com.google.firebase.firestore.ServerTimestamp
+import com.mestero.constants.FirestoreCollections
 
 enum class RequestStatus {
     PENDING,
@@ -35,7 +36,7 @@ data class BookingRequestModel(
     val hiddenForProvider: Boolean = false
 ) {
     companion object {
-        const val COLLECTION_NAME = "booking_requests"
+        val COLLECTION_NAME = FirestoreCollections.BOOKING_REQUESTS
 
         fun fromMap(map: Map<String, Any?>): BookingRequestModel {
             return BookingRequestModel(

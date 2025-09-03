@@ -13,6 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.mestero.R
 import com.mestero.databinding.FragmentSearchResultsBinding
 import com.mestero.ui.adapters.ListingAdapter
 import com.mestero.data.models.CategoryManager
@@ -55,10 +56,10 @@ class SearchResultsFragment : Fragment() {
         // Check if this is a category specific search
         if (!categoryId.isNullOrEmpty()) {
             val categoryName = CategoryManager.getCategoryById(categoryId)?.title ?: "this category"
-            binding.searchQueryText.text = "Results for \"$searchQuery\" in category \"$categoryName\""
+            binding.searchQueryText.text = getString(R.string.search_results_category, searchQuery, categoryName)
             viewModel.searchInSpecificCategory(searchQuery, categoryId)
         } else {
-            binding.searchQueryText.text = "Results for \"$searchQuery\""
+            binding.searchQueryText.text = getString(R.string.search_results_general, searchQuery)
             viewModel.searchListings(searchQuery)
         }
     }
@@ -104,10 +105,10 @@ class SearchResultsFragment : Fragment() {
         
         if (!categoryId.isNullOrEmpty()) {
             val categoryName = CategoryManager.getCategoryById(categoryId)?.title ?: "this category"
-            binding.searchQueryText.text = "Results for \"$query\" in category \"$categoryName\""
+            binding.searchQueryText.text = getString(R.string.search_results_category, query, categoryName)
             viewModel.searchInSpecificCategory(query, categoryId)
         } else {
-            binding.searchQueryText.text = "Results for \"$query\""
+            binding.searchQueryText.text = getString(R.string.search_results_general, query)
             viewModel.searchListings(query)
         }
     }

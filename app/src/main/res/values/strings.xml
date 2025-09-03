@@ -59,5 +59,279 @@
     <string name="search_results_title">Search Results</string>
     <string name="no_search_results">No services found for "%1$s"</string>
     <string name="search_empty_query">Please enter a search term</string>
-    <string name="hint_text_color">@color/main_text_color2</string>
+    
+    <!-- Categories -->
+    <string name="category_home_improvement">Home Improvement &amp; Maintenance</string>
+    <string name="category_automotive">Automotive Services</string>
+    <string name="category_professional">Professional &amp; Business Services</string>
+    <string name="category_outdoor">Outdoor &amp; Landscaping</string>
+    <string name="category_creative">Creative &amp; Event Services</string>
+    <string name="category_technical">Technical &amp; Skilled Trades</string>
+    <string name="category_health">Health &amp; Medical Services</string>
+    <string name="category_cleaning">Cleaning Services</string>
+    <string name="category_personal_care">Personal Care &amp; Wellness</string>
+    <string name="category_education">Education &amp; Tutoring</string>
+    <string name="category_transportation">Transportation</string>
+    <string name="category_childcare">Childcare &amp; Eldercare</string>
+    <string name="category_pet">Pet Services</string>
+    <string name="category_specialty">Specialty Services</string>
+    
+    <!-- Subcategories - Home Improvement -->
+    <string name="subcategory_plumbing">Plumbing</string>
+    <string name="subcategory_electrical">Electrical</string>
+    <string name="subcategory_tiling">Tiling</string>
+    <string name="subcategory_flooring">Flooring</string>
+    <string name="subcategory_carpentry">Carpentry</string>
+    <string name="subcategory_painting">Painting</string>
+    <string name="subcategory_hvac">HVAC</string>
+    <string name="subcategory_roofing">Roofing</string>
+    <string name="subcategory_masonry">Masonry</string>
+    <string name="subcategory_handyman">General Handyman</string>
+    
+    <!-- Subcategories - Automotive -->
+    <string name="subcategory_auto_repair">Auto Repair</string>
+    <string name="subcategory_detailing">Car Detailing</string>
+    <string name="subcategory_towing">Towing &amp; Roadside Assistance</string>
+    <string name="subcategory_customization">Customization</string>
+    
+    <!-- Subcategories - Professional -->
+    <string name="subcategory_legal">Legal Services</string>
+    <string name="subcategory_accounting">Accounting &amp; Bookkeeping</string>
+    <string name="subcategory_marketing">Marketing &amp; Advertising</string>
+    <string name="subcategory_it">IT &amp; Tech Support</string>
+    <string name="subcategory_consulting">Consulting</string>
+    <string name="subcategory_admin">Administrative Support</string>
+    
+    <!-- Subcategories - Outdoor -->
+    <string name="subcategory_landscaping">Landscaping</string>
+    <string name="subcategory_hardscaping">Hardscaping</string>
+    <string name="subcategory_pest_control">Pest Control</string>
+    <string name="subcategory_snow_removal">Snow Removal</string>
+    <string name="subcategory_pool">Pool Maintenance</string>
+    
+    <!-- Subcategories - Creative -->
+    <string name="subcategory_photography">Photography</string>
+    <string name="subcategory_videography">Videography</string>
+    <string name="subcategory_event_planning">Event Planning</string>
+    <string name="subcategory_music">Music &amp; Entertainment</string>
+    <string name="subcategory_graphic_design">Graphic Design</string>
+    <string name="subcategory_writing">Writing &amp; Editing</string>
+    
+    <!-- Subcategories - Technical -->
+    <string name="subcategory_welding">Welding</string>
+    <string name="subcategory_machinery">Machinery Repair</string>
+    <string name="subcategory_locksmith">Locksmith Services</string>
+    <string name="subcategory_security">Security Installation</string>
+    
+    <!-- Subcategories - Health -->
+    <string name="subcategory_home_health">Home Health Aide</string>
+    <string name="subcategory_physical_therapy">Physical Therapy</string>
+    <string name="subcategory_alternative">Alternative Medicine</string>
+    <string name="subcategory_medical_transport">Medical Transport</string>
+    
+    <!-- Subcategories - Cleaning -->
+    <string name="subcategory_residential">Residential Cleaning</string>
+    <string name="subcategory_commercial">Commercial Cleaning</string>
+    <string name="subcategory_specialized">Specialized Cleaning</string>
+    <string name="subcategory_eco_friendly">Eco-Friendly Cleaning</string>
+    <string name="subcategory_organizing">Organizing Services</string>
+    
+    <!-- Subcategories - Personal Care -->
+    <string name="subcategory_hair">Hair Services</string>
+    <string name="subcategory_nails">Nail Services</string>
+    <string name="subcategory_spa">Spa &amp; Massage</string>
+    <string name="subcategory_fitness">Fitness Training</string>
+    <string name="subcategory_nutrition">Nutrition &amp; Diet</string>
+    <string name="subcategory_wellness">Mental Wellness</string>
+    
+    <!-- Subcategories - Education -->
+    <string name="subcategory_academic">Academic Tutoring</string>
+    <string name="subcategory_language">Language Learning</string>
+    <string name="subcategory_music_lessons">Music Lessons</string>
+    <string name="subcategory_art">Art &amp; Crafts</string>
+    <string name="subcategory_computer">Computer Skills</string>
+    <string name="subcategory_professional_dev">Professional Development</string>
+    
+    <!-- Subcategories - Transportation -->
+    <string name="subcategory_rideshare">Rideshare &amp; Taxi</string>
+    <string name="subcategory_delivery">Delivery Services</string>
+    <string name="subcategory_moving">Moving Services</string>
+    <string name="subcategory_logistics">Logistics &amp; Freight</string>
+    
+    <!-- Subcategories - Childcare -->
+    <string name="subcategory_babysitting">Babysitting</string>
+    <string name="subcategory_nanny">Nanny Services</string>
+    <string name="subcategory_eldercare">Eldercare</string>
+    <string name="subcategory_tutoring">Academic Support</string>
+    
+    <!-- Subcategories - Pet -->
+    <string name="subcategory_pet_sitting">Pet Sitting</string>
+    <string name="subcategory_dog_walking">Dog Walking</string>
+    <string name="subcategory_grooming">Pet Grooming</string>
+    <string name="subcategory_training">Pet Training</string>
+    <string name="subcategory_veterinary">Veterinary Services</string>
+    
+    <!-- Subcategories - Specialty -->
+    <string name="subcategory_real_estate">Real Estate Services</string>
+    <string name="subcategory_insurance">Insurance Services</string>
+    <string name="subcategory_financial">Financial Planning</string>
+    <string name="subcategory_travel">Travel Planning</string>
+    <string name="subcategory_fashion">Fashion &amp; Styling</string>
+    
+    <!-- UI Messages -->
+    <string name="no_booking_requests_received">No booking requests received yet</string>
+    <string name="no_booking_requests_sent">No booking requests sent yet</string>
+    <string name="service_label">Service: %1$s</string>
+    <string name="provider_professionalism_question">How was %1$s\'s professionalism and communication?</string>
+    <string name="rating_required_message">Please provide at least one rating to submit a review</string>
+    <string name="search_results_category">Results for "%1$s" in category "%2$s"</string>
+    <string name="search_results_general">Results for "%1$s"</string>
+    <string name="empty_message_input">Type a message...</string>
+    
+    <!-- Language Settings -->
+    <string name="language_title">Language</string>
+    <string name="language_change_message">Language changed. Please restart the app to see all changes.</string>
+    
+    <!-- Bottom Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_bookings">Bookings</string>
+    <string name="nav_messages">Messages</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_add_listing">Add Listing</string>
+    
+    <!-- Home Screen -->
+    <string name="my_listings_title">My Listings</string>
+    <string name="new_posts_title">New Posts</string>
+    <string name="most_popular_title">Most Popular</string>
+    
+    <!-- Add Listing -->
+    <string name="add_listing_title">Add New Listing</string>
+    <string name="listing_title_hint">Listing Title</string>
+    <string name="listing_description_hint">Description</string>
+    <string name="listing_price_hint">Price</string>
+    <string name="listing_location_hint">Location</string>
+    <string name="listing_category_hint">Category</string>
+    <string name="listing_subcategory_hint">Subcategory</string>
+    <string name="add_photos">Add Photos</string>
+    <string name="create_listing">Create Listing</string>
+    <string name="update_listing">Update Listing</string>
+    
+    <!-- Profile -->
+    <string name="profile_details">Details</string>
+    <string name="profile_beginner_level">Beginner Level</string>
+    <string name="profile_edit_profile">Edit Profile</string>
+    <string name="profile_logout">Logout</string>
+    <string name="profile_settings">Settings</string>
+    
+    <!-- Booking Cards -->
+    <string name="booking_status_pending">Pending</string>
+    <string name="booking_status_accepted">Accepted</string>
+    <string name="booking_status_completed">Completed</string>
+    <string name="booking_status_rejected">Rejected</string>
+    <string name="booking_status_cancelled">Cancelled</string>
+    <string name="booking_action_accept">Accept</string>
+    <string name="booking_action_reject">Reject</string>
+    <string name="booking_action_complete">Complete</string>
+    <string name="booking_action_hide">Hide</string>
+    <string name="booking_action_review">Review</string>
+    <string name="booking_date">Date: %1$s</string>
+    <string name="booking_price">Price: %1$s</string>
+    <string name="booking_provider">Provider: %1$s</string>
+    <string name="booking_client">Client: %1$s</string>
+    
+    <!-- Listing Details -->
+    <string name="listing_detail_title">Service Details</string>
+    <string name="listing_detail_description">Description</string>
+    <string name="listing_detail_pricing">Pricing</string>
+    <string name="listing_detail_location">Location</string>
+    <string name="listing_detail_provider">Service Provider</string>
+    <string name="listing_action_book">Book Service</string>
+    <string name="listing_action_message">Message</string>
+    
+    <!-- Registration/Profile Hints -->
+    <string name="hint_phone_number">Phone number</string>
+    <string name="hint_email_address">Email address</string>
+    <string name="hint_full_name">Full name</string>
+    <string name="hint_company_name">Company name</string>
+    <string name="hint_location">Location</string>
+    <string name="hint_website">Website</string>
+    
+    <!-- App Bar Titles -->
+    <string name="title_services">Services</string>
+    <string name="title_my_listings">My Listings</string>
+    <string name="title_add_listing">Add Listing</string>
+    <string name="title_messages">Messages</string>
+    <string name="title_conversations">Conversations</string>
+    <string name="title_chat">Chat</string>
+    <string name="title_edit_profile">Edit Profile</string>
+    <string name="title_listing_detail">Service Details</string>
+    <string name="title_search_results">Search Results</string>
+    <string name="title_subcategories">Subcategories</string>
+    <string name="title_listings">Listings</string>
+    
+    <!-- Pricing Models -->
+    <string name="pricing_fixed">Fixed Price</string>
+    <string name="pricing_hourly">Per Hour</string>
+    <string name="pricing_daily">Per Day</string>
+    <string name="pricing_weekly">Per Week</string>
+    <string name="pricing_monthly">Per Month</string>
+    <string name="pricing_custom">Custom</string>
+    <string name="pricing_negotiable">Negotiable</string>
+    
+    <!-- Booking Item Details -->
+    <string name="booking_item_requested_on">Requested on: %1$s</string>
+    <string name="booking_item_scheduled_for">Scheduled for: %1$s</string>
+    <string name="booking_item_notes">Notes: %1$s</string>
+    <string name="booking_item_no_notes">No notes provided</string>
+    <string name="booking_item_contact_info">Contact: %1$s</string>
+    <string name="booking_item_view_listing">View Listing</string>
+    
+    <!-- Error Messages & Toast Messages -->
+    <string name="error_search_term_required">Please enter a search term</string>
+    <string name="error_search_failed">Error performing search</string>
+    <string name="error_unknown">Unknown error</string>
+    <string name="error_searching">Error searching: %1$s</string>
+    <string name="error_loading_listings">Failed to load listings</string>
+    <string name="error_listing_not_loaded">Please wait for listing to load</string>
+    <string name="error_provider_unavailable">Provider not available at the moment</string>
+    <string name="error_navigation">Error navigating to listing details</string>
+    <string name="error_email_not_found">No email app found</string>
+    <string name="error_browser_not_found">No browser app found</string>
+    <string name="error_phone_calls_unavailable">Cannot make phone calls</string>
+    <string name="error_user_not_authenticated">User not authenticated</string>
+    
+    <!-- Success Messages -->
+    <string name="success_general">Success</string>
+    
+    <!-- Profile Placeholders -->
+    <string name="profile_phone_not_set">Phone number not set</string>
+    <string name="profile_location_not_set">Location not set</string>
+    <string name="profile_provider_default">Provider</string>
+    <string name="profile_guest_user">Guest</string>
+    <string name="profile_no_reviews">No reviews yet</string>
+    
+    <!-- User Types -->
+    <string name="user_type_professional_provider">Professional Provider</string>
+    <string name="user_type_client">Client</string>
+    
+    <!-- Confirmation Dialogs -->
+    <string name="dialog_mark_completed_title">Mark as Completed</string>
+    <string name="dialog_mark_completed_message">Are you sure you want to mark \"%1$s\" as completed for %2$s?\n\nThis action cannot be undone.</string>
+    <string name="dialog_hide_booking_title">Hide Booking</string>
+    <string name="dialog_hide_booking_message">Are you sure you want to hide this booking? You can view it again later in your booking history.</string>
+    <string name="dialog_button_hide">Hide</string>
+    <string name="dialog_button_cancel">Cancel</string>
+    
+    <!-- Review Dialog -->
+    <string name="review_comment_too_short">Service review needs %1$d more characters</string>
+    <string name="review_rating_required">Please provide at least one rating to submit a review</string>
+    
+    <!-- General -->
+    <string name="unknown_user">Unknown User</string>
+    <string name="anonymous">Anonymous</string>
+    <string name="contact_for_price">Contact for price</string>
+    <string name="location_not_specified">Location not specified</string>
+    <string name="online_services">Online Services</string>
+    <string name="no_preference">No Preference</string>
 </resources>

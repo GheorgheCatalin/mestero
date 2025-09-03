@@ -7,7 +7,7 @@ import com.mestero.data.models.Category
 import com.mestero.databinding.ItemCategoryHorizontalBinding
 
 class CategoryHorizontalAdapter(
-    private val categories: List<Category>,
+    private var categories: List<Category>,
     private val onCategoryClick: (Category) -> Unit
 ) : RecyclerView.Adapter<CategoryHorizontalAdapter.CategoryViewHolder>() {
 
@@ -38,4 +38,9 @@ class CategoryHorizontalAdapter(
     }
 
     override fun getItemCount() = categories.size
+    
+    fun submit(newCategories: List<Category>) {
+        categories = newCategories
+        notifyDataSetChanged()
+    }
 } 

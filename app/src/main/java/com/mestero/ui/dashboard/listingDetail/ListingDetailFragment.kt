@@ -16,7 +16,9 @@ import com.mestero.data.UserType
 import com.mestero.data.models.CategoryManager
 import com.mestero.data.models.ListingModel
 import com.mestero.data.models.UserModel
+import com.mestero.network.auth.AccountService
 import com.mestero.databinding.FragmentListingDetailBinding
+import javax.inject.Inject
 import com.mestero.utils.FormatUtils
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.core.net.toUri
@@ -28,6 +30,9 @@ class ListingDetailFragment : Fragment() {
     private val args: ListingDetailFragmentArgs by navArgs()
 
     private val viewModel: ListingDetailViewModel by viewModels()
+    
+    @Inject
+    lateinit var accountService: AccountService
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,8 +48,35 @@ class ListingDetailFragment : Fragment() {
         
         setupClickListeners()
         observeViewModel()
+        checkUserTypeAndSetupUI()
 
         viewModel.loadListingDetail(args.listingId)
+    }
+
+    private fun checkUserTypeAndSetupUI() {
+        if (accountService.currentUserId.isEmpty()) {
+            setupClientView()
+            return
+        }
+
+        accountService.fetchUserType(
+            onResult = { userType ->
+                when (userType) {
+                    UserType.PROVIDER -> setupProviderView()
+                    UserType.CLIENT -> setupClientView()
+                }
+            }
+        )
+    }
+
+    private fun setupProviderView() {
+        // Hide action buttons for providers
+        binding.actionButtonsContainer.isVisible = false
+    }
+
+    private fun setupClientView() {
+        // Show action buttons for clients
+        binding.actionButtonsContainer.isVisible = true
     }
 
     private fun setupClickListeners() {

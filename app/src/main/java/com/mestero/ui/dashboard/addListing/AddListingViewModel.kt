@@ -11,6 +11,7 @@ import com.mestero.network.firestore.FirestoreQueryFilterType
 import com.mestero.network.firestore.FirestoreRepository
 import com.mestero.network.firestore.FirestoreQueryFilter
 import com.mestero.network.firestore.FirestoreQueryParams
+import com.mestero.utils.Analytics
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -60,12 +61,21 @@ class AddListingViewModel @Inject constructor(
                     return@launch
                 }
 
-                // Save listing in Firestore
-                val documentRef = withContext(Dispatchers.IO) {
-                    firestoreRepository.addDocument(
-                        ListingModel.COLLECTION_NAME,
-                        listingWithProviderId.toMap()
+                // Save listing in Firestore (with analytics)
+                val documentRef = Analytics.measureAndLogSuspend(
+                    eventName = Analytics.Events.CREATE_LISTING,
+                    additionalParams = mapOf(
+                        Analytics.Params.CATEGORY to (listingWithProviderId.category ?: " "),
+                        Analytics.Params.SUBCATEGORY to (listingWithProviderId.subcategory ?: " "),
+                        Analytics.Params.USER_TYPE to "provider"
                     )
+                ) {
+                    withContext(Dispatchers.IO) {
+                        firestoreRepository.addDocument(
+                            ListingModel.COLLECTION_NAME,
+                            listingWithProviderId.toMap()
+                        )
+                    }
                 }
 
                 _createListingResult.value = Result.success(documentRef.id)

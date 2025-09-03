@@ -99,7 +99,6 @@ class BookingsViewModel @Inject constructor(
 
     fun acceptBooking(bookingId: String, providerNotes: String = "") {
         updateBookingStatus(bookingId, RequestStatus.ACCEPTED, providerNotes)
-
     }
 
     fun rejectBooking(bookingId: String, providerNotes: String = "") {

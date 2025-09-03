@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/main_text_color2"
-            android:hint="Type a message"
+            android:hint="@string/empty_message_input"
             android:imeOptions="actionSend"
             android:maxLines="1"
             android:singleLine="true" />

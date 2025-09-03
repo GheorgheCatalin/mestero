@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FieldValue
-
+import com.mestero.constants.FirestoreCollections
 
 
 @HiltViewModel
@@ -159,7 +159,7 @@ class ClientBookingsViewModel @Inject constructor(
 
             //  Update provider rating (if provider review exists)
             review.providerRating?.let { providerRating ->
-                val providerRef = firestoreRepository.getCollectionReference("users").document(review.providerId)
+                val providerRef = firestoreRepository.getCollectionReference(FirestoreCollections.USERS).document(review.providerId)
                 transaction.update(providerRef, mapOf(
                     "ratingSum" to FieldValue.increment(providerRating.toLong()),
                     "reviewCount" to FieldValue.increment(1)
@@ -168,7 +168,7 @@ class ClientBookingsViewModel @Inject constructor(
 
             // Update listing rating (if service review exists)
             review.serviceRating?.let { serviceRating ->
-                val listingRef = firestoreRepository.getCollectionReference("listings").document(review.listingId)
+                val listingRef = firestoreRepository.getCollectionReference(FirestoreCollections.LISTINGS).document(review.listingId)
                 transaction.update(listingRef, mapOf(
                     "ratingSum" to FieldValue.increment(serviceRating.toLong()),
                     "ratingCount" to FieldValue.increment(1)

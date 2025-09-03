@@ -14,8 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mestero.databinding.FragmentListingsBinding
 import com.mestero.ui.adapters.ListingAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
 @AndroidEntryPoint
 class ListingsFragment : Fragment() {
@@ -35,7 +35,7 @@ class ListingsFragment : Fragment() {
         _binding = FragmentListingsBinding.inflate(inflater, container, false)
         
         // Hide the default ActionBar
-        (activity as? AppCompatActivity)?.supportActionBar?.hide()
+        //(activity as? AppCompatActivity)?.supportActionBar?.hide() // custom toolbar
         
         return binding.root
     }
@@ -52,10 +52,8 @@ class ListingsFragment : Fragment() {
     }
 
     private fun setupToolbar() {
-        binding.toolbar.title = args.title
-        binding.toolbar.setNavigationOnClickListener {
-            findNavController().navigateUp()
-        }
+        // Set the title in the system ActionBar 
+        (activity as? AppCompatActivity)?.supportActionBar?.title = args.title
     }
 
     private fun setupRecyclerView() {
@@ -83,7 +81,6 @@ class ListingsFragment : Fragment() {
 
     private fun observeViewModel() {
         viewModel.listingsState.observe(viewLifecycleOwner) { uiState ->
-
             binding.swipeRefreshLayout.isRefreshing = false
             
             when (uiState) {
@@ -136,14 +133,14 @@ class ListingsFragment : Fragment() {
         super.onResume()
 
         // Ensure ActionBar is hidden when returning to this fragment
-        (activity as? AppCompatActivity)?.supportActionBar?.hide()
+       // (activity as? AppCompatActivity)?.supportActionBar?.hide()  // custom toolbar
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
 
         // Only show the ActionBar if we're navigating back to the main screen
-        (activity as? AppCompatActivity)?.supportActionBar?.show()
+        //(activity as? AppCompatActivity)?.supportActionBar?.show() // custom toolbar
         _binding = null
     }
 } 

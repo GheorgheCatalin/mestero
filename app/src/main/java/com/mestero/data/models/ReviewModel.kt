@@ -4,6 +4,7 @@ import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentId
 import com.google.firebase.firestore.ServerTimestamp
 import com.mestero.utils.FormatUtils
+import com.mestero.constants.FirestoreCollections
 
 data class ReviewModel(
     @DocumentId
@@ -29,10 +30,10 @@ data class ReviewModel(
     val moderationNotes: String = ""
 ) {
     companion object {
-        const val COLLECTION_NAME = "reviews"
+        val COLLECTION_NAME = FirestoreCollections.REVIEWS
         const val MIN_RATING = 1
         const val MAX_RATING = 5
-        const val MIN_COMMENT_LENGTH = 10 //TODO add non test value
+        const val MIN_COMMENT_LENGTH = 5
         const val MAX_COMMENT_LENGTH = 500
 
         fun fromMap(map: Map<String, Any?>): ReviewModel {
@@ -119,15 +120,15 @@ data class ReviewModel(
 
         // TODO - not possible to occur (can keep for additional bug proofing/defensive programming / Data Integrity Protection
         if (bookingId.isBlank()) {
-            errorsList.add("Booking reference is required")
+            errorsList.add("Error fetching booking")
         }
 
         if (providerId.isBlank()) {
-            errorsList.add("Provider reference is required")
+            errorsList.add("Error fetching provider")
         }
 
         if (clientId.isBlank()) {
-            errorsList.add("Client reference is required")
+            errorsList.add("Error fetching client")
         }
 
         return errorsList

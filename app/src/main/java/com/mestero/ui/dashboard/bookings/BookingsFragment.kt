@@ -11,7 +11,9 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.mestero.R
 import com.mestero.data.UserType
 import com.mestero.databinding.FragmentBookingsBinding
 import com.mestero.network.auth.AccountService
@@ -88,6 +90,9 @@ class BookingsFragment : Fragment() {
             },
             onHideClick = { booking ->
                 showHideBookingDialog(booking, true)
+            },
+            onListingClick = { booking ->
+                navigateToListingDetail(booking.listingId)
             }
         )
 
@@ -111,6 +116,9 @@ class BookingsFragment : Fragment() {
 
             onHideClick = { booking ->
                 showHideBookingDialog(booking, false)
+            },
+            onListingClick = { booking ->
+                navigateToListingDetail(booking.listingId)
             }
         )
 
@@ -140,7 +148,7 @@ class BookingsFragment : Fragment() {
                     binding.progressBar.isVisible = false
                     binding.recyclerViewBookings.isVisible = false
                     binding.textViewEmpty.isVisible = true
-                    binding.textViewEmpty.text = "No booking requests received yet"
+                    binding.textViewEmpty.text = getString(R.string.no_booking_requests_received)
                 }
                 is BookingsUiState.Error -> {
                     binding.progressBar.isVisible = false
@@ -180,7 +188,7 @@ class BookingsFragment : Fragment() {
                     binding.progressBar.isVisible = false
                     binding.recyclerViewBookings.isVisible = false
                     binding.textViewEmpty.isVisible = true
-                    binding.textViewEmpty.text = "No booking requests sent yet"
+                    binding.textViewEmpty.text = getString(R.string.no_booking_requests_sent)
                 }
                 is ClientBookingsUiState.Error -> {
                     binding.progressBar.isVisible = false
@@ -280,6 +288,15 @@ class BookingsFragment : Fragment() {
             }
         )
         reviewDialog.show()
+    }
+
+    private fun navigateToListingDetail(listingId: String) {
+        try {
+            val action = BookingsFragmentDirections.actionBookingsToListingDetail(listingId)
+            findNavController().navigate(action)
+        } catch (e: Exception) {
+            Toast.makeText(context, "Error navigating to listing details", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onDestroyView() {

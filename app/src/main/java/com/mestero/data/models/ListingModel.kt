@@ -5,6 +5,7 @@ import com.google.firebase.firestore.DocumentId
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.ServerTimestamp
 import com.mestero.utils.FormatUtils
+import com.mestero.constants.FirestoreCollections
 import java.util.*
 
 data class ListingModel(
@@ -33,7 +34,7 @@ data class ListingModel(
     val active: Boolean = true
 ) {
     companion object {
-        const val COLLECTION_NAME = "listings"
+        val COLLECTION_NAME = FirestoreCollections.LISTINGS
         const val MIN_TITLE_LENGTH = 3
         const val MAX_TITLE_LENGTH = 100
         const val MIN_DESCRIPTION_LENGTH = 10
@@ -129,7 +130,6 @@ data class ListingModel(
 
     fun validate(): List<String> {
         val errorsList = mutableListOf<String>()
-
         if (title.length < MIN_TITLE_LENGTH || title.length > MAX_TITLE_LENGTH) {
             errorsList.add("Title must be between $MIN_TITLE_LENGTH and $MAX_TITLE_LENGTH characters")
         }

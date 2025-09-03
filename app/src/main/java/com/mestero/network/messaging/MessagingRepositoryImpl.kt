@@ -7,9 +7,11 @@ import com.google.firebase.firestore.FieldPath.documentId
 import com.google.firebase.firestore.FieldValue
 
 import com.google.firebase.firestore.Query
+import com.mestero.constants.FirestoreCollections
 import com.mestero.data.models.ConversationModel
 import com.mestero.data.models.MessageModel
 import com.mestero.network.firestore.FirestoreRepository
+import com.mestero.utils.Analytics
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -78,7 +80,7 @@ class MessagingRepositoryImpl @Inject constructor(
         val messagesRef = firestoreRepository
             .getCollectionReference(ConversationModel.COLLECTION_NAME)
             .document(conversationId)
-            .collection("messages")
+            .collection(FirestoreCollections.MESSAGES)
             .orderBy("createdAt", Query.Direction.ASCENDING)
 
         messagesRef.addSnapshotListener { snapshots, _ ->
@@ -112,27 +114,36 @@ class MessagingRepositoryImpl @Inject constructor(
             participants.firstOrNull { it != fromUserId } ?: ""
         }
 
-        // Update conversation with the new message
-        val msgData = mapOf(
-            "senderId" to fromUserId,
-            "text" to text,
-            "createdAt" to FieldValue.serverTimestamp(),
-            "readBy" to listOf(fromUserId)
-        )
-        convDoc.collection("messages").add(msgData).await()
+        // Update conversation with the new message - with analytics
+        Analytics.measureAndLogSuspend(
+            eventName = Analytics.Events.SEND_MESSAGE,
+            additionalParams = mapOf(
+                "message_length" to text.length,
+                "conversation_id" to conversationId,
+                "has_other_user" to otherUserId.isNotEmpty()
+            )
+        ) {
+            val msgData = mapOf(
+                "senderId" to fromUserId,
+                "text" to text,
+                "createdAt" to FieldValue.serverTimestamp(),
+                "readBy" to listOf(fromUserId)
+            )
+            convDoc.collection(FirestoreCollections.MESSAGES).add(msgData).await()
 
-        val updates = hashMapOf<String, Any>(
-            "lastMessage" to text,
-            "lastMessageAt" to FieldValue.serverTimestamp(),
-            "lastSenderId" to fromUserId,
-            "updatedAt" to FieldValue.serverTimestamp()
-        )
-        if (otherUserId.isNotEmpty()) {
-            updates["unreadCounts.$otherUserId"] = FieldValue.increment(1)
+            val updates = hashMapOf<String, Any>(
+                "lastMessage" to text,
+                "lastMessageAt" to FieldValue.serverTimestamp(),
+                "lastSenderId" to fromUserId,
+                "updatedAt" to FieldValue.serverTimestamp()
+            )
+            if (otherUserId.isNotEmpty()) {
+                updates["unreadCounts.$otherUserId"] = FieldValue.increment(1)
+            }
+            updates["unreadCounts.$fromUserId"] = 0L
+
+            convDoc.update(updates as Map<String, Any>).await()
         }
-        updates["unreadCounts.$fromUserId"] = 0L
-
-        convDoc.update(updates as Map<String, Any>).await()
     }
 
     override suspend fun markConversationAsRead(conversationId: String, userId: String) {
@@ -149,7 +160,7 @@ class MessagingRepositoryImpl @Inject constructor(
         val ids = userIds.distinct()
         val displayNamesResult = mutableMapOf<String, String>()
 
-        val snap = firestoreRepository.getCollectionReference("users")
+        val snap = firestoreRepository.getCollectionReference(FirestoreCollections.USERS)
             .whereIn(documentId(), ids)
             .get()
             .await()

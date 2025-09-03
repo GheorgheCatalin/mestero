@@ -1,5 +1,6 @@
 package com.mestero.ui.dashboard.profile
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -18,6 +19,7 @@ import com.mestero.data.UserType
 import com.mestero.data.models.UserModel
 import com.mestero.databinding.FragmentProfileBinding
 import com.mestero.utils.FormatUtils
+import com.mestero.utils.LanguageManager
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.navigation.fragment.findNavController
 
@@ -42,6 +44,7 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupClickListeners()
+        setupLanguageDisplay()
         observeViewModel()
         viewModel.loadUserProfile()
     }
@@ -55,6 +58,10 @@ class ProfileFragment : Fragment() {
             }
         }
 
+        binding.languageOption.setOnClickListener {
+            showLanguageSelectionDialog()
+        }
+        
         binding.settingsOption.setOnClickListener {
             // TODO navigate to settings screen
             Toast.makeText(context, "Settings - TODO", Toast.LENGTH_SHORT).show()
@@ -88,14 +95,14 @@ class ProfileFragment : Fragment() {
             userTypeTag.text = user.userType.name
 
             // Contact information
-            phoneText.text = if (user.hasPhoneNumber) user.phoneNumber else "Phone number not set"
+            phoneText.text = if (user.hasPhoneNumber) user.phoneNumber else getString(R.string.profile_phone_not_set)
             phoneText.setTextColor(
                 resources.getColor(
                     if (user.hasPhoneNumber) R.color.main_text_color else R.color.gray1,
                     null
                 )
             )
-            locationText.text = if (user.hasLocation) user.location else "Location not set"
+            locationText.text = if (user.hasLocation) user.location else getString(R.string.profile_location_not_set)
             locationText.setTextColor(
                 resources.getColor(
                     if (user.hasLocation) R.color.main_text_color else R.color.gray1,
@@ -119,7 +126,7 @@ class ProfileFragment : Fragment() {
             }
 
             if (user.userType == UserType.PROVIDER && user.hasExperience) {
-                experienceText.text = "${user.experienceLevel} Level"
+                experienceText.text = "${user.experienceLevel} ${getString(R.string.profile_beginner_level)}"
                 experienceLayout.isVisible = true
             } else {
                 experienceLayout.isVisible = false
@@ -143,6 +150,40 @@ class ProfileFragment : Fragment() {
             skillView.text = skill
             binding.skillsContainer.addView(skillView)
         }
+    }
+    
+    private fun setupLanguageDisplay() {
+        val currentLanguage = LanguageManager.getLanguage(requireContext())
+        val displayName = LanguageManager.getLanguageDisplayName(currentLanguage)
+        binding.currentLanguageText.text = displayName
+    }
+    
+    private fun showLanguageSelectionDialog() {
+        val availableLanguages = LanguageManager.getAvailableLanguages()
+        val languageCodes = availableLanguages.keys.toTypedArray()
+        val languageNames = availableLanguages.values.toTypedArray()
+        
+        val currentLanguage = LanguageManager.getLanguage(requireContext())
+        val currentIndex = languageCodes.indexOf(currentLanguage)
+        
+        AlertDialog.Builder(requireContext())
+            .setTitle(getString(R.string.language_title))
+            .setSingleChoiceItems(languageNames, currentIndex) { dialog, which ->
+                val selectedLanguage = languageCodes[which]
+                
+                if (selectedLanguage != currentLanguage) {
+                    // Save the new language
+                    LanguageManager.saveLanguage(requireContext(), selectedLanguage)
+
+                    binding.currentLanguageText.text = languageNames[which]
+
+                    Toast.makeText(requireContext(), getString(R.string.language_change_message), Toast.LENGTH_LONG).show()
+                }
+                
+                dialog.dismiss()
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
     }
 
     override fun onDestroyView() {

@@ -52,6 +52,11 @@
             android:id="@+id/action_home_to_search_results"
             app:destination="@id/navigation_search_results" />
 
+        <!-- Action to subcategories -->
+        <action
+            android:id="@+id/action_home_to_subcategories"
+            app:destination="@id/navigation_subcategories" />
+
         <!-- Actions to other top-level destinations -->
         <action
             android:id="@+id/action_to_services"
@@ -73,7 +78,7 @@
     <fragment
         android:id="@+id/navigation_services"
         android:name="com.mestero.ui.dashboard.services.ServicesFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_services"
         tools:layout="@layout/fragment_services">
 
         <!-- Deep navigation action -->
@@ -107,7 +112,7 @@
     <fragment
         android:id="@+id/navigation_subcategories"
         android:name="com.mestero.ui.dashboard.subcategories.SubcategoriesFragment"
-        android:label="Subcategories">
+        android:label="@string/title_subcategories">
         <argument
             android:name="categoryId"
             app:argType="string" />
@@ -151,7 +156,8 @@
     <fragment
         android:id="@+id/navigation_listings"
         android:name="com.mestero.ui.dashboard.listings.ListingsFragment"
-        android:label="Listings">
+        android:label="@string/title_listings">
+
         <argument
             android:name="categoryId"
             app:argType="string" />
@@ -194,7 +200,7 @@
     <fragment
         android:id="@+id/navigation_listing_detail"
         android:name="com.mestero.ui.dashboard.listingDetail.ListingDetailFragment"
-        android:label="Listing Details"
+        android:label="@string/title_listing_detail"
         tools:layout="@layout/fragment_listing_detail">
         <argument
             android:name="listingId"
@@ -295,7 +301,7 @@
     <fragment
         android:id="@+id/navigation_edit_profile"
         android:name="com.mestero.ui.dashboard.profile.EditProfileFragment"
-        android:label="Edit Profile"
+        android:label="@string/title_edit_profile"
         tools:layout="@layout/fragment_edit_profile">
 
         <!-- Actions to top-level destinations -->
@@ -371,7 +377,7 @@
     <fragment
         android:id="@+id/navigation_chat"
         android:name="com.mestero.ui.dashboard.messages.ChatFragment"
-        android:label="Chat"
+        android:label="@string/title_chat"
         tools:layout="@layout/fragment_chat">
 
         <argument
@@ -389,7 +395,7 @@
     <fragment
         android:id="@+id/navigation_conversations"
         android:name="com.mestero.ui.dashboard.messages.ConversationsFragment"
-        android:label="Conversations"
+        android:label="@string/title_conversations"
         tools:layout="@layout/fragment_conversations">
 
         <action
