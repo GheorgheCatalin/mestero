@@ -39,7 +39,7 @@
         android:id="@+id/unreadBadge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="8dp"
+        android:paddingHorizontal="6dp"
         android:paddingTop="2dp"
         android:paddingBottom="2dp"
         android:background="@drawable/red_badge_background"

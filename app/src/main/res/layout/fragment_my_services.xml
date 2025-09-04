@@ -36,7 +36,7 @@
         android:id="@+id/textViewEmpty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="You haven't created any listings yet"
+        android:text="@string/no_listings_created_yet"
         android:textSize="16sp"
         android:textColor="?android:textColorSecondary"
         android:visibility="gone"
@@ -62,7 +62,7 @@
             android:id="@+id/textViewError"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Failed to load listings"
+            android:text="@string/failed_to_load_listings"
             android:textSize="16sp"
             android:textColor="?android:textColorSecondary"
             android:gravity="center"
@@ -73,7 +73,7 @@
             android:id="@+id/buttonRetry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Retry"
+            android:text="@string/retry"
             style="@style/Widget.Material3.Button.OutlinedButton" />
 
     </LinearLayout>

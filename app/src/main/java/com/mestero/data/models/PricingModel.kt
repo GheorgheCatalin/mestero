@@ -1,5 +1,7 @@
 package com.mestero.data.models
 
+import android.content.Context
+import com.mestero.R
 import com.mestero.utils.FormatUtils
 
  data class PricingModel(
@@ -30,11 +32,11 @@ import com.mestero.utils.FormatUtils
         )
     }
     
-    fun getFormattedPrice(): String {
+    fun getFormattedPrice(context: Context): String {
         return when (type) {
-            PricingType.FIXED -> "${FormatUtils.formatCurrency(fixedPrice)} ${unit.getDisplayText()}"
-            PricingType.RANGE -> "${FormatUtils.formatCurrency(minPrice)} - ${FormatUtils.formatCurrency(maxPrice)} ${unit.getDisplayText()}"
-            PricingType.TO_BE_AGREED -> "Contact for price"
+            PricingType.FIXED -> "${FormatUtils.formatCurrency(fixedPrice)} ${unit.getDisplayText(context)}"
+            PricingType.RANGE -> "${FormatUtils.formatCurrency(minPrice)} - ${FormatUtils.formatCurrency(maxPrice)} ${unit.getDisplayText(context)}"
+            PricingType.TO_BE_AGREED -> context.getString(R.string.contact_for_price)
         }
     }
     
@@ -73,14 +75,13 @@ enum class PricingType {
     TO_BE_AGREED
 }
 
-enum class PricingUnit(private val displayText: String) {
-    // TODO move to strings?
-    TOTAL("total"),
-    PER_HOUR("per hour"),
-    PER_SESSION("per session"),
-    PER_SQUARE_METER("per m²");
+enum class PricingUnit(private val displayTextResId: Int) {
+    TOTAL(R.string.pricing_fixed),
+    PER_HOUR(R.string.pricing_hourly),
+    PER_SESSION(R.string.pricing_session),
+    PER_SQUARE_METER(R.string.pricing_square_meter);
     
-    fun getDisplayText(): String = displayText
+    fun getDisplayText(context: Context): String = context.getString(displayTextResId)
 }
 
  

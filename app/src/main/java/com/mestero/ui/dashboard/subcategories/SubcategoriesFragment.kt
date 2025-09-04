@@ -55,7 +55,7 @@ class SubcategoriesFragment : Fragment() {
                 val action = SubcategoriesFragmentDirections.actionSubcategoriesToListings(
                         categoryId = args.categoryId,
                         subcategoryId = subcategory.id,
-                        title = subcategory.title
+                        title = subcategory.getLocalizedTitle(requireContext())
                     )
                 findNavController().navigate(action)
             }
@@ -82,7 +82,7 @@ class SubcategoriesFragment : Fragment() {
         val query = binding.searchEditText.text?.toString()?.trim()
         
         if (query.isNullOrBlank()) {
-            Toast.makeText(context, "Please enter a search term", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, getString(R.string.search_empty_query), Toast.LENGTH_SHORT).show()
             return
         }
         
@@ -94,7 +94,7 @@ class SubcategoriesFragment : Fragment() {
             )
             findNavController().navigate(action)
         } catch (e: Exception) {
-            Toast.makeText(context, "Error performing search", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, getString(R.string.error_search_failed), Toast.LENGTH_SHORT).show()
         }
     }
 

@@ -148,35 +148,33 @@
     <string name="subcategory_academic">Academic Tutoring</string>
     <string name="subcategory_language">Language Learning</string>
     <string name="subcategory_music_lessons">Music Lessons</string>
-    <string name="subcategory_art">Art &amp; Crafts</string>
-    <string name="subcategory_computer">Computer Skills</string>
-    <string name="subcategory_professional_dev">Professional Development</string>
+    <string name="subcategory_professional_skills">Professional Skills</string>
+    <string name="subcategory_hobby">Hobby Classes</string>
     
     <!-- Subcategories - Transportation -->
-    <string name="subcategory_rideshare">Rideshare &amp; Taxi</string>
+    <string name="subcategory_ride">Ride Services</string>
     <string name="subcategory_delivery">Delivery Services</string>
     <string name="subcategory_moving">Moving Services</string>
-    <string name="subcategory_logistics">Logistics &amp; Freight</string>
+    <string name="subcategory_logistics">Logistics</string>
     
     <!-- Subcategories - Childcare -->
     <string name="subcategory_babysitting">Babysitting</string>
     <string name="subcategory_nanny">Nanny Services</string>
-    <string name="subcategory_eldercare">Eldercare</string>
-    <string name="subcategory_tutoring">Academic Support</string>
+    <string name="subcategory_elderly">Elderly Care</string>
+    <string name="subcategory_special_needs">Special Needs Care</string>
     
     <!-- Subcategories - Pet -->
-    <string name="subcategory_pet_sitting">Pet Sitting</string>
-    <string name="subcategory_dog_walking">Dog Walking</string>
     <string name="subcategory_grooming">Pet Grooming</string>
-    <string name="subcategory_training">Pet Training</string>
+    <string name="subcategory_sitting">Pet Sitting &amp; Walking</string>
     <string name="subcategory_veterinary">Veterinary Services</string>
+    <string name="subcategory_training">Pet Training</string>
     
     <!-- Subcategories - Specialty -->
-    <string name="subcategory_real_estate">Real Estate Services</string>
-    <string name="subcategory_insurance">Insurance Services</string>
-    <string name="subcategory_financial">Financial Planning</string>
-    <string name="subcategory_travel">Travel Planning</string>
-    <string name="subcategory_fashion">Fashion &amp; Styling</string>
+    <string name="subcategory_staging">Home Staging</string>
+    <string name="subcategory_eco">Eco-Friendly Services</string>
+    <string name="subcategory_fabrication">Custom Fabrication</string>
+    <string name="subcategory_spiritual">Spiritual Services</string>
+    <string name="subcategory_repair">Repair Services</string>
     
     <!-- UI Messages -->
     <string name="no_booking_requests_received">No booking requests received yet</string>
@@ -271,13 +269,10 @@
     <string name="title_listings">Listings</string>
     
     <!-- Pricing Models -->
-    <string name="pricing_fixed">Fixed Price</string>
-    <string name="pricing_hourly">Per Hour</string>
-    <string name="pricing_daily">Per Day</string>
-    <string name="pricing_weekly">Per Week</string>
-    <string name="pricing_monthly">Per Month</string>
-    <string name="pricing_custom">Custom</string>
-    <string name="pricing_negotiable">Negotiable</string>
+    <string name="pricing_fixed">total</string>
+    <string name="pricing_hourly">per hour</string>
+    <string name="pricing_session">per session</string>
+    <string name="pricing_square_meter">per m²</string>
     
     <!-- Booking Item Details -->
     <string name="booking_item_requested_on">Requested on: %1$s</string>
@@ -334,4 +329,248 @@
     <string name="location_not_specified">Location not specified</string>
     <string name="online_services">Online Services</string>
     <string name="no_preference">No Preference</string>
+    <string name="price_required">Price is required</string>
+    <string name="failed_to_load_listing">Failed to load listing</string>
+    <string name="retry">Retry</string>
+    <string name="price_label">Price:</string>
+    <string name="service_provider">Service Provider</string>
+    <string name="view_profile">View Profile >></string>
+    <string name="contact_information">Contact Information</string>
+    <string name="call">Call >></string>
+    <string name="email">Email >></string>
+    <string name="request_service">Request Service</string>
+    <string name="message_provider">Message Provider</string>
+    <string name="email_label">Email:</string>
+    <string name="phone_label">Phone:</string>
+    <string name="requested_on">Requested on </string>
+    <string name="client_label">Client:</string>
+    <string name="notes_label">Notes:</string>
+    <string name="reject">Reject</string>
+    <string name="accept">Accept</string>
+    <string name="mark_as_completed">Mark as Completed</string>
+    <string name="hide">Hide</string>
+    <string name="provider_label">Provider: </string>
+    <string name="price_label_colon">Price: </string>
+    <string name="your_message">Your Message:</string>
+    <string name="provider_response">Provider Response:</string>
+    <string name="contact_information_colon">Contact Information:</string>
+    <string name="write_review">Write a Review</string>
+    <string name="waiting_for_provider">Waiting for provider response...</string>
+    <string name="request_accepted">Request accepted! You can now contact the provider.</string>
+    <string name="request_declined">Request was declined by the provider.</string>
+    <string name="completed_on">Completed on </string>
+    <string name="invalid_email">Invalid email</string>
+    <string name="first_name_required">First name is required</string>
+    <string name="first_name_company_required">First name or company name is required</string>
+    <string name="password_min_length">Password must be at least 6 characters</string>
+    <string name="passwords_do_not_match">Passwords do not match</string>
+    <string name="register_successful">Register successful</string>
+    <string name="client">Client</string>
+    <string name="provider">Provider</string>
+    <string name="listing_created_successfully">Listing created successfully!</string>
+    <string name="unknown_error_occurred">Unknown error occurred</string>
+    <string name="error_colon">Error: %1$s</string>
+    <string name="creating">Creating...</string>
+    <string name="pricing_type">Pricing type:</string>
+    <string name="fixed">Fixed</string>
+    <string name="range">Range</string>
+    <string name="on_request">On Request</string>
+    <string name="price_agreed_directly">Price will be agreed directly with the client</string>
+    <string name="contact_information_optional">Contact Information (Optional)</string>
+    <string name="service_area">Service Area</string>
+    <string name="please_enter_valid_price">Please enter a valid price</string>
+    <string name="min_price_required">Min price is required</string>
+    <string name="max_price_required">Max price is required</string>
+    <string name="please_enter_valid_min_price">Please enter a valid min price</string>
+    <string name="please_enter_valid_max_price">Please enter a valid max price</string>
+    <string name="max_price_greater_than_min">Max price must be greater than min price</string>
+    <string name="title_required">Title is required</string>
+    <string name="title_length_validation">Title must be between %1$d and %2$d characters</string>
+    <string name="description_required">Description is required</string>
+    <string name="description_length_validation">Description must be between %1$d and %2$d characters</string>
+    <string name="please_select_category">Please select a category</string>
+    <string name="please_select_subcategory">Please select a subcategory</string>
+    <string name="please_enter_valid_email">Please enter a valid email address</string>
+    <string name="please_enter_valid_website">Please enter a valid website URL</string>
+    <string name="service_colon">Service: %1$s</string>
+    <string name="cancel">Cancel</string>
+    <string name="send_request">Send Request</string>
+    <string name="please_wait_listing_load">Please wait for listing to load</string>
+    <string name="provider_profile_coming_soon">Provider profile feature coming soon!</string>
+    <string name="provider_not_available">Provider not available at the moment</string>
+    <string name="success">Success</string>
+    <string name="error_colon_message">Error: %1$s</string>
+    <string name="provider_default">Provider</string>
+    <string name="professional_provider">Professional Provider</string>
+    <string name="no_reviews_yet">No reviews yet</string>
+    <string name="inquiry_about">Inquiry about: %1$s</string>
+    <string name="no_email_app_found">No email app found</string>
+    <string name="no_browser_app_found">No browser app found</string>
+    <string name="no_bookings_found">No bookings found</string>
+    <string name="provider_declined_request">Provider declined the request</string>
+    <string name="mark_completed_confirmation">Are you sure you want to mark "%1$s" as completed for %2$s?\n\nThis action cannot be undone.</string>
+    <string name="yes_complete">Yes, Complete</string>
+    <string name="hide_booking">Hide Booking</string>
+    <string name="hide_booking_confirmation">Are you sure you want to hide this booking? You can view it again later in your booking history.</string>
+    <string name="cannot_make_phone_calls">Cannot make phone calls</string>
+    <string name="error_navigating_listing_details">Error navigating to listing details</string>
+    <string name="service_review_needs">Service review needs</string>
+    <string name="provider_review_needs">Provider review needs %1$d more characters</string>
+    <string name="provide_rating_to_submit">Please provide at least one rating to submit a review</string>
+    <string name="rate_service_quality">Rate the Service Quality</string>
+    <string name="how_was_work_quality">How was the quality of work delivered?</string>
+    <string name="rate_provider">Rate the Provider</string>
+    <string name="post_anonymously">Post anonymously</string>
+    <string name="submit_review">Submit Review</string>
+    <string name="accepted">accepted</string>
+    <string name="rejected">rejected</string>
+    <string name="marked_as_completed">marked as completed</string>
+    <string name="updated">updated</string>
+    <string name="booking_status_success">Booking %1$s successfully!</string>
+    <string name="booking_hidden_success">Booking hidden successfully!</string>
+    <string name="failed_load_bookings">Failed to load bookings: %1$s</string>
+    <string name="failed_load_client_bookings">Failed to load your bookings: %1$s</string>
+    <string name="already_reviewed">You have already reviewed this booking</string>
+    <string name="review_submitted_success">Review submitted successfully!</string>
+    <string name="more_characters">more characters</string>
+    <string name="tell_about_service_quality">Tell others about the service quality (optional)</string>
+    <string name="tell_about_provider">Tell others about the provider (optional)</string>
+    <string name="share_experience_optional">Share your experience - comments are optional (min 5 chars if provided)</string>
+    <string name="welcome_user">Welcome, user</string>
+    <string name="no_posts_yet">You haven\'t posted anything yet</string>
+    <string name="no_new_posts_available">No new posts available</string>
+    <string name="categories">Categories</string>
+    <string name="see_all">See All</string>
+    <string name="no_popular_services_yet">No popular services yet</string>
+    <string name="views_count">%1$d views</string>
+    <string name="additional_notes_requirements">Additional notes or requirements</string>
+    <string name="send">Send</string>
+    <string name="no_conversations">No conversations</string>
+    <string name="no_listings_created_yet">You haven\'t created any listings yet</string>
+    <string name="failed_to_load_listings">Failed to load listings</string>
+    <string name="basic_information">Basic Information</string>
+    <string name="professional_information">Professional Information</string>
+    <string name="skills_specialties">Skills &amp; Specialties</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="beginner">Beginner</string>
+    <string name="intermediate">Intermediate</string>
+    <string name="expert">Expert</string>
+    <string name="saving">Saving...</string>
+    <string name="profile_updated_successfully">Profile updated successfully</string>
+    <string name="first_name_cannot_be_cleared">First name cannot be cleared</string>
+    <string name="last_name_cannot_be_cleared">Last name cannot be cleared</string>
+    <string name="please_enter_valid_website_url">Please enter a valid website URL</string>
+    <string name="client_type">Client</string>
+    <string name="email_placeholder">user@email.com</string>
+    <string name="rating_placeholder">0.0 (0 reviews)</string>
+    <string name="phone_number_not_set">Phone number not set</string>
+    <string name="location_not_set">Location not set</string>
+    <string name="skills_specialties_profile">Skills &amp; Specialties</string>
+    <string name="english">English</string>
+    <string name="no_services_found_query">No services found for "%1$s"</string>
+    <string name="no_services_found_query_category">No services found for "%1$s" in this category</string>
+    <string name="please_enter_search_term">Please enter a search term</string>
+    <string name="unknown_error">Unknown error</string>
+
+
+    <!-- Subcategory Descriptions -->
+    <!-- Home Improvement -->
+    <string name="subcategory_plumbing_description">Pipe repair, leak fixing, drain cleaning, water heater installation, faucet replacement</string>
+    <string name="subcategory_electrical_description">Wiring, lighting installation, circuit breaker repair, outlet installation, smart home setup</string>
+    <string name="subcategory_tiling_description">Ceramic tiling, porcelain tiling, mosaic installation, tile repair, grouting</string>
+    <string name="subcategory_flooring_description">Hardwood installation, carpet installation, laminate flooring, vinyl flooring, floor refinishing</string>
+    <string name="subcategory_carpentry_description">Furniture building, cabinetry, deck construction, framing, trim work</string>
+    <string name="subcategory_painting_description">Interior painting, exterior painting, wallpaper installation, decorative painting</string>
+    <string name="subcategory_hvac_description">Air conditioning repair, heating system installation, duct cleaning, thermostat setup</string>
+    <string name="subcategory_roofing_description">Roof repair, shingle replacement, gutter cleaning, roof inspection</string>
+    <string name="subcategory_masonry_description">Brickwork, stonework, concrete pouring, chimney repair</string>
+    <string name="subcategory_handyman_description">Furniture assembly, minor repairs, wall mounting, door repair</string>
+
+    <!-- Automotive -->
+    <string name="subcategory_auto_repair_description">Brake repair, oil changes, engine diagnostics, tire services</string>
+    <string name="subcategory_detailing_description">Interior cleaning, exterior polishing, waxing</string>
+    <string name="subcategory_towing_description">Flat tire repair, battery jumpstart, vehicle towing</string>
+    <string name="subcategory_customization_description">Car wrapping, custom paint jobs, audio system installation</string>
+
+    <!-- Professional -->
+    <string name="subcategory_legal_description">Contract drafting, legal consultation, notary services</string>
+    <string name="subcategory_accounting_description">Tax preparation, payroll services, financial planning</string>
+    <string name="subcategory_marketing_description">Social media management, SEO, content creation, graphic design</string>
+    <string name="subcategory_it_description">Computer repair, software installation, network setup, cybersecurity</string>
+    <string name="subcategory_consulting_description">Business strategy, HR consulting, management consulting</string>
+    <string name="subcategory_admin_description">Virtual assistance, data entry, scheduling</string>
+
+    <!-- Outdoor -->
+    <string name="subcategory_landscaping_description">Lawn mowing, garden design, tree trimming, irrigation systems</string>
+    <string name="subcategory_hardscaping_description">Patio installation, walkway construction, retaining walls</string>
+    <string name="subcategory_pest_control_description">Insect extermination, rodent control, eco-friendly pest solutions</string>
+    <string name="subcategory_snow_removal_description">Snow plowing, ice management, sidewalk clearing</string>
+    <string name="subcategory_pool_description">Pool cleaning, chemical balancing, pool repair</string>
+
+    <!-- Creative -->
+    <string name="subcategory_photography_description">Wedding photography, portrait photography, event photography, product photography</string>
+    <string name="subcategory_videography_description">Video editing, event filming, promotional videos</string>
+    <string name="subcategory_event_planning_description">Wedding planning, corporate events, birthday parties, catering coordination</string>
+    <string name="subcategory_music_description">DJ services, live bands, music lessons, performance artists</string>
+    <string name="subcategory_graphic_design_description">Logo design, branding, illustration, print design</string>
+    <string name="subcategory_writing_description">Copywriting, content writing, proofreading, translation</string>
+
+    <!-- Technical -->
+    <string name="subcategory_welding_description">Metal fabrication, structural welding, artistic welding</string>
+    <string name="subcategory_machinery_description">Heavy equipment repair, small engine repair</string>
+    <string name="subcategory_locksmith_description">Lock installation, key duplication, emergency lockout</string>
+    <string name="subcategory_security_description">Alarm systems, CCTV installation, smart locks</string>
+
+    <!-- Health -->
+    <string name="subcategory_home_health_description">Post-surgery care, mobility assistance, medication reminders</string>
+    <string name="subcategory_physical_therapy_description">In-home therapy, rehabilitation exercises</string>
+    <string name="subcategory_alternative_description">Acupuncture, chiropractic services, herbal consultations</string>
+    <string name="subcategory_medical_transport_description">Non-emergency medical transport, wheelchair-accessible vans</string>
+
+    <!-- Cleaning -->
+    <string name="subcategory_residential_description">House cleaning, deep cleaning, move-in/move-out cleaning</string>
+    <string name="subcategory_commercial_description">Office cleaning, retail space cleaning, post-construction cleanup</string>
+    <string name="subcategory_specialized_description">Carpet cleaning, upholstery cleaning, window washing, pressure washing</string>
+    <string name="subcategory_eco_friendly_description">Green cleaning, non-toxic product cleaning</string>
+    <string name="subcategory_organizing_description">Decluttering, closet organization, storage solutions</string>
+
+    <!-- Personal Care -->
+    <string name="subcategory_hair_description">Haircuts, styling, coloring, extensions, barber services</string>
+    <string name="subcategory_nails_description">Manicures, pedicures, nail art, gel/acrylic nails</string>
+    <string name="subcategory_spa_description">Deep tissue massage, Swedish massage, facials, body treatments</string>
+    <string name="subcategory_fitness_description">Personal training, yoga instruction, group fitness classes</string>
+    <string name="subcategory_nutrition_description">Meal planning, nutrition coaching, dietary consultations</string>
+    <string name="subcategory_wellness_description">Life coaching, meditation sessions, therapy referrals</string>
+
+    <!-- Education -->
+    <string name="subcategory_academic_description">Math tutoring, science tutoring, language tutoring, test prep (SAT, ACT)</string>
+    <string name="subcategory_language_description">ESL, Spanish, French, language immersion</string>
+    <string name="subcategory_music_lessons_description">Piano lessons, guitar lessons, vocal coaching</string>
+    <string name="subcategory_professional_skills_description">Coding bootcamps, public speaking, leadership training</string>
+    <string name="subcategory_hobby_description">Cooking classes, painting workshops, photography courses</string>
+
+    <!-- Pet -->
+    <string name="subcategory_grooming_description">Dog grooming, cat grooming, nail trimming</string>
+    <string name="subcategory_sitting_description">Dog walking, in-home pet sitting, boarding</string>
+    <string name="subcategory_veterinary_description">Mobile vet visits, vaccinations, pet health consultations</string>
+    <string name="subcategory_training_description">Obedience training, behavioral training, agility training</string>
+
+    <!-- Transportation -->
+    <string name="subcategory_ride_description">Private drivers, airport shuttles, event transportation</string>
+    <string name="subcategory_delivery_description">Courier services, grocery delivery, furniture transport</string>
+    <string name="subcategory_moving_description">Residential moving, commercial moving, packing services</string>
+    <string name="subcategory_logistics_description">Freight transport, supply chain coordination</string>
+
+    <!-- Childcare -->
+    <string name="subcategory_babysitting_description">Infant care, after-school care, overnight sitting</string>
+    <string name="subcategory_nanny_description">Full-time nannies, part-time caregivers, au pair services</string>
+    <string name="subcategory_elderly_description">In-home care, companionship, medical assistance</string>
+    <string name="subcategory_special_needs_description">Autism support, disability care, therapy assistance</string>
+
+    <!-- Specialty -->
+    <string name="subcategory_staging_description">Real estate staging, interior decorating for sales</string>
+    <string name="subcategory_eco_description">Solar panel installation, energy audits, sustainable landscaping</string>
+    <string name="subcategory_fabrication_description">3D printing, custom metalwork, bespoke furniture</string>
+    <string name="subcategory_spiritual_description">Tarot reading, astrology consultations, life coaching</string>
+    <string name="subcategory_repair_description">Electronics repair, appliance repair, jewelry repair</string>
 </resources>

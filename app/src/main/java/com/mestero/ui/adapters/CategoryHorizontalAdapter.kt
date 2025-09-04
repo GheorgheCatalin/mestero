@@ -14,7 +14,7 @@ class CategoryHorizontalAdapter(
     inner class CategoryViewHolder(private val binding: ItemCategoryHorizontalBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(category: Category) {
             binding.apply {
-                categoryTitle.text = category.title
+                categoryTitle.text = category.getLocalizedTitle(binding.root.context)
                 categoryIcon.setImageResource(category.iconResId)
                 
                 root.setOnClickListener {

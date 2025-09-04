@@ -55,7 +55,7 @@ class SearchResultsFragment : Fragment() {
         
         // Check if this is a category specific search
         if (!categoryId.isNullOrEmpty()) {
-            val categoryName = CategoryManager.getCategoryById(categoryId)?.title ?: "this category"
+            val categoryName = CategoryManager.getLocalizedCategoryTitle(requireContext(), categoryId) ?: "this category"
             binding.searchQueryText.text = getString(R.string.search_results_category, searchQuery, categoryName)
             viewModel.searchInSpecificCategory(searchQuery, categoryId)
         } else {
@@ -104,7 +104,7 @@ class SearchResultsFragment : Fragment() {
         val categoryId = args.categoryId
         
         if (!categoryId.isNullOrEmpty()) {
-            val categoryName = CategoryManager.getCategoryById(categoryId)?.title ?: "this category"
+            val categoryName = CategoryManager.getLocalizedCategoryTitle(requireContext(), categoryId) ?: "this category"
             binding.searchQueryText.text = getString(R.string.search_results_category, query, categoryName)
             viewModel.searchInSpecificCategory(query, categoryId)
         } else {

@@ -139,19 +139,19 @@ class ReviewDialog(
         // Check if service comment exists but doesn't match comment size
         if (serviceComment.isNotEmpty() && serviceComment.length < ReviewModel.MIN_COMMENT_LENGTH) {
             messages.add(
-                "Service review needs " +
+                context.getString(R.string.service_review_needs) + " " +
                         "${ReviewModel.MIN_COMMENT_LENGTH - serviceComment.length}" +
-                        " more characters"
+                        " " + context.getString(R.string.more_characters)
             )
         }
 
         // Check if provider comment exists but doesn't match comment size
         if (providerComment.isNotEmpty() && providerComment.length < ReviewModel.MIN_COMMENT_LENGTH) {
-            messages.add("Provider review needs ${ReviewModel.MIN_COMMENT_LENGTH - providerComment.length} more characters")
+            messages.add(context.getString(R.string.provider_review_needs, ReviewModel.MIN_COMMENT_LENGTH - providerComment.length))
         }
 
         return if (messages.isEmpty()) {
-            "Please provide at least one rating to submit a review"
+            context.getString(R.string.provide_rating_to_submit)
         } else {
             messages.joinToString(". ")
         }

@@ -83,7 +83,7 @@ class BookingsFragment : Fragment() {
                 providerViewModel.acceptBooking(booking.id)
             },
             onRejectClick = { booking ->
-                providerViewModel.rejectBooking(booking.id, "Provider declined the request")
+                providerViewModel.rejectBooking(booking.id, getString(R.string.provider_declined_request))
             },
             onCompleteClick = { booking ->
                 showCompleteBookingDialog(booking)
@@ -161,11 +161,11 @@ class BookingsFragment : Fragment() {
 
         providerViewModel.updateResult.observe(viewLifecycleOwner) { result ->
             if (result.isSuccess) {
-                val message = result.getOrNull() ?: "Success"
+                val message = result.getOrNull() ?: getString(R.string.success)
                 Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
             } else {
                 val error = result.exceptionOrNull()
-                Toast.makeText(context, "Error: ${error?.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, getString(R.string.error_colon_message, error?.message ?: ""), Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -219,38 +219,38 @@ class BookingsFragment : Fragment() {
 
         clientViewModel.updateResult.observe(viewLifecycleOwner) { result ->
             if (result.isSuccess) {
-                val message = result.getOrNull() ?: "Success"
+                val message = result.getOrNull() ?: getString(R.string.success)
                 Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
             } else {
                 val error = result.exceptionOrNull()
-                Toast.makeText(context, "Error: ${error?.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, getString(R.string.error_colon_message, error?.message ?: ""), Toast.LENGTH_LONG).show()
             }
         }
     }
 
     private fun showCompleteBookingDialog(booking: com.mestero.data.models.BookingRequestModel) {
         AlertDialog.Builder(requireContext())
-            .setTitle("Mark as Completed")
-            .setMessage("Are you sure you want to mark \"${booking.listingTitle}\" as completed for ${booking.clientName}?\n\nThis action cannot be undone.")
-            .setPositiveButton("Yes, Complete") { _, _ ->
+            .setTitle(getString(R.string.mark_as_completed))
+            .setMessage(getString(R.string.mark_completed_confirmation, booking.listingTitle, booking.clientName))
+            .setPositiveButton(getString(R.string.yes_complete)) { _, _ ->
                 providerViewModel.completeBooking(booking.id)
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton(getString(R.string.cancel), null)
             .show()
     }
 
     private fun showHideBookingDialog(booking: com.mestero.data.models.BookingRequestModel, isProvider: Boolean) {
         AlertDialog.Builder(requireContext())
-            .setTitle("Hide Booking")
-            .setMessage("Are you sure you want to hide this booking? You can view it again later in your booking history.")
-            .setPositiveButton("Hide") { _, _ ->
+            .setTitle(getString(R.string.hide_booking))
+            .setMessage(getString(R.string.hide_booking_confirmation))
+            .setPositiveButton(getString(R.string.hide)) { _, _ ->
                 if (isProvider) {
                     providerViewModel.hideBooking(booking.id)
                 } else {
                     clientViewModel.hideBooking(booking.id)
                 }
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton(getString(R.string.cancel), null)
             .show()
     }
 
@@ -263,7 +263,7 @@ class BookingsFragment : Fragment() {
                 try {
                     startActivity(intent)
                 } catch (e: Exception) {
-                    Toast.makeText(context, "No email app found", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, getString(R.string.no_email_app_found), Toast.LENGTH_SHORT).show()
                 }
             }
             "phone" -> {
@@ -273,7 +273,7 @@ class BookingsFragment : Fragment() {
                 try {
                     startActivity(intent)
                 } catch (e: Exception) {
-                    Toast.makeText(context, "Cannot make phone calls", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, getString(R.string.cannot_make_phone_calls), Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -295,7 +295,7 @@ class BookingsFragment : Fragment() {
             val action = BookingsFragmentDirections.actionBookingsToListingDetail(listingId)
             findNavController().navigate(action)
         } catch (e: Exception) {
-            Toast.makeText(context, "Error navigating to listing details", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, getString(R.string.error_navigating_listing_details), Toast.LENGTH_SHORT).show()
         }
     }
 

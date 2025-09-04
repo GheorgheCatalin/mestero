@@ -7,6 +7,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.mestero.R
 import com.mestero.data.models.BookingRequestModel
 import com.mestero.data.models.RequestStatus
 import com.mestero.databinding.ItemBookingRequestBinding
@@ -64,14 +65,16 @@ class BookingRequestAdapter(
                 var hasContact = false
                 if (booking.clientEmail.isNotBlank()) {
                     emailTextView.isVisible = true
-                    emailTextView.text = "Email: ${booking.clientEmail}"
+                    val emailText = binding.root.context.getString(R.string.email_label) + booking.clientEmail
+                    emailTextView.text = emailText
                     hasContact = true
                 } else {
                     emailTextView.isVisible = false
                 }
                 if (booking.clientPhone.isNotBlank()) {
                     phoneTextView.isVisible = true
-                    phoneTextView.text = "Phone: ${booking.clientPhone}"
+                    val phoneText = binding.root.context.getString(R.string.phone_label) + booking.clientPhone
+                    phoneTextView.text = phoneText
                     hasContact = true
                 } else {
                     phoneTextView.isVisible = false
@@ -80,8 +83,9 @@ class BookingRequestAdapter(
                 contactLayout.isVisible = hasContact
 
                 // Creation date
-                createdAtTextView.text =
-                    "Requested on ${FormatUtils.formatBookingDate(booking.createdAt)}"
+                val requestedOnText = binding.root.context.getString(R.string.requested_on) +
+                        FormatUtils.formatBookingDate(booking.createdAt)
+                createdAtTextView.text = requestedOnText
 
                 // Action buttons based on status
                 setActionButtonsBasedOnStatus(this, booking)

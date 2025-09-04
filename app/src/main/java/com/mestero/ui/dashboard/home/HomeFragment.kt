@@ -73,7 +73,7 @@ class HomeFragment : Fragment() {
         categoriesAdapter = CategoryHorizontalAdapter(emptyList()) { category ->
             // Log category selection
             Analytics.logEvent(Analytics.Events.CATEGORY_SELECTED, mapOf(
-                Analytics.Params.CATEGORY to category.title,
+                Analytics.Params.CATEGORY to category.titleResId,
                 "category_id" to category.id
             ))
             
@@ -81,7 +81,7 @@ class HomeFragment : Fragment() {
             try {
                 val action = HomeFragmentDirections.actionHomeToSubcategories(
                     categoryId = category.id,
-                    categoryTitle = category.title
+                    categoryTitle = category.getLocalizedTitle(requireContext())
                 )
                 findNavController().navigate(action)
             } catch (e: Exception) {

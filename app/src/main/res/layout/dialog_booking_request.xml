@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Request Service"
+        android:text="@string/request_service"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="?colorOnSurface"
@@ -24,7 +24,7 @@
         android:textSize="16sp"
         android:textColor="?colorOnSurface"
         android:layout_marginBottom="16dp"
-        android:text="Service: Web Development" />
+        android:text="@string/service_colon" />
 
 
 
@@ -35,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:hint="Additional notes or requirements"
+        android:hint="@string/additional_notes_requirements"
         app:hintTextColor="?colorOnSurface">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -62,14 +62,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:text="Cancel"
+            android:text="@string/cancel"
             android:textAllCaps="false" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/sendRequestButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Send Request"
+            android:text="@string/send_request"
             android:textAllCaps="false" />
 
     </LinearLayout>

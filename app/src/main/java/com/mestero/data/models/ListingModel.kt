@@ -1,9 +1,11 @@
 package com.mestero.data.models
 
+import android.content.Context
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentId
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.ServerTimestamp
+import com.mestero.R
 import com.mestero.utils.FormatUtils
 import com.mestero.constants.FirestoreCollections
 import java.util.*
@@ -100,8 +102,9 @@ data class ListingModel(
     }
 
     // Computed properties declared in the data class for consistency in the Views
-    val formattedPrice: String
-        get() = pricingModel?.getFormattedPrice() ?: "Contact for price"
+    fun getFormattedPrice(context: Context): String {
+        return pricingModel?.getFormattedPrice(context) ?: context.getString(R.string.contact_for_price)
+    }
 
     // Calculated rating average (for display purposes)
     val ratingAvg: Double
@@ -113,13 +116,14 @@ data class ListingModel(
     val hasContactInfo: Boolean
         get() = phoneNumber.isNotBlank() || email.isNotBlank() || website.isNotBlank()
 
-    val displayLocation: String
-        get() = when {
-            county == "Online Services" -> "Online Services"
+    fun getDisplayLocation(context: Context): String {
+        return when {
+            county == context.getString(R.string.online_services) -> context.getString(R.string.online_services)
             specificLocations.isNotBlank() -> "$specificLocations, $county"
-            county != "No Preference" -> county
-            else -> "Location not specified"
+            county != context.getString(R.string.no_preference) -> county
+            else -> context.getString(R.string.location_not_specified)
         }
+    }
 
     // Check if listing has been created in the last 24 hours // TODO maybe display in home screen
     val isNew: Boolean

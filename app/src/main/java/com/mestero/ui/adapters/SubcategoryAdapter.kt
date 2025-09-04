@@ -14,8 +14,8 @@ class SubcategoryAdapter(
     inner class SubcategoryViewHolder(private val binding: ItemSubcategoryBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(subcategory: Subcategory) {
             binding.apply {
-                subcategoryTitle.text = subcategory.title
-                subcategoryDescription.text = subcategory.description
+                subcategoryTitle.text = subcategory.getLocalizedTitle(binding.root.context)
+                subcategoryDescription.text = subcategory.getLocalizedDescription(binding.root.context)
                 subcategoryIcon.setImageResource(subcategory.iconResId)
                 
                 root.setOnClickListener {

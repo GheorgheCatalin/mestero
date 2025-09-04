@@ -30,16 +30,16 @@ class ListingAdapter(
 
         fun bind(listing: ListingModel) {
             binding.apply {
-                val categoryTitle = CategoryManager.getCategoryById(listing.category)?.title ?: listing.category
-                val subcategoryTitle = CategoryManager.getSubcategoryById(listing.subcategory)?.title ?: listing.subcategory
+                val categoryTitle = CategoryManager.getLocalizedCategoryTitle(binding.root.context, listing.category)
+                val subcategoryTitle = CategoryManager.getLocalizedSubcategoryTitle(binding.root.context, listing.subcategory)
                 categoryTextView.text = categoryTitle
                 subcategoryTextView.text = subcategoryTitle
 
                 titleTextView.text = listing.title
                 descriptionTextView.text = listing.description
-                priceTextView.text = listing.formattedPrice
+                priceTextView.text = listing.getFormattedPrice(binding.root.context)
 
-                locationTextView.text = listing.displayLocation
+                locationTextView.text = listing.getDisplayLocation(binding.root.context)
 
                 root.setOnClickListener {
                     onListingClick(listing)

@@ -7,6 +7,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.mestero.R
 import com.mestero.data.models.BookingRequestModel
 import com.mestero.data.models.RequestStatus
 import com.mestero.databinding.ItemBookingRequestClientBinding
@@ -46,7 +47,7 @@ class ClientBookingRequestAdapter(
                 }
 
                 providerNameTextView.text =
-                    booking.providerName.ifBlank { "Provider" }
+                    booking.providerName.ifBlank { binding.root.context.getString(R.string.provider_label) }
                 statusTextView.text = booking.statusDisplayText
 
                 // Set status background color based on booking status
@@ -81,13 +82,15 @@ class ClientBookingRequestAdapter(
                 displayContanctInfo(booking)
 
                 // Dates
-                createdAtTextView.text =
-                    "Requested on ${FormatUtils.formatBookingDate(booking.createdAt)}"
+                val requestedOnText = binding.root.context.getString(R.string.requested_on) +
+                        FormatUtils.formatBookingDate(booking.createdAt)
+                createdAtTextView.text = requestedOnText
 
                 if (booking.completedAt != null && booking.status == RequestStatus.COMPLETED) {
                     completedAtTextView.isVisible = true
-                    completedAtTextView.text =
-                        "Completed on ${FormatUtils.formatBookingDate(booking.completedAt)}"
+                    val completedOnText = binding.root.context.getString(R.string.completed_on) +
+                            FormatUtils.formatBookingDate(booking.completedAt)
+                    completedAtTextView.text = completedOnText
                 } else {
                     completedAtTextView.isVisible = false
                 }
@@ -140,7 +143,7 @@ class ClientBookingRequestAdapter(
                         reviewButton.isVisible = false
                         hideButton.isVisible = false
 
-                        statusActionText.text = "Waiting for provider response..."
+                        statusActionText.text = binding.root.context.getString(R.string.waiting_for_provider)
                     }
 
                     RequestStatus.ACCEPTED -> {
@@ -149,8 +152,7 @@ class ClientBookingRequestAdapter(
                         reviewButton.isVisible = false
                         hideButton.isVisible = false
 
-                        statusActionText.text =
-                            "Request accepted! You can now contact the provider."  // TODO change text
+                        statusActionText.text = binding.root.context.getString(R.string.request_accepted)
                     }
 
                     RequestStatus.REJECTED -> {
@@ -159,7 +161,7 @@ class ClientBookingRequestAdapter(
                         reviewButton.isVisible = false
                         hideButton.isVisible = true
 
-                        statusActionText.text = "Request was declined by the provider."
+                        statusActionText.text = binding.root.context.getString(R.string.request_declined)
                         hideButton.setOnClickListener { onHideClick(booking) }
                     }
 

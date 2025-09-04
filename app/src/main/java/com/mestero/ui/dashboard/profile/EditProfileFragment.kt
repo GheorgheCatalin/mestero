@@ -26,7 +26,7 @@ class EditProfileFragment : Fragment() {
     private val viewModel: EditProfileViewModel by viewModels()
     
     private val selectedSkills = mutableListOf<String>()
-    private val experienceLevels = arrayOf("Beginner", "Intermediate", "Expert") // TODO could refactor later
+    private val experienceLevels = arrayOf(getString(R.string.beginner), getString(R.string.intermediate), getString(R.string.expert)) // TODO could refactor later
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -74,8 +74,8 @@ class EditProfileFragment : Fragment() {
 
     private fun setupLocationDropdown() {
         val counties = listOf(
-            "Online Services",
-            "No Preference",
+            getString(R.string.online_services),
+            getString(R.string.no_preference),
             "Alba", "Arad", "Argeș", "Bacău", "Bihor", "Bistrița-Năsăud", "Botoșani", "Brăila", "Brașov",
             "București", "Buzău", "Călărași", "Caraș-Severin", "Cluj", "Constanța", "Covasna", "Dâmbovița",
             "Dolj", "Galați", "Giurgiu", "Gorj", "Harghita", "Hunedoara", "Ialomița", "Iași", "Ilfov",
@@ -100,12 +100,12 @@ class EditProfileFragment : Fragment() {
 
         viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
             binding.saveButton.isEnabled = !isLoading
-            binding.saveButton.text = if (isLoading) "Saving..." else "Save Changes"
+            binding.saveButton.text = if (isLoading) getString(R.string.saving) else getString(R.string.save_changes)
         }
 
         viewModel.saveSuccess.observe(viewLifecycleOwner) { success ->
             if (success) {
-                Toast.makeText(requireContext(), "Profile updated successfully", Toast.LENGTH_SHORT)
+                Toast.makeText(requireContext(), getString(R.string.profile_updated_successfully), Toast.LENGTH_SHORT)
                     .show()
                 findNavController().navigateUp()
             }
@@ -127,7 +127,7 @@ class EditProfileFragment : Fragment() {
             
             // Set location fallback to "No Preference"
             val userLocation = user.location.ifEmpty {
-                "No Preference"
+                getString(R.string.no_preference)
             }
             locationEdit.setText(userLocation, false)
             
@@ -193,18 +193,18 @@ class EditProfileFragment : Fragment() {
         // Only block when  user is trying to clear required name fields that were previously filled
         val currentUserData = viewModel.userProfile.value
         if (firstName.isEmpty() && !currentUserData?.firstName.isNullOrBlank()) {
-            binding.firstNameEdit.error = "First name cannot be cleared"
+            binding.firstNameEdit.error = getString(R.string.first_name_cannot_be_cleared)
             return
         }
 
         if (lastName.isEmpty() && !currentUserData?.lastName.isNullOrBlank()) {
-            binding.lastNameEdit.error = "Last name cannot be cleared"
+            binding.lastNameEdit.error = getString(R.string.last_name_cannot_be_cleared)
             return
         }
 
         // Website URL validation (if entered)
         if (website.isNotEmpty() && !isValidUrl(website)) {
-            binding.websiteEdit.error = "Please enter a valid website URL"
+            binding.websiteEdit.error = getString(R.string.please_enter_valid_website_url)
             return
         }
 

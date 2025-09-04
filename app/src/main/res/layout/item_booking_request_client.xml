@@ -59,7 +59,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Provider: "
+                android:text="@string/provider_label"
                 android:textColor="@color/main_text_color"
                 android:textSize="14sp" />
 
@@ -87,7 +87,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Price: "
+                android:text="@string/price_label_colon"
                 android:textColor="@color/main_text_color2"
                 android:textSize="14sp" />
 
@@ -114,7 +114,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Your Message:"
+                android:text="@string/your_message"
                 android:textColor="@color/main_text_color2"
                 android:textSize="14sp"
                />
@@ -144,7 +144,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Provider Response:"
+                android:text="@string/provider_response"
                 android:textColor="@color/main_text_color2"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -174,7 +174,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Contact Information:"
+                android:text="@string/contact_information_colon"
                 android:textColor="@color/main_text_color2"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -255,7 +255,7 @@
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="4dp"
-                android:text="Write a Review"
+                android:text="@string/write_review"
                 android:layout_gravity="center"
                 android:textSize="15sp"
                 android:textAllCaps="false"
@@ -275,7 +275,7 @@
                 android:layout_marginTop="10dp"
                 android:paddingVertical="4dp"
                 android:paddingHorizontal="16dp"
-                android:text="Hide"
+                android:text="@string/hide"
                 android:layout_gravity="center"
                 android:textSize="14sp"
                 android:textAllCaps="false"

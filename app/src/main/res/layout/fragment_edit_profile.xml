@@ -33,7 +33,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Basic Information"
+                    android:text="@string/basic_information"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/main_text_color2"
@@ -111,7 +111,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Contact Information"
+                    android:text="@string/contact_information"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/main_text_color2"
@@ -188,7 +188,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Professional Information"
+                    android:text="@string/professional_information"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/main_text_color2"
@@ -214,7 +214,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Skills &amp; Specialties"
+                    android:text="@string/skills_specialties"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="@color/main_text_color"
@@ -253,7 +253,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="16dp"
-            android:text="Save Changes"
+            android:text="@string/save_changes"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@id/provider_info_card" />

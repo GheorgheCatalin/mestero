@@ -42,7 +42,7 @@
                     android:id="@+id/errorTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Failed to load listing"
+                    android:text="@string/failed_to_load_listing"
                     android:textSize="16sp"
                     android:textColor="?android:textColorSecondary"
                     android:layout_marginBottom="16dp" />
@@ -51,7 +51,7 @@
                     android:id="@+id/retryButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Retry"
+                    android:text="@string/retry"
                     style="@style/Widget.Material3.Button.OutlinedButton" />
 
             </LinearLayout>
@@ -133,7 +133,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Price:"
+                            android:text="@string/price_label"
                             android:textSize="18sp"
                             android:textStyle="bold"
                             android:textColor="@color/main_text_color"
@@ -182,7 +182,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Location"
+                        android:text="@string/listing_detail_location"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:textColor="@color/main_text_color"
@@ -221,7 +221,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Service Provider"
+                        android:text="@string/service_provider"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:textColor="?android:textColorPrimary"
@@ -288,14 +288,15 @@
                             android:id="@+id/viewProviderButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="View Profile >>"
+                            android:text="@string/view_profile"
                             android:textSize="14sp"
                             android:textStyle="bold"
                             android:textColor="@color/main"
                             android:padding="8dp"
                             android:background="?android:attr/selectableItemBackground"
                             android:clickable="true"
-                            android:focusable="true" />
+                            android:focusable="true"
+                            android:visibility="gone" />
 
                     </LinearLayout>
 
@@ -303,7 +304,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Contact Information"
+                        android:text="@string/contact_information"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:textColor="?android:textColorPrimary"
@@ -339,7 +340,7 @@
                                 android:id="@+id/callButton"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Call >>"
+                                android:text="@string/call"
                                 android:textSize="14sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/main"
@@ -374,7 +375,7 @@
                                 android:id="@+id/emailButton"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Email >>"
+                                android:text="@string/email"
                                 android:textSize="14sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/main"
@@ -441,7 +442,7 @@
             android:id="@+id/reserveButton"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:text="Request Service"
+            android:text="@string/request_service"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textAllCaps="false"
@@ -459,7 +460,7 @@
             android:id="@+id/messageButton"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="Message Provider"
+            android:text="@string/message_provider"
             android:textSize="14sp"
             android:textAllCaps="false"
             android:textColor="@color/main"

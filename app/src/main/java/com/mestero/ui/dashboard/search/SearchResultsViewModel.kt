@@ -48,7 +48,7 @@ class SearchResultsViewModel @Inject constructor(
                     performFirebaseSearch(query.trim())
                 } catch (e: Exception) {
                     _searchState.value = SearchResultsUiState.Error(
-                        "Error searching: ${e.message ?: "Unknown error"}"
+                        context.getString(R.string.error_searching, e.message ?: context.getString(R.string.unknown_error))
                     )
                     emptyList()
                 }
@@ -56,7 +56,7 @@ class SearchResultsViewModel @Inject constructor(
             
             if (searchResults.isEmpty()) {
                 _searchState.value = SearchResultsUiState.Empty(
-                    "No services found for \"$query\""
+                    context.getString(R.string.no_services_found_query, query)
                 )
             } else {
                 _searchState.value = SearchResultsUiState.Success(searchResults)
@@ -115,7 +115,7 @@ class SearchResultsViewModel @Inject constructor(
 
     fun searchInSpecificCategory(query: String, categoryId: String) {
         if (query.isBlank()) {
-            _searchState.value = SearchResultsUiState.Empty("Please enter a search term")
+            _searchState.value = SearchResultsUiState.Empty(context.getString(R.string.please_enter_search_term))
             return
         }
 
@@ -167,7 +167,7 @@ class SearchResultsViewModel @Inject constructor(
                     }
                 } catch (e: Exception) {
                     _searchState.value = SearchResultsUiState.Error(
-                        "Error searching: ${e.message ?: "Unknown error"}"
+                        context.getString(R.string.error_searching, e.message ?: context.getString(R.string.unknown_error))
                     )
                     emptyList()
                 }
@@ -175,7 +175,7 @@ class SearchResultsViewModel @Inject constructor(
 
             if (filteredResults.isEmpty()) {
                 _searchState.value = SearchResultsUiState.Empty(
-                    "No services found for \"$query\" in this category"
+                    context.getString(R.string.no_services_found_query_category, query)
                 )
             } else {
                 _searchState.value = SearchResultsUiState.Success(filteredResults)

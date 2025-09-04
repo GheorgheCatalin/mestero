@@ -76,7 +76,7 @@ class AddListingFragment : Fragment() {
                     createListingResult.isSuccess -> {
                         Toast.makeText(
                             requireContext(),
-                            "Listing created successfully!",
+                            getString(R.string.listing_created_successfully),
                             Toast.LENGTH_SHORT
                         ).show()
                         // Navigate back to home after creating listing
@@ -85,9 +85,9 @@ class AddListingFragment : Fragment() {
 
                     createListingResult.isFailure -> {
                         val error = createListingResult
-                            .exceptionOrNull()?.message ?: "Unknown error occurred"
+                            .exceptionOrNull()?.message ?: getString(R.string.unknown_error_occurred)
 
-                        Toast.makeText(requireContext(), "Error: $error", Toast.LENGTH_LONG).show()
+                        Toast.makeText(requireContext(), getString(R.string.error_colon, error), Toast.LENGTH_LONG).show()
                     }
                 }
                 viewModel.clearCreateListingResult()
@@ -96,14 +96,14 @@ class AddListingFragment : Fragment() {
 
         viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
             binding.submitButton.isEnabled = !isLoading
-            binding.submitButton.text = if (isLoading) "Creating..." else "Create Listing"
+            binding.submitButton.text = if (isLoading) getString(R.string.creating) else getString(R.string.create_listing)
         }
     }
 
     private fun setupCategorySelection() {
         val categories = CategoryManager.categories
         // Setup category dropdown
-        val categoryTitles = categories.map { it.title }
+        val categoryTitles = categories.map { it.getLocalizedTitle(requireContext()) }
         val categoryAdapter = ArrayAdapter(
             requireContext(),
             android.R.layout.simple_dropdown_item_1line,
@@ -127,7 +127,7 @@ class AddListingFragment : Fragment() {
             val subcategories = category.subcategories
 
             // Setup sub category dropdown
-            val subcategoryTitles = subcategories.map { it.title }
+            val subcategoryTitles = subcategories.map { it.getLocalizedTitle(requireContext()) }
             val subcategoryAdapter = ArrayAdapter(
                 requireContext(),
                 android.R.layout.simple_dropdown_item_1line,
@@ -169,13 +169,16 @@ class AddListingFragment : Fragment() {
     }
 
     private fun setupPricingUnitDropdown() {
-        val units = PricingUnit.values().map { it.getDisplayText() }
+        val units = PricingUnit.values().map { context?.let { it1 -> it.getDisplayText(it1) } }
         val adapter =
             ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, units)
         binding.pricingUnitAutoComplete.setAdapter(adapter)
 
         // Set default selection
-        binding.pricingUnitAutoComplete.setText(PricingUnit.TOTAL.getDisplayText(), false)
+        binding.pricingUnitAutoComplete.setText(
+            context?.let { PricingUnit.TOTAL.getDisplayText(it) },
+            false
+        )
 
         binding.pricingUnitAutoComplete.setOnItemClickListener { _, _, position, _ ->
             currentPricingUnit = PricingUnit.values()[position]
@@ -184,8 +187,8 @@ class AddListingFragment : Fragment() {
 
     private fun setupCountyDropdown() {
         val counties = listOf(
-            "Online Services",
-            "No Preference",
+            getString(R.string.online_services),
+            getString(R.string.no_preference),
             "Alba", "Arad", "Argeș", "Bacău", "Bihor", "Bistrița-Năsăud", "Botoșani", "Brăila", "Brașov",
             "București", "Buzău", "Călărași", "Caraș-Severin", "Cluj", "Constanța", "Covasna", "Dâmbovița",
             "Dolj", "Galați", "Giurgiu", "Gorj", "Harghita", "Hunedoara", "Ialomița", "Iași", "Ilfov",
@@ -202,7 +205,7 @@ class AddListingFragment : Fragment() {
             )
 
         // Set default to "No Pref"
-        binding.countyAutoComplete.setText("No Preference", false)
+        binding.countyAutoComplete.setText(getString(R.string.no_preference), false)
     }
 
     private fun updatePricingLayoutsVisibilityBasedOnType() {
@@ -235,13 +238,13 @@ class AddListingFragment : Fragment() {
             PricingType.FIXED -> {
                 val priceText = binding.fixedPriceEditText.text.toString()
                 if (priceText.isBlank()) {
-                    binding.fixedPriceInputLayout.error = "Price is required"
+                    binding.fixedPriceInputLayout.error = getString(R.string.price_required)
                     return null
                 }
 
                 val price = priceText.toDoubleOrNull()
                 if (price == null || price <= 0) {
-                    binding.fixedPriceInputLayout.error = "Please enter a valid price"
+                    binding.fixedPriceInputLayout.error = getString(R.string.please_enter_valid_price)
                     return null
                 }
 
@@ -253,26 +256,26 @@ class AddListingFragment : Fragment() {
                 val minPriceText = binding.minPriceEditText.text.toString()
                 val maxPriceText = binding.maxPriceEditText.text.toString()
                 if (minPriceText.isBlank()) {
-                    binding.minPriceInputLayout.error = "Min price is required"
+                    binding.minPriceInputLayout.error = getString(R.string.min_price_required)
                     return null
                 }
                 if (maxPriceText.isBlank()) {
-                    binding.maxPriceInputLayout.error = "Max price is required"
+                    binding.maxPriceInputLayout.error = getString(R.string.max_price_required)
                     return null
                 }
 
                 val minPrice = minPriceText.toDoubleOrNull()
                 val maxPrice = maxPriceText.toDoubleOrNull()
                 if (minPrice == null || minPrice <= 0) {
-                    binding.minPriceInputLayout.error = "Please enter a valid min price"
+                    binding.minPriceInputLayout.error = getString(R.string.please_enter_valid_min_price)
                     return null
                 }
                 if (maxPrice == null || maxPrice <= 0) {
-                    binding.maxPriceInputLayout.error = "Please enter a valid max price"
+                    binding.maxPriceInputLayout.error = getString(R.string.please_enter_valid_max_price)
                     return null
                 }
                 if (minPrice >= maxPrice) {
-                    binding.maxPriceInputLayout.error = "Max price must be greater than min price"
+                    binding.maxPriceInputLayout.error = getString(R.string.max_price_greater_than_min)
                     return null
                 }
 
@@ -291,12 +294,12 @@ class AddListingFragment : Fragment() {
         // Validate title--
         val title = binding.titleEditText.text.toString().trim()
         if (title.isBlank()) {
-            binding.titleInputLayout.error = "Title is required"
+            binding.titleInputLayout.error = getString(R.string.title_required)
             return
         }
         if (title.length < ListingModel.MIN_TITLE_LENGTH || title.length > ListingModel.MAX_TITLE_LENGTH) {
             binding.titleInputLayout.error =
-                "Title must be between ${ListingModel.MIN_TITLE_LENGTH} and ${ListingModel.MAX_TITLE_LENGTH} characters"
+                getString(R.string.title_length_validation, ListingModel.MIN_TITLE_LENGTH, ListingModel.MAX_TITLE_LENGTH)
             return
         }
         binding.titleInputLayout.error = null
@@ -304,26 +307,26 @@ class AddListingFragment : Fragment() {
         // Validate description
         val description = binding.descriptionEditText.text.toString().trim()
         if (description.isBlank()) {
-            binding.descriptionInputLayout.error = "Description is required"
+            binding.descriptionInputLayout.error = getString(R.string.description_required)
             return
         }
         if (description.length < ListingModel.MIN_DESCRIPTION_LENGTH || description.length > ListingModel.MAX_DESCRIPTION_LENGTH) {
             binding.descriptionInputLayout.error =
-                "Description must be between ${ListingModel.MIN_DESCRIPTION_LENGTH} and ${ListingModel.MAX_DESCRIPTION_LENGTH} characters"
+                getString(R.string.description_length_validation, ListingModel.MIN_DESCRIPTION_LENGTH, ListingModel.MAX_DESCRIPTION_LENGTH)
             return
         }
         binding.descriptionInputLayout.error = null
 
         // Validate category selection
         if (selectedCategory == null) {
-            binding.categoryInputLayout.error = "Please select a category"
+            binding.categoryInputLayout.error = getString(R.string.please_select_category)
             return
         }
         binding.categoryInputLayout.error = null
 
         // Validate subcategory selection
         if (selectedSubcategory == null) {
-            binding.subcategoryInputLayout.error = "Please select a subcategory"
+            binding.subcategoryInputLayout.error = getString(R.string.please_select_subcategory)
             return
         }
         binding.subcategoryInputLayout.error = null
@@ -331,7 +334,7 @@ class AddListingFragment : Fragment() {
         // Validate pricing
         val pricingModel = createPricingModel() ?: return
 
-        val county = binding.countyAutoComplete.text.toString().ifBlank { "No Preference" }
+        val county = binding.countyAutoComplete.text.toString().ifBlank { getString(R.string.no_preference) }
         val phoneNumber = binding.phoneEditText.text.toString().trim()
         val email = binding.emailEditText.text.toString().trim()
         val website = binding.websiteEditText.text.toString().trim()
@@ -339,14 +342,14 @@ class AddListingFragment : Fragment() {
 
         // Validate email format if provided
         if (email.isNotBlank() && !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            binding.emailInputLayout.error = "Please enter a valid email address"
+            binding.emailInputLayout.error = getString(R.string.please_enter_valid_email)
             return
         }
         binding.emailInputLayout.error = null
 
         // Validate website format if provided
         if (website.isNotBlank() && !android.util.Patterns.WEB_URL.matcher(website).matches()) {
-            binding.websiteInputLayout.error = "Please enter a valid website URL"
+            binding.websiteInputLayout.error = getString(R.string.please_enter_valid_website)
             return
         }
         binding.websiteInputLayout.error = null

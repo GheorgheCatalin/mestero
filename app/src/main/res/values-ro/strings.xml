@@ -146,35 +146,33 @@
     <string name="subcategory_academic">Meditații academice</string>
     <string name="subcategory_language">Învățarea limbilor</string>
     <string name="subcategory_music_lessons">Lecții de muzică</string>
-    <string name="subcategory_art">Artă &amp; meșteșuguri</string>
-    <string name="subcategory_computer">Competențe IT</string>
-    <string name="subcategory_professional_dev">Dezvoltare profesională</string>
-    
+    <string name="subcategory_professional_skills">Competențe profesionale</string>
+    <string name="subcategory_hobby">Cursuri de hobby</string>
+
     <!-- Subcategories - Transportation -->
-    <string name="subcategory_rideshare">Rideshare &amp; taxi</string>
+    <string name="subcategory_ride">Servicii de transport</string>
     <string name="subcategory_delivery">Servicii de livrare</string>
     <string name="subcategory_moving">Servicii de mutare</string>
-    <string name="subcategory_logistics">Logistică &amp; transport marfă</string>
-    
+    <string name="subcategory_logistics">Logistică</string>
+
     <!-- Subcategories - Childcare -->
     <string name="subcategory_babysitting">Îngrijire copii</string>
     <string name="subcategory_nanny">Servicii de bonă</string>
-    <string name="subcategory_eldercare">Îngrijire vârstnici</string>
-    <string name="subcategory_tutoring">Suport academic</string>
-    
+    <string name="subcategory_elderly">Îngrijire vârstnici</string>
+    <string name="subcategory_special_needs">Îngrijire nevoi speciale</string>
+
     <!-- Subcategories - Pet -->
-    <string name="subcategory_pet_sitting">Îngrijire animale</string>
-    <string name="subcategory_dog_walking">Plimbare câini</string>
     <string name="subcategory_grooming">Toaletare animale</string>
-    <string name="subcategory_training">Dresaj animale</string>
+    <string name="subcategory_sitting">Îngrijire &amp; plimbare animale</string>
     <string name="subcategory_veterinary">Servicii veterinare</string>
-    
+    <string name="subcategory_training">Dresaj animale</string>
+
     <!-- Subcategories - Specialty -->
-    <string name="subcategory_real_estate">Servicii imobiliare</string>
-    <string name="subcategory_insurance">Servicii de asigurări</string>
-    <string name="subcategory_financial">Planificare financiară</string>
-    <string name="subcategory_travel">Planificare călătorii</string>
-    <string name="subcategory_fashion">Modă &amp; styling</string>
+    <string name="subcategory_staging">Amenajare pentru vânzare</string>
+    <string name="subcategory_eco">Servicii ecologice</string>
+    <string name="subcategory_fabrication">Fabricație personalizată</string>
+    <string name="subcategory_spiritual">Servicii spirituale</string>
+    <string name="subcategory_repair">Servicii de reparații</string>
     
     <!-- UI Messages -->
     <string name="no_booking_requests_received">Nu ai primit încă cereri de rezervare</string>
@@ -257,8 +255,8 @@
     
     <!-- App Bar Titles -->
     <string name="title_services">Servicii</string>
-    <string name="title_my_listings">Listările mele</string>
-    <string name="title_add_listing">Adaugă listare</string>
+    <string name="title_my_listings">Listări</string>
+    <string name="title_add_listing">Adaugă</string>
     <string name="title_messages">Mesaje</string>
     <string name="title_conversations">Conversații</string>
     <string name="title_chat">Chat</string>
@@ -269,13 +267,10 @@
     <string name="title_listings">Listări</string>
     
     <!-- Pricing Models -->
-    <string name="pricing_fixed">Preț fix</string>
-    <string name="pricing_hourly">Pe oră</string>
-    <string name="pricing_daily">Pe zi</string>
-    <string name="pricing_weekly">Pe săptămână</string>
-    <string name="pricing_monthly">Pe lună</string>
-    <string name="pricing_custom">Personalizat</string>
-    <string name="pricing_negotiable">Negociabil</string>
+    <string name="pricing_fixed">total</string>
+    <string name="pricing_hourly">pe oră</string>
+    <string name="pricing_session">pe sesiune</string>
+    <string name="pricing_square_meter">pe m²</string>
     
     <!-- Booking Item Details -->
     <string name="booking_item_requested_on">Cerut pe: %1$s</string>
@@ -332,4 +327,247 @@
     <string name="location_not_specified">Locația nu este specificată</string>
     <string name="online_services">Servicii online</string>
     <string name="no_preference">Fără preferință</string>
+    <string name="price_required">Prețul este obligatoriu</string>
+    <string name="failed_to_load_listing">Nu s-a putut încărca anunțul</string>
+    <string name="retry">Încearcă din nou</string>
+    <string name="price_label">Preț:</string>
+    <string name="service_provider">Prestator de servicii</string>
+    <string name="view_profile">Vezi profilul >></string>
+    <string name="contact_information">Informații de contact</string>
+    <string name="call">Sună >></string>
+    <string name="email">Email >></string>
+    <string name="request_service">Solicită serviciul</string>
+    <string name="message_provider">Trimite mesaj prestatorului</string>
+    <string name="email_label">Email:</string>
+    <string name="phone_label">Telefon:</string>
+    <string name="requested_on">Cerut pe </string>
+    <string name="client_label">Client:</string>
+    <string name="notes_label">Notițe:</string>
+    <string name="reject">Respinge</string>
+    <string name="accept">Acceptă</string>
+    <string name="mark_as_completed">Marchează ca finalizat</string>
+    <string name="hide">Ascunde</string>
+    <string name="provider_label">Prestator: </string>
+    <string name="price_label_colon">Preț: </string>
+    <string name="your_message">Mesajul tău:</string>
+    <string name="provider_response">Răspunsul prestatorului:</string>
+    <string name="contact_information_colon">Informații de contact:</string>
+    <string name="write_review">Scrie o recenzie</string>
+    <string name="waiting_for_provider">Se așteaptă răspunsul prestatorului...</string>
+    <string name="request_accepted">Cererea a fost acceptată! Poți contacta prestatorul.</string>
+    <string name="request_declined">Cererea a fost respinsă de prestator.</string>
+    <string name="completed_on">Finalizat pe </string>
+    <string name="invalid_email">Email invalid</string>
+    <string name="first_name_required">Prenumele este obligatoriu</string>
+    <string name="first_name_company_required">Prenumele sau numele companiei este obligatoriu</string>
+    <string name="password_min_length">Parola trebuie să aibă cel puțin 6 caractere</string>
+    <string name="passwords_do_not_match">Parolele nu se potrivesc</string>
+    <string name="register_successful">Înregistrare reușită</string>
+    <string name="client">Client</string>
+    <string name="provider">Prestator</string>
+    <string name="listing_created_successfully">Anunțul a fost creat cu succes!</string>
+    <string name="unknown_error_occurred">A apărut o eroare necunoscută</string>
+    <string name="error_colon">Eroare: %1$s</string>
+    <string name="creating">Se creează...</string>>
+    <string name="pricing_type">Tipul de preț:</string>
+    <string name="fixed">Fix</string>
+    <string name="range">Interval</string>
+    <string name="on_request">La cerere</string>
+    <string name="price_agreed_directly">Prețul va fi stabilit direct cu clientul</string>
+    <string name="contact_information_optional">Informații de contact (opțional)</string>
+    <string name="service_area">Zona de servicii</string>
+    <string name="please_enter_valid_price">Te rog introdu un preț valid</string>
+    <string name="min_price_required">Prețul minim este obligatoriu</string>
+    <string name="max_price_required">Prețul maxim este obligatoriu</string>
+    <string name="please_enter_valid_min_price">Te rog introdu un preț minim valid</string>
+    <string name="please_enter_valid_max_price">Te rog introdu un preț maxim valid</string>
+    <string name="max_price_greater_than_min">Prețul maxim trebuie să fie mai mare decât prețul minim</string>
+    <string name="title_required">Titlul este obligatoriu</string>
+    <string name="title_length_validation">Titlul trebuie să aibă între %1$d și %2$d caractere</string>
+    <string name="description_required">Descrierea este obligatorie</string>
+    <string name="description_length_validation">Descrierea trebuie să aibă între %1$d și %2$d caractere</string>
+    <string name="please_select_category">Te rog selectează o categorie</string>
+    <string name="please_select_subcategory">Te rog selectează o subcategorie</string>
+    <string name="please_enter_valid_email">Te rog introdu o adresă de email validă</string>
+    <string name="please_enter_valid_website">Te rog introdu o adresă de website validă</string>
+    <string name="service_colon">Serviciu: %1$s</string>
+    <string name="cancel">Anulează</string>
+    <string name="send_request">Trimite cererea</string>
+    <string name="please_wait_listing_load">Te rog așteaptă să se încarce anunțul</string>
+    <string name="provider_profile_coming_soon">Funcția de profil prestator va veni în curând!</string>
+    <string name="provider_not_available">Prestatorul nu este disponibil în acest moment</string>
+    <string name="success">Succes</string>
+    <string name="error_colon_message">Eroare: %1$s</string>
+    <string name="provider_default">Prestator</string>
+    <string name="professional_provider">Prestator Profesionist</string>
+    <string name="no_reviews_yet">Încă nu există recenzii</string>
+    <string name="inquiry_about">Întrebare despre: %1$s</string>
+    <string name="no_email_app_found">Nu s-a găsit aplicația de email</string>
+    <string name="no_browser_app_found">Nu s-a găsit aplicația de browser</string>
+    <string name="no_bookings_found">Nu s-au găsit rezervări</string>
+    <string name="provider_declined_request">Prestatorul a refuzat cererea</string>
+    <string name="mark_completed_confirmation">Ești sigur că vrei să marchezi "%1$s" ca finalizat pentru %2$s?\n\nAceastă acțiune nu poate fi anulată.</string>
+    <string name="yes_complete">Da, finalizează</string>
+    <string name="hide_booking">Ascunde rezervarea</string>
+    <string name="hide_booking_confirmation">Ești sigur că vrei să ascunzi această rezervare? O poți vedea din nou mai târziu în istoricul rezervărilor.</string>
+    <string name="cannot_make_phone_calls">Nu se pot face apeluri telefonice</string>
+    <string name="error_navigating_listing_details">Eroare la navigarea către detaliile anunțului</string>
+    <string name="service_review_needs">Recenzia serviciului necesită</string>
+    <string name="provider_review_needs">Recenzia prestatorului necesită %1$d caractere în plus</string>
+    <string name="provide_rating_to_submit">Te rog oferă cel puțin o evaluare pentru a trimite recenzia</string>
+    <string name="rate_service_quality">Evaluează calitatea serviciului</string>
+    <string name="how_was_work_quality">Cum a fost calitatea lucrării efectuate?</string>
+    <string name="rate_provider">Evaluează prestatorul</string>
+    <string name="post_anonymously">Postează anonim</string>
+    <string name="submit_review">Trimite recenzia</string>
+    <string name="accepted">acceptat</string>
+    <string name="rejected">respins</string>
+    <string name="marked_as_completed">marcat ca finalizat</string>
+    <string name="updated">actualizat</string>
+    <string name="booking_status_success">Rezervarea %1$s cu succes!</string>
+    <string name="booking_hidden_success">Rezervarea a fost ascunsă cu succes!</string>
+    <string name="failed_load_bookings">Eroare la încărcarea rezervărilor: %1$s</string>
+    <string name="failed_load_client_bookings">Eroare la încărcarea rezervărilor tale: %1$s</string>
+    <string name="already_reviewed">Ai recenziat deja această rezervare</string>
+    <string name="review_submitted_success">Recenzia a fost trimisă cu succes!</string>
+    <string name="more_characters">caractere în plus</string>
+    <string name="tell_about_service_quality">Spune-le altora despre calitatea serviciului (opțional)</string>
+    <string name="tell_about_provider">Spune-le altora despre prestator (opțional)</string>
+    <string name="share_experience_optional">Împărtășește experiența ta - comentariile sunt opționale (min 5 caractere dacă sunt furnizate)</string>
+    <string name="welcome_user">Bun venit, utilizator</string>
+    <string name="no_posts_yet">Nu ai postat încă nimic</string>
+    <string name="no_new_posts_available">Nu sunt disponibile postări noi</string>
+    <string name="categories">Categorii</string>
+    <string name="see_all">Vezi toate</string>
+    <string name="no_popular_services_yet">Nu există încă servicii populare</string>
+    <string name="views_count">%1$d vizualizări</string>
+    <string name="additional_notes_requirements">Note suplimentare sau cerințe</string>
+    <string name="send">Trimite</string>
+    <string name="no_conversations">Nu există conversații</string>
+    <string name="no_listings_created_yet">Nu ai creat încă niciun anunț</string>
+    <string name="failed_to_load_listings">Eroare la încărcarea anunțurilor</string>
+    <string name="basic_information">Informații de bază</string>
+    <string name="professional_information">Informații profesionale</string>
+    <string name="skills_specialties">Abilități și specialități</string>
+    <string name="save_changes">Salvează modificările</string>
+    <string name="beginner">Începător</string>
+    <string name="intermediate">Intermediar</string>
+    <string name="expert">Expert</string>
+    <string name="saving">Se salvează...</string>
+    <string name="profile_updated_successfully">Profilul a fost actualizat cu succes</string>
+    <string name="first_name_cannot_be_cleared">Prenumele nu poate fi șters</string>
+    <string name="last_name_cannot_be_cleared">Numele nu poate fi șters</string>
+    <string name="please_enter_valid_website_url">Te rog introdu o adresă de website validă</string>
+    <string name="client_type">Client</string>
+    <string name="email_placeholder">utilizator@email.com</string>
+    <string name="rating_placeholder">0.0 (0 recenzii)</string>
+    <string name="phone_number_not_set">Numărul de telefon nu este setat</string>
+    <string name="location_not_set">Locația nu este setată</string>
+    <string name="skills_specialties_profile">Abilități și specialități</string>
+    <string name="english">Engleză</string>
+    <string name="no_services_found_query">Nu s-au găsit servicii pentru "%1$s"</string>
+    <string name="no_services_found_query_category">Nu s-au găsit servicii pentru "%1$s" în această categorie</string>
+    <string name="please_enter_search_term">Te rog introdu un termen de căutare</string>
+    <string name="unknown_error">Eroare necunoscută</string>
+    
+    <!-- Subcategory Descriptions -->
+    <!-- Home Improvement -->
+    <string name="subcategory_plumbing_description">Reparații țevi, repararea scurgerilor, curățarea scurgerilor, instalarea boilerului, înlocuirea robinetului</string>
+    <string name="subcategory_electrical_description">Instalare cabluri, instalare iluminat, repararea întrerupătoarelor, instalarea prizei, configurarea casei inteligente</string>
+    <string name="subcategory_tiling_description">Faianță ceramică, faianță porțelan, instalare mozaic, repararea faianței, îmbinarea rosturilor</string>
+    <string name="subcategory_flooring_description">Instalare parchet, instalare covor, pardoseală laminată, pardoseală vinil, refacerea pardoselii</string>
+    <string name="subcategory_carpentry_description">Construire mobilier, tâmplărie, construire terasă, încadrare, lucrări de tâmplărie</string>
+    <string name="subcategory_painting_description">Vopsitorie interioară, vopsitorie exterioară, instalare tapet, vopsitorie decorativă</string>
+    <string name="subcategory_hvac_description">Reparații aer condiționat, instalare sistem încălzire, curățare conducte, configurare termostat</string>
+    <string name="subcategory_roofing_description">Reparații acoperiș, înlocuire șindrilă, curățare jgheaburi, inspecție acoperiș</string>
+    <string name="subcategory_masonry_description">Lucrări de zidărie, lucrări de piatră, turnare beton, repararea șemineului</string>
+    <string name="subcategory_handyman_description">Asamblare mobilier, reparații minore, montare pe perete, repararea ușilor</string>
+    
+    <!-- Automotive -->
+    <string name="subcategory_auto_repair_description">Reparații frâne, schimb ulei, diagnostic motor, servicii anvelope</string>
+    <string name="subcategory_detailing_description">Curățare interioară, lustruire exterioară, ceară</string>
+    <string name="subcategory_towing_description">Reparații anvelope, pornire baterie, tractare vehicul</string>
+    <string name="subcategory_customization_description">Înfășurare mașină, vopsitorie personalizată, instalare sistem audio</string>
+    
+    <!-- Professional -->
+    <string name="subcategory_legal_description">Întocmire contracte, consultații juridice, servicii notariale</string>
+    <string name="subcategory_accounting_description">Pregătire declarații fiscale, servicii salarizare, planificare financiară</string>
+    <string name="subcategory_marketing_description">Management social media, SEO, creare conținut, design grafic</string>
+    <string name="subcategory_it_description">Reparații computer, instalare software, configurare rețea, securitate cibernetică</string>
+    <string name="subcategory_consulting_description">Strategie de afaceri, consultanță HR, consultanță management</string>
+    <string name="subcategory_admin_description">Asistență virtuală, introducere date, programare</string>
+    
+    <!-- Outdoor -->
+    <string name="subcategory_landscaping_description">Tundere gazon, design grădină, tăiere copaci, sisteme de irigații</string>
+    <string name="subcategory_hardscaping_description">Instalare terasă, construire alei, ziduri de sprijin</string>
+    <string name="subcategory_pest_control_description">Exterminare insecte, control rozătoare, soluții ecologice pentru dăunători</string>
+    <string name="subcategory_snow_removal_description">Deszăpezire, gestionare gheață, curățare trotuare</string>
+    <string name="subcategory_pool_description">Curățare piscină, echilibrare chimică, reparare piscină</string>
+    
+    <!-- Creative -->
+    <string name="subcategory_photography_description">Fotografie de nuntă, fotografie portret, fotografie evenimente, fotografie produse</string>
+    <string name="subcategory_videography_description">Editare video, filmare evenimente, videoclipuri promoționale</string>
+    <string name="subcategory_event_planning_description">Planificare nuntă, evenimente corporative, petreceri de ziua nașterii, coordonare catering</string>
+    <string name="subcategory_music_description">Servicii DJ, formații live, lecții de muzică, artiști performanță</string>
+    <string name="subcategory_graphic_design_description">Design logo, branding, ilustrații, design print</string>
+    <string name="subcategory_writing_description">Copywriting, scriere conținut, corectare, traducere</string>
+    
+    <!-- Technical -->
+    <string name="subcategory_welding_description">Fabricare metal, sudură structurală, sudură artistică</string>
+    <string name="subcategory_machinery_description">Reparații echipamente grele, reparații motoare mici</string>
+    <string name="subcategory_locksmith_description">Instalare încuietori, duplicare chei, deblocare de urgență</string>
+    <string name="subcategory_security_description">Sisteme de alarmă, instalare CCTV, încuietori inteligente</string>
+    
+    <!-- Health -->
+    <string name="subcategory_home_health_description">Îngrijire post-operatorie, asistență mobilitate, memento medicamente</string>
+    <string name="subcategory_physical_therapy_description">Terapie la domiciliu, exerciții de reabilitare</string>
+    <string name="subcategory_alternative_description">Acupunctură, servicii chiropractice, consultații cu plante medicinale</string>
+    <string name="subcategory_medical_transport_description">Transport medical non-urgent, furgonete accesibile pentru scaune cu rotile</string>
+    
+    <!-- Cleaning -->
+    <string name="subcategory_residential_description">Curățenie casă, curățenie profundă, curățenie mutare intrare/ieșire</string>
+    <string name="subcategory_commercial_description">Curățenie birou, curățenie spațiu comercial, curățenie post-construcție</string>
+    <string name="subcategory_specialized_description">Curățenie covoare, curățenie tapițerie, spălare geamuri, spălare cu presiune</string>
+    <string name="subcategory_eco_friendly_description">Curățenie verde, curățenie cu produse non-toxice</string>
+    <string name="subcategory_organizing_description">Dezordine, organizare dulap, soluții de depozitare</string>
+    
+    <!-- Personal Care -->
+    <string name="subcategory_hair_description">Tunsori, styling, vopsire, extensii, servicii frizer</string>
+    <string name="subcategory_nails_description">Manichiură, pedichiură, artă unghii, unghii gel/acrilice</string>
+    <string name="subcategory_spa_description">Masaj țesut profund, masaj suedez, tratamente faciale, tratamente corporale</string>
+    <string name="subcategory_fitness_description">Antrenament personal, instruire yoga, clase fitness de grup</string>
+    <string name="subcategory_nutrition_description">Planificare mese, coaching nutrițional, consultații dietetice</string>
+    <string name="subcategory_wellness_description">Coaching de viață, sesiuni de meditație, referințe terapie</string>
+    
+    <!-- Education -->
+    <string name="subcategory_academic_description">Meditații matematică, meditații științe, meditații limbi, pregătire teste (SAT, ACT)</string>
+    <string name="subcategory_language_description">ESL, spaniolă, franceză, imersiune lingvistică</string>
+    <string name="subcategory_music_lessons_description">Lecții pian, lecții chitară, coaching vocal</string>
+    <string name="subcategory_professional_skills_description">Bootcamp-uri programare, vorbire în public, training leadership</string>
+    <string name="subcategory_hobby_description">Clase gătit, ateliere pictură, cursuri fotografie</string>
+    
+    <!-- Pet -->
+    <string name="subcategory_grooming_description">Toaletare câini, toaletare pisici, tăiere unghii</string>
+    <string name="subcategory_sitting_description">Plimbare câini, îngrijire animale la domiciliu, cazare</string>
+    <string name="subcategory_veterinary_description">Vizite veterinar mobil, vaccinări, consultații sănătate animale</string>
+    <string name="subcategory_training_description">Dresaj obediență, dresaj comportamental, dresaj agilitate</string>
+    
+    <!-- Transportation -->
+    <string name="subcategory_ride_description">Șoferi privați, navete aeroport, transport evenimente</string>
+    <string name="subcategory_delivery_description">Servicii curier, livrare cumpărături, transport mobilier</string>
+    <string name="subcategory_moving_description">Mutare rezidențială, mutare comercială, servicii ambalare</string>
+    <string name="subcategory_logistics_description">Transport marfă, coordonare lanț aprovizionare</string>
+    
+    <!-- Childcare -->
+    <string name="subcategory_babysitting_description">Îngrijire bebeluși, îngrijire după școală, îngrijire peste noapte</string>
+    <string name="subcategory_nanny_description">Bone cu normă întreagă, îngrijitori cu normă parțială, servicii au pair</string>
+    <string name="subcategory_elderly_description">Îngrijire la domiciliu, companie, asistență medicală</string>
+    <string name="subcategory_special_needs_description">Suport autism, îngrijire dizabilități, asistență terapie</string>
+    
+    <!-- Specialty -->
+    <string name="subcategory_staging_description">Staging imobiliar, decorare interioară pentru vânzări</string>
+    <string name="subcategory_eco_description">Instalare panouri solare, audituri energetice, peisagistică durabilă</string>
+    <string name="subcategory_fabrication_description">Imprimare 3D, lucrări metal personalizate, mobilier la comandă</string>
+    <string name="subcategory_spiritual_description">Citire tarot, consultații astrologie, coaching de viață</string>
+    <string name="subcategory_repair_description">Reparații electronice, reparații electrocasnice, reparații bijuterii</string>
 </resources>

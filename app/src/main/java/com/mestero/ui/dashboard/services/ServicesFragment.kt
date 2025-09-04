@@ -42,7 +42,7 @@ class ServicesFragment : Fragment() {
                 // Navigate to subcategories with safe-args
                 val action = ServicesFragmentDirections.actionServicesToSubcategories(
                     categoryId = category.id,
-                    categoryTitle = category.title
+                    categoryTitle = category.getLocalizedTitle(requireContext())
                 )
                 findNavController().navigate(action)
             }

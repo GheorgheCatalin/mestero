@@ -97,7 +97,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pricing type:"
+                android:text="@string/pricing_type"
                 android:textColor="@color/main_text_color"
                 />
 
@@ -116,7 +116,7 @@
                     android:textSize="12sp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Fixed" />
+                    android:text="@string/fixed" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnRange"
@@ -125,7 +125,7 @@
                     android:textSize="12sp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Range" />
+                    android:text="@string/range" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnAgreed"
@@ -134,7 +134,7 @@
                     android:textSize="12sp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="On Request" />
+                    android:text="@string/on_request" />
 
             </com.google.android.material.button.MaterialButtonToggleGroup>
 
@@ -226,7 +226,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="16dp"
-                        android:text="Price will be agreed directly with the client"
+                        android:text="@string/price_agreed_directly"
                         android:textColor="@color/main_text_color"
                         android:gravity="center" />
 
@@ -255,7 +255,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Contact Information (Optional)"
+                android:text="@string/contact_information_optional"
                 android:textColor="@color/main_text_color"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="16dp" />
@@ -318,7 +318,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Service Area"
+                android:text="@string/service_area"
                 android:textColor="@color/main_text_color"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp" />
@@ -365,7 +365,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:text="Add Photos"
+                android:text="@string/add_photos"
                 android:visibility="gone"
                 app:icon="@drawable/ic_add_photo" />
 
@@ -373,7 +373,7 @@
                 android:id="@+id/submitButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Create Listing" />
+                android:text="@string/create_listing" />
 
         </LinearLayout>
 

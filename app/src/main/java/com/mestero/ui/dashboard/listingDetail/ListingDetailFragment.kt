@@ -22,6 +22,7 @@ import javax.inject.Inject
 import com.mestero.utils.FormatUtils
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.core.net.toUri
+import com.mestero.R
 
 @AndroidEntryPoint
 class ListingDetailFragment : Fragment() {
@@ -90,14 +91,14 @@ class ListingDetailFragment : Fragment() {
             if (currentState is ListingDetailUiState.Success) {
                 showBookingDialog(currentState.listing)
             } else {
-                Toast.makeText(context, "Please wait for listing to load", Toast.LENGTH_SHORT)
+                Toast.makeText(context, getString(R.string.please_wait_listing_load), Toast.LENGTH_SHORT)
                     .show()
             }
         }
 
         binding.viewProviderButton.setOnClickListener {
             // TODO could navigate to provider profile - if necessary
-            Toast.makeText(context, "Provider profile feature coming soon!", Toast.LENGTH_SHORT)
+            Toast.makeText(context, getString(R.string.provider_profile_coming_soon), Toast.LENGTH_SHORT)
                 .show()
         }
 
@@ -114,11 +115,11 @@ class ListingDetailFragment : Fragment() {
                     findNavController().navigate(action)
 
                 } else {
-                    Toast.makeText(context, "Provider not available at the moment", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, getString(R.string.provider_not_available), Toast.LENGTH_SHORT).show()
                 }
 
             } else {
-                Toast.makeText(context, "Please wait for listing to load", Toast.LENGTH_SHORT)
+                Toast.makeText(context, getString(R.string.please_wait_listing_load), Toast.LENGTH_SHORT)
                     .show()
             }
         }
@@ -154,11 +155,11 @@ class ListingDetailFragment : Fragment() {
         
         viewModel.bookingResult.observe(viewLifecycleOwner) { result ->
             if (result.isSuccess) {
-                val message = result.getOrNull() ?: "Success"
+                val message = result.getOrNull() ?: getString(R.string.success)
                 Toast.makeText(context, message, Toast.LENGTH_LONG).show()
             } else {
                 val error = result.exceptionOrNull()
-                Toast.makeText(context, "Error: ${error?.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, getString(R.string.error_colon_message, error?.message ?: ""), Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -168,12 +169,12 @@ class ListingDetailFragment : Fragment() {
             // Header information
             titleTextView.text = listing.title
             descriptionTextView.text = listing.description
-            priceTextView.text = listing.formattedPrice
-            locationTextView.text = listing.displayLocation
+            priceTextView.text = listing.getFormattedPrice(requireContext())
+            locationTextView.text = listing.getDisplayLocation(requireContext())
 
             // Categories
-            val categoryTitle = CategoryManager.getCategoryById(listing.category)?.title ?: listing.category
-            val subcategoryTitle = CategoryManager.getSubcategoryById(listing.subcategory)?.title ?: listing.subcategory
+            val categoryTitle = CategoryManager.getLocalizedCategoryTitle(requireContext(), listing.category)
+            val subcategoryTitle = CategoryManager.getLocalizedSubcategoryTitle(requireContext(), listing.subcategory)
             categoryTextView.text = categoryTitle
             subcategoryTextView.text = subcategoryTitle
 
@@ -185,7 +186,7 @@ class ListingDetailFragment : Fragment() {
                 ratingTextView.isVisible = false
             }
 
-            viewsTextView.text = "${listing.views} views"
+            viewsTextView.text = getString(R.string.views_count, listing.views)
 
             // Contact information
             setupContactInfo(listing)
@@ -199,7 +200,7 @@ class ListingDetailFragment : Fragment() {
                 
                 // Provider name and initials
                 val fullName = "${provider.firstName} ${provider.lastName}".trim()
-                providerNameTextView.text = fullName.ifEmpty { "Provider" }
+                providerNameTextView.text = fullName.ifEmpty { getString(R.string.provider_default) }
                 
                 // Provider avatar (initials)
                 val initials = "${provider.firstName.firstOrNull() ?: ""}${provider.lastName.firstOrNull() ?: ""}".uppercase()
@@ -207,8 +208,8 @@ class ListingDetailFragment : Fragment() {
                 
                 // Provider type
                 val typeText = when (provider.userType) {
-                    UserType.PROVIDER -> "Professional Provider"
-                    UserType.CLIENT -> "Client"
+                    UserType.PROVIDER -> getString(R.string.professional_provider)
+                    UserType.CLIENT -> getString(R.string.client)
                 }
                 providerTypeTextView.text = typeText
                 
@@ -217,7 +218,7 @@ class ListingDetailFragment : Fragment() {
                     providerRatingTextView.text = "${provider.rating} (${provider.reviewCount} reviews)"
                     providerRatingTextView.isVisible = true
                 } else {
-                    providerRatingTextView.text = "No reviews yet"
+                    providerRatingTextView.text = getString(R.string.no_reviews_yet)
                 }
                 
             } else {
@@ -249,12 +250,12 @@ class ListingDetailFragment : Fragment() {
                 emailButton.setOnClickListener {
                     val intent = Intent(Intent.ACTION_SENDTO).apply {
                         data = "mailto:${listing.email}".toUri()
-                        putExtra(Intent.EXTRA_SUBJECT, "Inquiry about: ${listing.title}")
+                        putExtra(Intent.EXTRA_SUBJECT, getString(R.string.inquiry_about, listing.title))
                     }
                     try {
                         startActivity(intent)
                     } catch (e: Exception) {
-                        Toast.makeText(context, "No email app found", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, getString(R.string.no_email_app_found), Toast.LENGTH_SHORT).show()
                     }
                 }
             } else {
@@ -275,7 +276,7 @@ class ListingDetailFragment : Fragment() {
                     try {
                         startActivity(intent)
                     } catch (e: Exception) {
-                        Toast.makeText(context, "No browser app found", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, getString(R.string.no_browser_app_found), Toast.LENGTH_SHORT).show()
                     }
                 }
             } else {

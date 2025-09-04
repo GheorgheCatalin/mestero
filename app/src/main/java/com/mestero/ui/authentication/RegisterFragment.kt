@@ -101,7 +101,7 @@ class RegisterFragment : Fragment() {
 
         // Email validation
         if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            binding.registerEmailLayout.error = "Invalid email"
+            binding.registerEmailLayout.error = getString(R.string.invalid_email)
             return null
         } else binding.registerEmailLayout.error = null
 
@@ -110,18 +110,22 @@ class RegisterFragment : Fragment() {
         // Name validation
         if (firstNameOrCompanyName.isEmpty()) {
             binding.registerNameLayout.error =
-                if (isProvider) "First name or company name is required" else "First name is required"
+                if (isProvider)
+                    getString(R.string.first_name_company_required)
+                else
+                    getString(R.string.first_name_required)
+
             return null
         } else binding.registerNameLayout.error = null
 
         // Password validation
         if (password.length < 6) {
-            binding.registerPasswordLayout.error = "Password must be at least 6 characters"
+            binding.registerPasswordLayout.error = getString(R.string.password_min_length)
             return null
         } else binding.registerPasswordLayout.error = null
 
         if (password != confirmPassword) {
-            binding.registerConfirmPasswordLayout.error = "Passwords do not match"
+            binding.registerConfirmPasswordLayout.error = getString(R.string.passwords_do_not_match)
             return null
         } else binding.registerConfirmPasswordLayout.error = null
 
@@ -174,7 +178,7 @@ class RegisterFragment : Fragment() {
 
                 is AuthResult.Success -> {
                     binding.progressBar.isVisible = false
-                    Toast.makeText(requireContext(), "Register successful", Toast.LENGTH_SHORT)
+                    Toast.makeText(requireContext(), getString(R.string.register_successful), Toast.LENGTH_SHORT)
                         .show()
 
                     goToDashboardActivity()
