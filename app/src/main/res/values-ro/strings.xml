@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Meștero</string>
     <string name="title_home">Acasă</string>
-    <string name="title_dashboard">Panou de control</string>
+    <string name="title_dashboard">Dashboard</string>
     <string name="title_profile">Profil</string>
     <string name="title_notifications">Notificări</string>
     <string name="title_bookings">Rezervări</string>
@@ -15,7 +15,7 @@
     <string name="publishimage_txt">Publică imagine</string>
     <string name="navigateimage_txt">Navighează imaginea</string>
     <string name="start_txt">Începe</string>
-    <string name="first_fragment_txt">Explorează o gamă largă de servicii de la furnizori de încredere din zona ta</string>
+    <string name="first_fragment_txt">Explorează o gamă largă de servicii de la prestatori de încredere din zona ta</string>
     <string name="newsimage_text">imagineDemonstration</string>
 
     <string name="email_txt">Email</string>
@@ -34,7 +34,7 @@
     <string name="full_name_or_company_txt">Prenume sau nume companie</string>
     <string name="company_name_txt">Nume companie</string>
     <string name="lastname_optional_txt">Nume de familie (opțional)</string>
-    <string name="provider_helper_txt">Dacă ești furnizor de servicii, poți adăuga mai multe detalii de profil mai târziu. Poți completa câmpurile opționale acum.</string>
+    <string name="provider_helper_txt">Dacă ești prestator de servicii, poți adăuga mai multe detalii de profil mai târziu. Poți completa câmpurile opționale acum.</string>
     <string name="phone_optional_txt">Telefon (opțional)</string>
     <string name="location_optional_txt">Locație (opțional)</string>
     <string name="website_optional_txt">Website (opțional)</string>
@@ -233,7 +233,7 @@
     <string name="booking_action_review">Recenzie</string>
     <string name="booking_date">Data: %1$s</string>
     <string name="booking_price">Preț: %1$s</string>
-    <string name="booking_provider">Furnizor: %1$s</string>
+    <string name="booking_provider">Prestator: %1$s</string>
     <string name="booking_client">Client: %1$s</string>
     
     <!-- Listing Details -->
@@ -241,7 +241,7 @@
     <string name="listing_detail_description">Descriere</string>
     <string name="listing_detail_pricing">Preț</string>
     <string name="listing_detail_location">Locație</string>
-    <string name="listing_detail_provider">Furnizor serviciu</string>
+    <string name="listing_detail_provider">Prestator serviciu</string>
     <string name="listing_action_book">Rezervă serviciul</string>
     <string name="listing_action_message">Mesaj</string>
     
@@ -287,7 +287,7 @@
     <string name="error_searching">Eroare la căutare: %1$s</string>
     <string name="error_loading_listings">Eșec la încărcarea anunțurilor</string>
     <string name="error_listing_not_loaded">Te rog să aștepți ca anunțul să se încarce</string>
-    <string name="error_provider_unavailable">Furnizorul nu este disponibil momentan</string>
+    <string name="error_provider_unavailable">Prestatorul nu este disponibil momentan</string>
     <string name="error_navigation">Eroare la navigarea către detaliile anunțului</string>
     <string name="error_email_not_found">Nu s-a găsit o aplicație de email</string>
     <string name="error_browser_not_found">Nu s-a găsit o aplicație browser</string>
@@ -300,12 +300,12 @@
     <!-- Profile Placeholders -->
     <string name="profile_phone_not_set">Numărul de telefon nu este setat</string>
     <string name="profile_location_not_set">Locația nu este setată</string>
-    <string name="profile_provider_default">Furnizor</string>
+    <string name="profile_provider_default">Prestator</string>
     <string name="profile_guest_user">Vizitator</string>
     <string name="profile_no_reviews">Încă nu există recenzii</string>
     
     <!-- User Types -->
-    <string name="user_type_professional_provider">Furnizor profesional</string>
+    <string name="user_type_professional_provider">Prestator profesional</string>
     <string name="user_type_client">Client</string>
     
     <!-- Confirmation Dialogs -->
