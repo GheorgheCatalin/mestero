@@ -4,6 +4,7 @@ import android.content.Context
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentId
 import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ServerTimestamp
 import com.mestero.R
 import com.mestero.utils.FormatUtils
@@ -199,8 +200,8 @@ data class ListingModel(
             )
         },
         "providerId" to providerId,
-        "createdAt" to createdAt,
-        "updatedAt" to updatedAt,
+        "createdAt" to (createdAt ?: FieldValue.serverTimestamp()),
+        "updatedAt" to (updatedAt ?: FieldValue.serverTimestamp()),
         "views" to views,
         "favoritesCount" to favoritesCount,
         "ratingSum" to ratingSum,

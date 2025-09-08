@@ -1,6 +1,7 @@
 package com.mestero.ui.dashboard.addListing
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.google.firebase.firestore.FieldValue
 import com.mestero.data.models.ListingModel
 import com.mestero.data.models.PricingModel
 import com.mestero.data.models.PricingUnit
@@ -85,6 +86,15 @@ class AddListingViewModelTest {
 
         val result = vm.createListingResult.value
         Assert.assertTrue(result?.isFailure == true)
+    }
+
+    @Test
+    fun `toMap sets createdAt to serverTimestamp when null`() {
+        val listing = validListing()
+        val map = listing.toMap()
+        
+        Assert.assertTrue(map["createdAt"] is FieldValue)
+        Assert.assertEquals(FieldValue.serverTimestamp(), map["createdAt"])
     }
 }
 
